@@ -4,8 +4,9 @@
         <title>Chupa Chups Cinema</title>
         <meta charset="utf-8">
 
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
 
         <style>
             html, body {
@@ -27,10 +28,22 @@
                 margin: 0 0 10px 30px;
 			}
 
-			h2{font-size: 16px;}
+            h1 a {  color:#333333;
+                    font-size: 16px;
+                    margin-left: 9px;
+            }
 
+            h2 {
+                color:#fff;
+                font-size: 40px;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+			h3{font-size: 18px;}
+
+            /*header*/
             header { 
-                background-color: #333333;
+                background-color: #242323;
                 color: #fff;
 				height: 70px;
 		    }
@@ -52,6 +65,8 @@
                 float: left;
                 display: inline;
                 position: relative;
+                padding-left: 5px;
+                margin-left: 10px;
             }
             nav a {
                 display: block;
@@ -60,13 +75,14 @@
                 text-decoration: none;
                 color: #FFFFFF;
                 font-family: 'oswald', sans-serif;
-                font-size: 16px;
+                font-size: 18px;
                 text-transform: capitalize;
             }
 
+            /*banner*/
             .poster {
                 width: 100%;
-                height: 550px;
+                height: 575px;
                 display: flex;
                 justify-content: baseline;
                 align-items: baseline;
@@ -79,7 +95,7 @@
                 min-height: 100%
             }
 
-            /*box*/
+            /*Drop-down box*/
             .drop {
                 position: absolute;
                 left: 0;
@@ -91,16 +107,42 @@
             }
 
             #drop {
-                width: 550px;
-                height: 20px;
+                width: 538px;
+                height: 24px;
                 font-size: 16px;
             }
 
             .button {
+                border-radius: 10px;
+                border: none;
+                background-color:rgb(255, 168, 6);
+                color: #fff;
+                font-size: 16px;
+                padding:4px 10px 4px 10px;
+            }
+
+            .button1 {
                 border-radius: 30px;
                 border: none;
-            } 
+                background-color: #e8e8e8;
+                font-size: 14px;
+                margin-left: 3px;
+            }
 
+            /*Drop-down options*/
+            select:invalid {
+            color: gray;
+            }
+
+            option[value=""][disabled] {
+            display: none;
+            }
+
+            option {
+            color: #000;
+            }
+
+            /*content box*/
             #wrapper {     
                 margin: 0px 20px 20px 20px;
                 padding: 20px;
@@ -117,21 +159,33 @@
                 float: left;
                 color:#000;
                 text-align: center;
+                font-weight: 600;
             }
 
+            /*newsletter*/
             .newletter {
                 background-color: #bbb3b3;
+                background-image: url('newsletter2.jpg');
+                color: #ffffff;
+                background-size: contain;
                 text-align: center;
+                height: 300px;
                 padding: 20px;
             }
+
+            #subscribe {
+                width: 260px;
+                height: 20px;
+            }
             
+            /*footer*/
             footer {
                 font-size:70%;
                 text-align: center;
                 clear: right;
                 padding:20px;
-                background-color: #333333;
-                color: #fff;
+                background-color: #242323;
+                color: #777777;
 		    }
 
         </style>
@@ -144,16 +198,18 @@
             <nav>
                 <ol>
                     <li><a href="index.html" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
+                    <li><a href="index.html">HOME</a></li>
                     <li><a href="nowshowing.html">NOW SHOWING</a></li>
                     <li><a href="upcoming.html">UPCOMING</a></li>
                     <li><a href="location.html">LOCATION</a></li>
                     <li><a href="deals.html">SPECIAL DEALS</a></li>
-                    <li style="float: right;"><a href="login.html">LOGIN</a></li>
+                    <li style="float: right; padding-right: 35px;"><a href="login.html">LOGIN</a></li>
                     <li style="float: right;"><a href="login.html">REGISTER</a></li>
                  </ol>
             </nav>
         </header>
 
+        <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
         
         <div class="poster">
 
@@ -161,32 +217,31 @@
             <div class="drop">
                     <form action="">
                         <select name="movies" id="drop">
-                            <option value="" disabled selected>Movies</option>
+                            <option value="" disabled selected>Movie</option>
                             <option value="mulan">Mulan</option>
                             <option value="tenet">Tenet</option>
                             <option value="opel">The New Mutants</option>
                             <option value="audi">Vanguard</option>
                         </select>
-                        <select name="lcoation" id="drop">
+                        <select name="location" id="drop">
                             <option value="" disabled selected>Location</option>
                             <option value="mulan">Woodlands</option>
                             <option value="tenet">Orchard</option>
                             <option value="opel">Jurong East</option>
                             <option value="audi">Bayfront</option>
                         </select>
-                        <input type="submit" value="Submit">
+                        <input type="submit" class="button" value="Search">
                     </form>
             </div>
         </div>
         <div style="text-align: center; margin: 10px 0; ">
-            <input type="button" class="button">
-            <input type="button" class="button">
-            <input type="button" class="button">
+            <input type="button" class="button1">
+            <input type="button" class="button1">
+            <input type="button" class="button1">
         </div>
 
-
         <div id="wrapper">
-            <h1>Trending now</h1>
+            <h1>Trending now <a href="nowshowing.html">View all ></a></h1><br>
             <div class="container">
                 <img src="mulan.jpeg" width="200px" height="300px">
                 Mulan
@@ -210,7 +265,7 @@
         </div>
 
         <div id="wrapper">
-            <h1>Upcoming Movies </h1>
+            <h1>Upcoming Movies <a href="upcoming.html">View all ></a></h1><br>
             <div class="container">
                 <img src="ww.jpg" width="200px" height="300px">
                 Wonder Woman 1984
@@ -234,23 +289,21 @@
         </div>
 
         <div class="newletter">
-            <h1>Newletter</h1>
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                 ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                 voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                 non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</h2>
+            <h2>Join our Newsletter!</h2>
+            <h3>Subscribe to our newsletter to get news on the latest movies and exclusive offers delivered
+                right to your inbox.<br> Never miss out on any great movies again. Pssst... we promise not to spam.
+            </h3>
+            <br>
             <form action="">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="submit" value="SUBSCRIBE">
+                <input type="text" id="subscribe" placeholder="Name">
+                <input type="email" id="subscribe" placeholder="Email">
+                <input type="submit" class="button" value="SUBSCRIBE">
             </form>
         </div>
 
     </body>
     <footer>
-        <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
-        <br>
-        <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
+        Liu Yi Hsuan &amp; Foo Kai Lin <br>
+        Copyright &copy; Chupa Chups Cinema. All Rights Reserved.
     </footer>
 </html>
