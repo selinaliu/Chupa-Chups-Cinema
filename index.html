@@ -62,7 +62,7 @@
 
             .poster {
                 width: 100%;
-                height: 550px;
+                height: 540px;
                 display: flex;
                 justify-content: baseline;
                 align-items: baseline;
@@ -131,7 +131,7 @@
 
         </style>
 
-        <script type = "text/javascript"  src = "home.js"></script>
+        <script type = "text/javascript"  src = "poster.js"></script>
 
     </head>
     <body>
@@ -152,7 +152,7 @@
         
         <div class="poster">
 
-            <img id="poster" src="mulan.webp" width="800px" alt="poster" onmouseover="this.style.cursor='pointer'" onclick="chngimg()">
+            <img id="poster" src="mulan.webp" width="800px" alt="poster">
             <div class="drop">
                     <form action="">
                         <select name="movies" id="drop">
@@ -174,9 +174,9 @@
             </div>
         </div>
         <div style="text-align: center; margin: 10px 0; ">
-            <input type="button" class="button">
-            <input type="button" class="button">
-            <input type="button" class="button">
+            <input type="button" class="button" onclick="chngimg(1)">
+            <input type="button" class="button" onclick="chngimg(2)">
+            <input type="button" class="button" onclick="chngimg(3)">
         </div>
 
 
