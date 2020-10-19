@@ -122,12 +122,48 @@
             
             footer {
                 font-size:70%;
-                text-align: center;
+                height: 100px;
                 clear: right;
                 padding:20px;
                 background-color: #000000;
                 color: #fff;
 		    }
+
+            .fimg {
+                text-align: center;
+                width: 200px;
+                height: 100px;
+                float: left;
+            }
+
+            .fabout {
+                width: 650px;
+                height: 100px;
+                float: left;
+                padding: 0 10px;
+            }
+
+            .fapp {
+                width: 320px;
+                height: 100px;
+                float: left;
+                padding-left: 20px;
+            }
+
+            .fbutton {
+                /*font-family: helvetica;*/
+                color: #FFFFFF !important;
+                font-size: 14px;
+                padding: 10px 20px;
+                margin: 10px 10px 0 0;
+                border-radius: 25px;
+                border: 0px;
+                background: rgb(255, 168, 6);
+            }
+            .fbutton:hover {
+                color: rgb(255, 168, 6) !important;
+                background: #F2F2F2;
+            }
 
         </style>
 
@@ -244,8 +280,22 @@
 
     </body>
     <footer>
-        <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
-        <br>
-        <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
+        <div class="fimg">
+            <img src="logo.png" width="100px" height="100px" style="align-items: baseline;">
+        </div>
+        <div class="fabout">
+            ABOUT<br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+            <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
+            <br>
+            <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
+        </div>
+        <div class="fapp">
+            GET THE APP <br>
+            <input type="button" class="fbutton" value="APP STORE">
+            <input type="button" class="fbutton" value="GOOGLE PLAY">
+        </div>  
     </footer>
 </html>
