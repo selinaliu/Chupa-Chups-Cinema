@@ -5,25 +5,301 @@
         <meta charset="utf-8">
 
         <style>
+            html, body {
+                overflow-x: hidden;
+            }
+            body{
+                position: relative;
+                height: 100%;
+				font-family: "Open Sans", sans-serif;
+                font-size: 20px;
+                background-color: rgb(255, 168, 6);
+                margin: 0;
+                padding: 0;
+            }
+
+            h1{	font-size: 35px;
+				color:#000000; 
+				font-family: 'Montserrat', sans-serif;
+                margin: 0 0 10px 30px;
+			}
+
+			h2{font-size: 16px;}
+
+            header { 
+                background-color: #000;
+                color: #fff;
+				height: 70px;
+		    }
+
+            nav {
+                color: #FFF;
+                height: 50px;
+                padding: 10px 10px;
+            }
+            nav ol, nav li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            nav ol {
+                width: 100%;
+            }
+            nav li {
+                float: left;
+                display: inline;
+                position: relative;
+            }
+            nav a {
+                display: block;
+                line-height: 50px;
+                padding: 0 0 0 20px;
+                text-decoration: none;
+                color: #FFFFFF;
+                font-size: 16px;
+                text-transform: capitalize;
+            }
+
+            .poster {
+                width: 100%;
+                height: 550px;
+                display: flex;
+                justify-content: baseline;
+                align-items: baseline;
+                overflow: hidden
+            }
+
+            .poster img {
+                flex-shrink: 0;
+                min-width: 100%;
+                min-height: 100%
+            }
+
+            /*box*/
+            .drop {
+                position: absolute;
+                left: 0;
+                top:  80px;  /*27%;*/
+                width: 100%;
+                
+                text-align: left;
+                padding-left: 55px;
+            }
+
+            #drop {
+                width: 550px;
+                height: 20px;
+                font-size: 16px;
+            }
+
+            .button {
+                border-radius: 30px;
+                border: none;
+            } 
+
+            #wrapper {     
+                margin: 0px 20px 20px 20px;
+                padding: 20px;
+                min-width:800px;
+                height: 1100px;
+                background-color: #fff;
+		    } 
+
+            .container {
+                width: 200px;
+                height: 350px;
+                margin: 0px 0 0 30px;
+                float: left;
+                color:#000;
+                text-align: center;
+            }
+
+            .newletter {
+                background-color: #bbb3b3;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            footer {
+                font-size:70%;
+                height: 100px;
+                clear: right;
+                padding:20px;
+                background-color: #000000;
+                color: #fff;
+		    }
+
+            .fimg {
+                text-align: center;
+                width: 200px;
+                height: 100px;
+                float: left;
+            }
+
+            .fabout {
+                width: 650px;
+                height: 100px;
+                float: left;
+                padding: 0 10px;
+            }
+
+            .fapp {
+                width: 320px;
+                height: 100px;
+                float: left;
+                padding-left: 20px;
+            }
+
+            .fbutton {
+                /*font-family: helvetica;*/
+                color: #FFFFFF !important;
+                font-size: 14px;
+                padding: 10px 20px;
+                margin: 10px 10px 0 0;
+                border-radius: 25px;
+                border: 0px;
+                background: rgb(255, 168, 6);
+            }
+            .fbutton:hover {
+                color: rgb(255, 168, 6) !important;
+                background: #F2F2F2;
+            }
 
         </style>
+
+        <script type = "text/javascript"  src = "home.js"></script>
+
     </head>
     <body>
-        <header>Now Showing</header>
-        <div>
+        <header>
             <nav>
                 <ol>
-                  <a href="index.html">Home</a>
-                  <a href="nowshowing.html">Now Showing</a>
-                  <a href="upcoming.html">Up Coming</a>
-                  <a href="deals.html">Special Deals</a>
-                  <a href="location.html">Locations</a>
-                  <a href="login.html">Login</a>
+                    <li><a href="index.html" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
+                    <li><a href="nowshowing.html">NOW SHOWING</a></li>
+                    <li><a href="upcoming.html">UPCOMING</a></li>
+                    <li><a href="location.html">LOCATION</a></li>
+                    <li><a href="deals.html">SPECIAL DEALS</a></li>
+                    <li style="float: right;"><a href="login.html">LOGIN</a></li>
+                    <li style="float: right;"><a href="login.html">REGISTER</a></li>
                  </ol>
             </nav>
+        </header>
+
+        
+        <div class="poster">
+
+            <img id="poster" src="mulan.webp" width="800px" alt="poster" onmouseover="this.style.cursor='pointer'" onclick="chngimg()">
+            <div class="drop">
+                    <form action="">
+                        <select name="movies" id="drop">
+                            <option value="" disabled selected>Movies</option>
+                            <option value="mulan">Mulan</option>
+                            <option value="tenet">Tenet</option>
+                            <option value="opel">The New Mutants</option>
+                            <option value="audi">Vanguard</option>
+                        </select>
+                        <select name="lcoation" id="drop">
+                            <option value="" disabled selected>Location</option>
+                            <option value="mulan">Woodlands</option>
+                            <option value="tenet">Orchard</option>
+                            <option value="opel">Jurong East</option>
+                            <option value="audi">Bayfront</option>
+                        </select>
+                        <input type="submit" value="Submit">
+                    </form>
+            </div>
         </div>
+        <div style="text-align: center; margin: 10px 0; ">
+            <input type="button" class="button">
+            <input type="button" class="button">
+            <input type="button" class="button">
+        </div>
+
+
+        <div id="wrapper">
+            <h1>Trending now </h1>
+            <div class="container">
+                <img src="mulan.jpeg" width="200px" height="300px">
+                Mulan
+            </div>
+            <div class="container">
+                <img src="tenet.jpg" width="200px" height="300px">
+                Tenet
+            </div>
+            <div class="container">
+                <img src="vanguard.jpg" width="200px" height="300px">
+                Vanguard
+            </div>
+            <div class="container">
+                <img src="swordsman.jpg" width="200px" height="300px">
+                Swordsman
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+        </div>
+
     </body>
     <footer>
+        <div class="fimg">
+            <img src="logo.png" width="100px" height="100px" style="align-items: baseline;">
+        </div>
+        <div class="fabout">
+            ABOUT<br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+            <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
+            <br>
+            <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
+        </div>
+        <div class="fapp">
+            GET THE APP <br>
+            <input type="button" class="fbutton" value="APP STORE">
+            <input type="button" class="fbutton" value="GOOGLE PLAY">
+        </div>
+        
         
     </footer>
 </html>
