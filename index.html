@@ -191,19 +191,22 @@
         <div id="wrapper">
             <h1>Trending now <a href="nowshowing.html">View all ></a></h1><br>
             <div class="container">
-                <a href="details.html">
-                    <img src="https://lumiere-a.akamaihd.net/v1/images/p_mulan2020_20204_b005decc.jpeg?region=0,0,540,810" width="200px" height="300px">
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[1]" id="mulan" src="https://lumiere-a.akamaihd.net/v1/images/p_mulan2020_20204_b005decc.jpeg?region=0,0,540,810" width="200px" height="300px" alt="Mulan">
                     Mulan
-                </a>
-                <input type="hidden" onclick="">
+                </form>
             </div>
             <div class="container">
-                <img src="https://m.media-amazon.com/images/M/MV5BYzg0NGM2NjAtNmIxOC00MDJmLTg5ZmYtYzM0MTE4NWE2NzlhXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg" width="200px" height="300px">
-                Tenet
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[2]" id="tenet" src="https://m.media-amazon.com/images/M/MV5BYzg0NGM2NjAtNmIxOC00MDJmLTg5ZmYtYzM0MTE4NWE2NzlhXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg" width="200px" height="300px" alt="Tenet">
+                    Tenet
+                </form>
             </div>
             <div class="container">
-                <img src="https://img.reelgood.com/content/movie/4dbbd62d-8788-495b-860e-288ca5eacce5/poster-780.jpg" width="200px" height="300px">
-                Vanguard
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[3]" id="vanguard" src="https://img.reelgood.com/content/movie/4dbbd62d-8788-495b-860e-288ca5eacce5/poster-780.jpg" width="200px" height="300px" alt="Vanguard">
+                    Vanguard
+                </form>
             </div>
             <div class="container">
                 <img src="https://img.reelgood.com/content/movie/70cc8269-7998-44ed-bda7-06d5826b4ef8/poster-780.jpg" width="200px" height="300px">

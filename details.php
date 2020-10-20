@@ -1,3 +1,17 @@
+<?php
+	$servername = "localhost";
+	$username = "f33ee";
+	$password = "f33ee";
+	$dbname = "f33ee";
+
+	// Create connection
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	// Check connection
+	if (!$conn) {
+		die("Connection failed: " . mysqli_connect_error());
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -56,6 +70,7 @@
             }
 
             .mText {
+                width: 600px;
                 position: absolute;
                 left: 500px;
                 top:  120px; 
@@ -154,28 +169,52 @@
         </header>
 
         <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
-        
+        <?php
+                    //check which img is pressed
+                    if( $_POST['movie'] ) {
+                        $keys = array_keys($_POST['movie']);
+                        $ID = $keys[0];
+                    }
+                    
+                    //get just details from database: movies
+                    $sql = "SELECT * FROM movies where ID =" .$ID;
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_array($result);
+                    $poster = $row["poster"];
+                    $img = $row["img"];
+                    $name = $row["name"];
+                    $stars = $row["stars"];
+                    $director = $row["director"];
+                    $cast = $row["cast"];
+                    $releaseDate = $row["releaseDate"];
+                    $duration = $row["duration"];
+                    $distributer = $row["distributer"];
+                    
+                ?>
         <div>
             <div class="poster">
-                <img id="poster" src="mulan.webp" width="800px" alt="poster">
+                <img id="poster" src="<?php echo $poster ?>" width="800px" alt="poster">
             </div>
             <div class="mImg">
-                <img src="mulan.jpeg" height="450px" width="300px">
+                <img src="<?php echo $img ?>" height="450px" width="300px">
             </div>
             <div class="mText">
-                Mulan<br>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span> <br>
-                Director: <br>
-                Cast: <br>
-                Release Date: <br>
-                Running Time: <br>
-                Distributer: <br>
+                <?php echo $name ?><br>
 
-
+                <?php 
+                    for ($x = 1; $x <= $stars; $x++) {
+                        echo "<span class='fa fa-star checked'></span>";
+                    }
+                    for ($x = 1; $x <= 5-$stars; $x++) {
+                        echo "<span class='fa fa-star'></span>";
+                    }
+                ?>
+                <br>
+                Director: <?php echo $director ?><br>
+                Cast: <?php echo $cast ?><br>
+                Release Date: <?php echo $releaseDate ?><br>
+                Running Time: <?php echo $duration ?> <br>
+                Distributer: <?php echo $distributer?><br>
             </div>
         </div>
         
