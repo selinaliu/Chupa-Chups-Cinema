@@ -37,12 +37,17 @@
             }
 
             h2 {
-                color:#fff;
+                color: #000;
                 font-size: 40px;
                 font-family: 'Montserrat', sans-serif;
+                margin: 0;
             }
 
-			h3{font-size: 18px;}
+			h3{
+                font-size: 20px;
+                font-family: 'Montserrat', sans-serif;
+                margin: 0;
+            }
 
             /*banner*/
             .poster {
@@ -131,21 +136,19 @@
             /*content box*/
             #wrapper {     
                 margin: 20px;
-                padding: 20px;
+                padding: 50px;
                 min-width:800px;
-                height: 400px;
+                height: 1200px;
                 font-size: 18px;
                 background-color: #fff;
 		    } 
 
-            .container {
-                width: 200px;
-                height: 350px;
-                margin: 0px 0 0 30px;
+            .review {
+                width: 300px;
+                height: 300px;
+                margin: 20px 0 5px 50px;
                 float: left;
                 color:#000;
-                text-align: center;
-                font-weight: 600;
             }
         </style>
 
@@ -170,13 +173,13 @@
 
         <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
         <?php
-                    //check which img is pressed
+                    //check which img is pressed in index.html
                     if( $_POST['movie'] ) {
                         $keys = array_keys($_POST['movie']);
                         $ID = $keys[0];
                     }
                     
-                    //get just details from database: movies
+                    //get details from database: movies
                     $sql = "SELECT * FROM movies where ID =" .$ID;
                     $result = mysqli_query($conn, $sql);
                     $row = mysqli_fetch_array($result);
@@ -189,6 +192,9 @@
                     $releaseDate = $row["releaseDate"];
                     $duration = $row["duration"];
                     $distributer = $row["distributer"];
+                    $syn = $row["synopsis"];
+                    $trailer = $row["trailer"];
+                    
                     
                 ?>
         <div>
@@ -199,7 +205,7 @@
                 <img src="<?php echo $img ?>" height="450px" width="300px">
             </div>
             <div class="mText">
-                <?php echo $name ?><br>
+                <h2 style="color: #fff"><?php echo $name ?><br></h2>
 
                 <?php 
                     for ($x = 1; $x <= $stars; $x++) {
@@ -209,28 +215,53 @@
                         echo "<span class='fa fa-star'></span>";
                     }
                 ?>
-                <br>
-                Director: <?php echo $director ?><br>
-                Cast: <?php echo $cast ?><br>
-                Release Date: <?php echo $releaseDate ?><br>
-                Running Time: <?php echo $duration ?> <br>
-                Distributer: <?php echo $distributer?><br>
+                <br><br>
+                <strong>Director: </strong><?php echo $director ?><br>
+                <strong>Cast: </strong><?php echo $cast ?><br>
+                <strong>Release Date: </strong><?php echo $releaseDate ?><br>
+                <strong>Running Time: </strong><?php echo $duration ?> <br>
+                <strong>Distributer: </strong><?php echo $distributer?><br>
             </div>
         </div>
         
 
         <div id="wrapper">
             <div>
-                SYNOPSIS
+                <h2>SYNOPSIS</h2>
+                <?php echo $syn ?>
+                <br><br><hr><br>
             </div>
             <div>
-                TRAILER
+                <h2>TRAILER</h2>
+                <iframe width="728" height="410" src="<?php echo $trailer?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                <br><br><hr><br>
             </div>
             <div>
-                SHOWTIME
+                <h2>REVIEWS</h2>
+                <div class="review">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                esse cillum dolore eu fugiat nulla pariatur.
+                </div>
+                <div class="review">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                esse cillum dolore eu fugiat nulla pariatur.
+                </div>
+                <div class="review">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
+                esse cillum dolore eu fugiat nulla pariatur.
+                </div>
+                <div style="clear:both"></div>
+                <hr><br>
             </div>
             <div>
-                REVIEWS
+                <h2>SHOWTIME</h2>
+                <br>
             </div>
         </div>
 
