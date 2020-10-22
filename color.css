@@ -56,6 +56,13 @@ body{
     padding: 0;
 }
 
+/*section headings*/
+h1{	font-size: 32px;
+    color:#333333; 
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 0 10px 30px;
+}
+
 /*footer*/
 footer {
     font-size:70%;
