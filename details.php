@@ -228,11 +228,13 @@
         <div id="wrapper">
             <div>
                 <h2>SYNOPSIS</h2>
+                <br>
                 <?php echo $syn ?>
                 <br><br><hr><br>
             </div>
             <div>
                 <h2>TRAILER</h2>
+                <br>
                 <iframe width="728" height="410" src="<?php echo $trailer?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
                 <br><br><hr><br>
             </div>
