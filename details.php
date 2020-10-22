@@ -25,27 +25,19 @@
         <link rel="stylesheet" href="color.css">
 
         <style>
-            h1{	font-size: 32px;
-				color:#333333; 
-				font-family: 'Montserrat', sans-serif;
-                margin: 0 0 10px 30px;
-			}
-
-            h1 a {  color:#333333;
-                    font-size: 16px;
-                    margin-left: 9px;
-            }
-
+            /*movie details in poster*/
             h2 {
-                color: #000;
-                font-size: 40px;
-                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 20px;
                 margin: 0;
             }
 
+            /*movie details in wrapper*/
 			h3{
+                color: #000;
+                font-family: 'Open Sans', sans-serif;
                 font-size: 20px;
-                font-family: 'Montserrat', sans-serif;
                 margin: 0;
             }
 
@@ -136,23 +128,46 @@
             /*content box*/
             #wrapper {     
                 margin: 20px;
-                padding: 50px;
+                padding: 30px 30px;
                 min-width:800px;
-                height: 1200px;
+                height: 1500px;
                 font-size: 18px;
                 background-color: #fff;
-		    } 
+            } 
+            
+            .showtime {
+                background-color: #000;
+            }
+
+            .showtime button {
+                color: #FFFFFF !important;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 20px;
+                padding: 20px;
+                border: 0px;
+                background: #000;
+            }
+
+            .showtime button:hover {
+                color:  !important;
+                background: rgb(255, 168, 6);
+            }
+
+            .showtime-container {
+                background-color: #dfdfdf;
+                padding: 20px;
+            }
 
             .review {
                 width: 300px;
-                height: 300px;
-                margin: 20px 0 5px 50px;
+                height: 230px;
+                margin: 0px 0px 0px 90px;
                 float: left;
                 color:#000;
             }
         </style>
 
-        <script type = "text/javascript"  src = "poster.js"></script>
+        <script type = "text/javascript"  src = "date.js"></script>
 
     </head>
     <body>
@@ -194,8 +209,9 @@
                     $distributer = $row["distributer"];
                     $syn = $row["synopsis"];
                     $trailer = $row["trailer"];
-                    
-                    
+                    $review1 = $row["review1"];
+                    $review2 = $row["review2"];
+                    $review3 = $row["review3"];
                 ?>
         <div>
             <div class="poster">
@@ -205,7 +221,7 @@
                 <img src="<?php echo $img ?>" height="450px" width="300px">
             </div>
             <div class="mText">
-                <h2 style="color: #fff"><?php echo $name ?><br></h2>
+                <h1 style="color: #fff;margin: 0;"><?php echo $name ?></h1>
 
                 <?php 
                     for ($x = 1; $x <= $stars; $x++) {
@@ -216,55 +232,61 @@
                     }
                 ?>
                 <br><br>
-                <strong>Director: </strong><?php echo $director ?><br>
+                <h2><strong>Director: </strong><?php echo $director ?><br>
                 <strong>Cast: </strong><?php echo $cast ?><br>
                 <strong>Release Date: </strong><?php echo $releaseDate ?><br>
                 <strong>Running Time: </strong><?php echo $duration ?> <br>
-                <strong>Distributer: </strong><?php echo $distributer?><br>
+                <strong>Distributer: </strong><?php echo $distributer?><br></h2>
             </div>
         </div>
         
 
         <div id="wrapper">
             <div>
-                <h2>SYNOPSIS</h2>
-                <br>
-                <?php echo $syn ?>
-                <br><br><hr><br>
+                <h1 style="margin: 0 0 30px 0;">SYNOPSIS</h1>
+                <h3><?php echo $syn ?><h3>
+                <br><hr><br>
             </div>
             <div>
-                <h2>TRAILER</h2>
-                <br>
+                <h1 style="margin: 0 0 30px 0;">TRAILER</h1>
                 <iframe width="728" height="410" src="<?php echo $trailer?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
                 <br><br><hr><br>
             </div>
             <div>
-                <h2>REVIEWS</h2>
-                <div class="review">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-                esse cillum dolore eu fugiat nulla pariatur.
+                <h1 style="margin: 0 0 30px 0;">SHOWTIME</h1>
+                <div class="showtime">
+                    <button  onclick="openDate('London')">London</button>
+                    <button  onclick="openDate('Paris')">Paris</button>
+                    <button  onclick="openDate('Tokyo')">Tokyo</button>
                 </div>
-                <div class="review">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-                esse cillum dolore eu fugiat nulla pariatur.
+                <div id="London" class="showtime-container date">
+                    <h3>London</h3>
+                    <h3>London is the capital city of England.</h3>
                 </div>
-                <div class="review">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-                esse cillum dolore eu fugiat nulla pariatur.
+                    <div id="Paris" class="showtime-container date" style="display:none">
+                    <h3>Paris</h3>
+                    <h3>Paris is the capital of France.</h3> 
                 </div>
-                <div style="clear:both"></div>
-                <hr><br>
+                <div id="Tokyo" class="showtime-container date" style="display:none">
+                    <h3>Tokyo</h3>
+                    <h3>Tokyo is the capital of Japan.</h3>
+                </div>
+                <br><hr><br>
             </div>
             <div>
-                <h2>SHOWTIME</h2>
-                <br>
+                <h1 style="margin: 0 0 30px 0;">REVIEWS</h1>
+                <div class="review">
+                <h3><?php echo $review1 ?></h3>
+                </div>
+                <div class="review">
+                <h3><?php echo $review2 ?></h3>
+                </div>
+                <div class="review">
+                <h3><?php echo $review3 ?></h3>
+                </div>
+                <div style="clear:both"></div>
             </div>
+           
         </div>
 
 
