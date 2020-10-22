@@ -161,7 +161,7 @@
             .review {
                 width: 300px;
                 height: 230px;
-                margin: 0px 0px 0px 90px;
+                margin: 0px 0px 0px 80px;
                 float: left;
                 color:#000;
             }
@@ -254,21 +254,55 @@
             </div>
             <div>
                 <h1 style="margin: 0 0 30px 0;">SHOWTIME</h1>
+                <?php
+                    $sql = "SELECT CURDATE()";
+                    $result = mysqli_query($conn, $sql);
+                    $currentDate = mysqli_fetch_assoc($result);
+
+                    $sql1 = "SELECT DATE_ADD(CURDATE(), INTERVAL 1 DAY)";
+                    $result1 = mysqli_query($conn, $sql1);
+                    $currentDate1 = mysqli_fetch_assoc($result1);
+
+                    $sql2 = "SELECT DATE_ADD(CURDATE(), INTERVAL 2 DAY)";
+                    $result2 = mysqli_query($conn, $sql2);
+                    $currentDate2 = mysqli_fetch_assoc($result2);
+
+                    $sql3 = "SELECT DATE_ADD(CURDATE(), INTERVAL 3 DAY)";
+                    $result3 = mysqli_query($conn, $sql3);
+                    $currentDate3 = mysqli_fetch_assoc($result3);
+
+                    $sql4 = "SELECT DATE_ADD(CURDATE(), INTERVAL 4 DAY)";
+                    $result4 = mysqli_query($conn, $sql4);
+                    $currentDate4 = mysqli_fetch_assoc($result4);
+
+                    $sql5 = "SELECT DATE_ADD(CURDATE(), INTERVAL 5 DAY)";
+                    $result5 = mysqli_query($conn, $sql5);
+                    $currentDate5 = mysqli_fetch_assoc($result5);
+
+                    $sql6 = "SELECT DATE_ADD(CURDATE(), INTERVAL 6 DAY)";
+                    $result6 = mysqli_query($conn, $sql6);
+                    $currentDate6 = mysqli_fetch_assoc($result6);
+                ?>
+
                 <div class="showtime">
-                    <button  onclick="openDate('London')">London</button>
-                    <button  onclick="openDate('Paris')">Paris</button>
-                    <button  onclick="openDate('Tokyo')">Tokyo</button>
+                    <button onclick="openDate('today')"><?php echo $currentDate['CURDATE()']; ?></button>
+                    <button onclick="openDate('today+1')"><?php echo $currentDate1['DATE_ADD(CURDATE(), INTERVAL 1 DAY)']; ?></button>
+                    <button onclick="openDate('today+2')"><?php echo $currentDate2['DATE_ADD(CURDATE(), INTERVAL 2 DAY)']; ?></button>
+                    <button onclick="openDate('today+3')"><?php echo $currentDate3['DATE_ADD(CURDATE(), INTERVAL 3 DAY)']; ?></button>
+                    <button onclick="openDate('today+4')"><?php echo $currentDate4['DATE_ADD(CURDATE(), INTERVAL 4 DAY)']; ?></button>
+                    <button onclick="openDate('today+5')"><?php echo $currentDate5['DATE_ADD(CURDATE(), INTERVAL 5 DAY)']; ?></button>
+                    <button onclick="openDate('today+6')"><?php echo $currentDate6['DATE_ADD(CURDATE(), INTERVAL 6 DAY)']; ?></button>
                 </div>
-                <div id="London" class="showtime-container date">
-                    <h3>London</h3>
+                <div id="today" class="showtime-container date">
+                    <h3>10/11/2020</h3>
                     <h3>London is the capital city of England.</h3>
                 </div>
-                    <div id="Paris" class="showtime-container date" style="display:none">
-                    <h3>Paris</h3>
+                    <div id="today+1" class="showtime-container date" style="display:none">
+                    <h3>11/11/2020</h3>
                     <h3>Paris is the capital of France.</h3> 
                 </div>
-                <div id="Tokyo" class="showtime-container date" style="display:none">
-                    <h3>Tokyo</h3>
+                <div id="today+2" class="showtime-container date" style="display:none">
+                    <h3>12/11/2020</h3>
                     <h3>Tokyo is the capital of Japan.</h3>
                 </div>
                 <br><hr><br>

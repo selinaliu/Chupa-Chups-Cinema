@@ -1,11 +1,3 @@
-function getDate() {
-  n =  new Date();
-  y = n.getFullYear();
-  m = n.getMonth() + 1;
-  d = n.getDate();
-  document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
-}
-
 function openDate(date) {
   var i;
   var x = document.getElementsByClassName("date");
