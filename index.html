@@ -95,11 +95,11 @@
             }
 
             /*content box*/
-            #wrapper {     
+            .wrapper {     
                 margin: 0px 20px 20px 20px;
                 padding: 20px;
                 min-width:800px;
-                height: 400px;
+                height: 450px;
                 font-size: 18px;
                 background-color: #fff;
 		    } 
@@ -132,7 +132,7 @@
 
         </style>
 
-        <script type = "text/javascript"  src = "poster.js"></script>
+        <script type = "text/javascript"  src = "index.js"></script>
 
     </head>
     <body>
@@ -182,7 +182,7 @@
             <input type="button" class="button1" onclick="chngimg(3)">
         </div>
 
-        <div id="wrapper">
+        <div id="nowshowing1" class="wrapper change">
             <h1>Trending now <a href="nowshowing.html">View all ></a></h1><br>
             <div class="container">
                 <form action="details.php" method="POST">
@@ -215,8 +215,41 @@
                 </form>
             </div>
         </div>
+        <div id="nowshowing2" class="wrapper change" style="display: none">
+            <h1>Trending now <a href="nowshowing.html">View all ></a></h1><br>
+            <div class="container">
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[6]" id="mulan" src="https://popcornsg.s3.amazonaws.com/movies/650/12668-21159-ThePerso.jpg" width="200px" height="300px" alt="Mulan">
+                    The Personal History Of David Copperfield
+                </form>
+            </div>
+            <div class="container">
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[7]" id="tenet" src="https://pic.iask.cn/fimg/346798164106.jpg" width="200px" height="300px" alt="Tenet">
+                    I WeirDo
+                </form>
+            </div>
+            <div class="container">
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[8]" id="vanguard" src="https://m.media-amazon.com/images/M/MV5BMmZlZmI0OGUtOWIxZi00NjYzLTg1NjItZmM3MTBiNWM1YTYzXkEyXkFqcGdeQXVyNjgwNTk4Mg@@._V1_.jpg" width="200px" height="300px" alt="Vanguard">
+                    Beauty Water
+                </form>
+            </div>
+            <div class="container">
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[9]" id="vanguard" src="https://images-na.ssl-images-amazon.com/images/I/41WUxfhUirL._AC_.jpg" width="200px" height="300px" alt="Vanguard">
+                    Halloween
+                </form>
+            </div>
+            <div class="container"> 
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[10]" id="vanguard" src="https://image.tmdb.org/t/p/original/xrI4EnZWftpo1B7tTvlMUXVOikd.jpg" width="200px" height="300px" alt="Vanguard">
+                    The New Mutants
+                </form>
+            </div>
+        </div>
 
-        <div id="wrapper">
+        <div id="upcoming" class="wrapper">
             <h1>Upcoming Movies <a href="upcoming.html">View all ></a></h1><br>
             <div class="container">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/714O2retc6L._AC_SL1304_.jpg" width="200px" height="300px">
