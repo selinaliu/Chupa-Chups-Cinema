@@ -131,7 +131,7 @@
                 margin: 20px;
                 padding: 30px 30px;
                 min-width:800px;
-                height: 1650px;
+                height: 1850px;
                 font-size: 18px;
                 background-color: #fff;
             } 
@@ -168,9 +168,18 @@
             }
 
             .review {
-                width: 300px;
-                height: 230px;
-                margin: 0px 0px 0px 80px;
+                width: 1000px;
+                height: 160px;
+            }
+            .reviewimg {
+                width: 130px;
+                height: 130px;
+                float: left;
+            }
+            .reviewtxt {
+                width: 800px;
+                height: 100px;
+                margin-left: 50px;
                 float: left;
                 color:#000;
             }
@@ -453,13 +462,46 @@
             <div>
                 <h1 style="margin: 0 0 30px 0;">REVIEWS</h1>
                 <div class="review">
-                <h3><?php echo $review1 ?></h3>
+                    <div class="reviewimg" style="font-size: 70px; text-align: center; color: rgb(255, 168, 6)">
+                        <span class='fa fa-user' ></span>
+                        <h3>Eric Sohn</h3>
+                    </div>
+                    <div class="reviewtxt">
+                        <?php 
+                            for ($x = 1; $x <= $stars; $x++) {
+                                echo "<span class='fa fa-star checked'></span>";
+                            }
+                        ?><br>
+                        <h3><?php echo $review1 ?></h3>
+                    </div>
                 </div>
                 <div class="review">
-                <h3><?php echo $review2 ?></h3>
+                    <div class="reviewimg" style="font-size: 70px; text-align: center; color: rgb(255, 168, 6)">
+                        <span class='fa fa-user' ></span>
+                        <h3>Kevin Moon</h3>
+                    </div>
+                    <div class="reviewtxt">
+                        <?php 
+                            for ($x = 1; $x <= $stars; $x++) {
+                                echo "<span class='fa fa-star checked'></span>";
+                            }
+                        ?><br>
+                        <h3><?php echo $review2 ?></h3>
+                    </div>
                 </div>
                 <div class="review">
-                <h3><?php echo $review3 ?></h3>
+                    <div class="reviewimg" style="font-size: 70px; text-align: center; color: rgb(255, 168, 6)">
+                        <span class='fa fa-user' ></span>
+                        <h3>Jocob Bae</h3>
+                    </div>
+                    <div class="reviewtxt">
+                        <?php 
+                            for ($x = 1; $x <= $stars; $x++) {
+                                echo "<span class='fa fa-star checked'></span>";
+                            }
+                        ?> <br>
+                        <h3><?php echo $review3 ?></h3>
+                    </div>
                 </div>
                 <div style="clear:both"></div>
             </div>
