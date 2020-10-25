@@ -100,8 +100,9 @@
                 border: none;
                 background-color:rgb(255, 168, 6);
                 color: #fff;
-                font-size: 16px;
+                font-size: 20px;
                 padding:4px 10px 4px 10px;
+                margin-top: 20px;
             }
 
             .button1 {
@@ -130,7 +131,7 @@
                 margin: 20px;
                 padding: 30px 30px;
                 min-width:800px;
-                height: 1500px;
+                height: 1650px;
                 font-size: 18px;
                 background-color: #fff;
             } 
@@ -156,6 +157,14 @@
             .showtime-container {
                 background-color: #dfdfdf;
                 padding: 20px;
+                height: 250px;
+            }
+
+            .timing {
+                width: 100px;
+                height: 100px;
+                margin: 0px 80px 0px 0px;
+                float: left; 
             }
 
             .review {
@@ -195,23 +204,24 @@
                     }
                     
                     //get details from database: movies
-                    $sql = "SELECT * FROM movies where ID =" .$ID;
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_array($result);
-                    $poster = $row["poster"];
-                    $img = $row["img"];
-                    $name = $row["name"];
-                    $stars = $row["stars"];
-                    $director = $row["director"];
-                    $cast = $row["cast"];
-                    $releaseDate = $row["releaseDate"];
-                    $duration = $row["duration"];
-                    $distributer = $row["distributer"];
-                    $syn = $row["synopsis"];
-                    $trailer = $row["trailer"];
-                    $review1 = $row["review1"];
-                    $review2 = $row["review2"];
-                    $review3 = $row["review3"];
+                    $sql1 = "SELECT * FROM movies where ID =" .$ID;
+                    $result1 = mysqli_query($conn, $sql1);
+                    $movies = mysqli_fetch_array($result1);
+                    $id = $movies["ID"];
+                    $poster = $movies["poster"];
+                    $img = $movies["img"];
+                    $name = $movies["name"];
+                    $stars = $movies["stars"];
+                    $director = $rmovies["director"];
+                    $cast = $movies["cast"];
+                    $releaseDate = $movies["releaseDate"];
+                    $duration = $movies["duration"];
+                    $distributer = $movies["distributer"];
+                    $syn = $movies["synopsis"];
+                    $trailer = $movies["trailer"];
+                    $review1 = $movies["review1"];
+                    $review2 = $movies["review2"];
+                    $review3 = $movies["review3"];
                 ?>
         <div>
             <div class="poster">
@@ -235,7 +245,7 @@
                 <h2><strong>Director: </strong><?php echo $director ?><br>
                 <strong>Cast: </strong><?php echo $cast ?><br>
                 <strong>Release Date: </strong><?php echo $releaseDate ?><br>
-                <strong>Running Time: </strong><?php echo $duration ?> <br>
+                <strong>Running Time: </strong><?php echo $duration ?> min<br>
                 <strong>Distributer: </strong><?php echo $distributer?><br></h2>
             </div>
         </div>
@@ -258,55 +268,188 @@
                     $sql = "SELECT CURDATE()";
                     $result = mysqli_query($conn, $sql);
                     $currentDate = mysqli_fetch_assoc($result);
+                    $date = $currentDate['CURDATE()'];
 
                     $sql1 = "SELECT DATE_ADD(CURDATE(), INTERVAL 1 DAY)";
                     $result1 = mysqli_query($conn, $sql1);
                     $currentDate1 = mysqli_fetch_assoc($result1);
+                    $date1 = $currentDate1['DATE_ADD(CURDATE(), INTERVAL 1 DAY)'];
 
                     $sql2 = "SELECT DATE_ADD(CURDATE(), INTERVAL 2 DAY)";
                     $result2 = mysqli_query($conn, $sql2);
                     $currentDate2 = mysqli_fetch_assoc($result2);
+                    $date2 = $currentDate2['DATE_ADD(CURDATE(), INTERVAL 2 DAY)'];
 
                     $sql3 = "SELECT DATE_ADD(CURDATE(), INTERVAL 3 DAY)";
                     $result3 = mysqli_query($conn, $sql3);
                     $currentDate3 = mysqli_fetch_assoc($result3);
+                    $date3 = $currentDate3['DATE_ADD(CURDATE(), INTERVAL 3 DAY)'];
 
                     $sql4 = "SELECT DATE_ADD(CURDATE(), INTERVAL 4 DAY)";
                     $result4 = mysqli_query($conn, $sql4);
                     $currentDate4 = mysqli_fetch_assoc($result4);
+                    $date1 = $currentDate1['DATE_ADD(CURDATE(), INTERVAL 1 DAY)'];
 
                     $sql5 = "SELECT DATE_ADD(CURDATE(), INTERVAL 5 DAY)";
                     $result5 = mysqli_query($conn, $sql5);
                     $currentDate5 = mysqli_fetch_assoc($result5);
+                    $date4 = $currentDate4['DATE_ADD(CURDATE(), INTERVAL 4 DAY)'];
 
                     $sql6 = "SELECT DATE_ADD(CURDATE(), INTERVAL 6 DAY)";
                     $result6 = mysqli_query($conn, $sql6);
                     $currentDate6 = mysqli_fetch_assoc($result6);
+                    $date5 = $currentDate5['DATE_ADD(CURDATE(), INTERVAL 5 DAY)'];
                 ?>
 
                 <div class="showtime">
-                    <button onclick="openDate('today')"><?php echo $currentDate['CURDATE()']; ?></button>
-                    <button onclick="openDate('today+1')"><?php echo $currentDate1['DATE_ADD(CURDATE(), INTERVAL 1 DAY)']; ?></button>
-                    <button onclick="openDate('today+2')"><?php echo $currentDate2['DATE_ADD(CURDATE(), INTERVAL 2 DAY)']; ?></button>
-                    <button onclick="openDate('today+3')"><?php echo $currentDate3['DATE_ADD(CURDATE(), INTERVAL 3 DAY)']; ?></button>
-                    <button onclick="openDate('today+4')"><?php echo $currentDate4['DATE_ADD(CURDATE(), INTERVAL 4 DAY)']; ?></button>
-                    <button onclick="openDate('today+5')"><?php echo $currentDate5['DATE_ADD(CURDATE(), INTERVAL 5 DAY)']; ?></button>
-                    <button onclick="openDate('today+6')"><?php echo $currentDate6['DATE_ADD(CURDATE(), INTERVAL 6 DAY)']; ?></button>
+                    <button onclick="openDate('date')"><?php echo $date ?></button>
+                    <button onclick="openDate('date1')"><?php echo $date1 ?></button>
+                    <button onclick="openDate('date2')"><?php echo $date2 ?></button>
+                    <button onclick="openDate('date3')"><?php echo $date3 ?></button>
+                    <button onclick="openDate('date4')"><?php echo $date4 ?></button>
+                    <button onclick="openDate('date5')"><?php echo $date5 ?></button>
+                    <button onclick="openDate('date6')"><?php echo $date6 ?></button>
                 </div>
-                <div id="today" class="showtime-container date">
-                    <h3>10/11/2020</h3>
-                    <h3>London is the capital city of England.</h3>
+
+                <div id="date" class="showtime-container date">
+                    <h3><?php echo $date ?></h3>
+                    <div class="timing">
+                        <h3>Location</h3>
+                        <?php 
+                            //where location = 1 and movie = $id
+                            $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                            $result2 = mysqli_query($conn, $sql2);
+                            while( $timing = mysqli_fetch_array($result2)) {
+                                $time = $timing["timing"];
+                                echo "<input class='button' type='button' value='";
+                                echo $time; 
+                                echo "'><br>";
+                            }  
+                        ?>
+                    </div>
+                    <div class="timing">
+                        <h3>Location</h3>
+                        <?php 
+                            //where location = 1 and movie = $id
+                            $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                            $result2 = mysqli_query($conn, $sql2);
+                            while( $timing = mysqli_fetch_array($result2)) {
+                                $time = $timing["timing"];
+                                echo "<input class='button' type='button' value='";
+                                echo $time; 
+                                echo "'><br>";
+                            }  
+                        ?>
+                    </div>
+                    <div class="timing">
+                        <h3>Location</h3>
+                        <?php 
+                            //where location = 1 and movie = $id
+                            $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                            $result2 = mysqli_query($conn, $sql2);
+                            while( $timing = mysqli_fetch_array($result2)) {
+                                $time = $timing["timing"];
+                                echo "<input class='button' type='button' value='";
+                                echo $time; 
+                                echo "'><br>";
+                            }  
+                        ?>
+                    </div>
                 </div>
-                    <div id="today+1" class="showtime-container date" style="display:none">
-                    <h3>11/11/2020</h3>
-                    <h3>Paris is the capital of France.</h3> 
+
+                <div id="date1" class="showtime-container date" style="display:none">
+                    <h3><?php echo $date1 ?></h3>
+                    <h3>Location</h3> 
+                    <?php 
+                        //where location = 2 and movie = $id
+                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                        $result2 = mysqli_query($conn, $sql2);
+                        while( $timing = mysqli_fetch_array($result2)) {
+                            $time = $timing["timing"];
+                            echo "<input class='button' type='button' value='";
+                            echo $time; 
+                            echo "'><br>";
+                        }  
+                    ?>
                 </div>
-                <div id="today+2" class="showtime-container date" style="display:none">
-                    <h3>12/11/2020</h3>
-                    <h3>Tokyo is the capital of Japan.</h3>
+                <div id="date2" class="showtime-container date" style="display:none">
+                    <h3><?php echo $date2 ?></h3>
+                    <h3>Location</h3>
+                    <?php 
+                        //where location = 3 and movie = $id
+                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                        $result2 = mysqli_query($conn, $sql2);
+                        while( $timing = mysqli_fetch_array($result2)) {
+                            $time = $timing["timing"];
+                            echo "<input class='button' type='button' value='";
+                            echo $time; 
+                            echo "'><br>";
+                        }  
+                    ?>
+                </div>
+                <div id="date3" class="showtime-container date" style="display:none">
+                    <h3><?php echo $date3 ?></h3>
+                    <h3>Location</h3>
+                    <?php 
+                        //where location = 4 and movie = $id
+                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                        $result2 = mysqli_query($conn, $sql2);
+                        while( $timing = mysqli_fetch_array($result2)) {
+                            $time = $timing["timing"];
+                            echo "<input class='button' type='button' value='";
+                            echo $time; 
+                            echo "'><br>";
+                        }  
+                    ?>
+                </div>
+                <div id="date4" class="showtime-container date" style="display:none">
+                    <h3><?php echo $date4 ?></h3>
+                    <h3>Location</h3>
+                    <?php 
+                        //where location = 5 and movie = $id
+                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                        $result2 = mysqli_query($conn, $sql2);
+                        while( $timing = mysqli_fetch_array($result2)) {
+                            $time = $timing["timing"];
+                            echo "<input class='button' type='button' value='";
+                            echo $time; 
+                            echo "'><br>";
+                        }  
+                    ?>
+                </div>
+                <div id="date5" class="showtime-container date" style="display:none">
+                    <h3><?php echo $date5 ?></h3>
+                    <h3>Location</h3>
+                    <?php 
+                        //where location = 6 and movie = $id
+                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                        $result2 = mysqli_query($conn, $sql2);
+                        while( $timing = mysqli_fetch_array($result2)) {
+                            $time = $timing["timing"];
+                            echo "<input class='button' type='button' value='";
+                            echo $time; 
+                            echo "'><br>";
+                        }  
+                    ?>
+                </div>
+                <div id="date6" class="showtime-container date" style="display:none">
+                    <h3><?php echo $date6 ?></h3>
+                    <h3>Location</h3>
+                    <?php
+                        //where location = 7 and movie = $id 
+                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
+                        $result2 = mysqli_query($conn, $sql2);
+                        while( $timing = mysqli_fetch_array($result2)) {
+                            $time = $timing["timing"];
+                            echo "<input class='button' type='button' value='";
+                            echo $time; 
+                            echo "'><br>";
+                        }  
+                    ?>
                 </div>
                 <br><hr><br>
             </div>
+            <div style="clear:both"></div>
             <div>
                 <h1 style="margin: 0 0 30px 0;">REVIEWS</h1>
                 <div class="review">
