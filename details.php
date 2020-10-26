@@ -49,7 +49,8 @@
                 display: flex;
                 justify-content: baseline;
                 align-items: baseline;
-                overflow: hidden
+                overflow: hidden;
+                background-color: #000;
             }
 
             .poster img {
@@ -58,6 +59,8 @@
                 min-height: 100%;
                 filter: blur(8px);
                 -webkit-filter: blur(8px);
+                
+                opacity: 0.5;
             }
 
             .mImg {
@@ -161,7 +164,7 @@
             }
 
             .timing {
-                width: 100px;
+                width: 110px;
                 height: 100px;
                 margin: 0px 80px 0px 0px;
                 float: left; 
@@ -320,142 +323,342 @@
                     <button onclick="openDate('date6')"><?php echo $date6 ?></button>
                 </div>
 
-                <div id="date" class="showtime-container date">
-                    <h3><?php echo $date ?></h3>
-                    <div class="timing">
-                        <h3>Location</h3>
-                        <?php 
-                            //where location = 1 and movie = $id
-                            $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                            $result2 = mysqli_query($conn, $sql2);
-                            while( $timing = mysqli_fetch_array($result2)) {
-                                $time = $timing["timing"];
-                                echo "<input class='button' type='button' value='";
-                                echo $time; 
-                                echo "'><br>";
-                            }  
-                        ?>
+                <form action="seats.php" method="POST">
+                    <div id="date" class="showtime-container date">
+                        <h3><?php echo $date ?></h3>
+                        <div class="timing">
+                            <h3>Woodlands</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Orchard</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Jurong East</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
                     </div>
-                    <div class="timing">
-                        <h3>Location</h3>
-                        <?php 
-                            //where location = 1 and movie = $id
-                            $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                            $result2 = mysqli_query($conn, $sql2);
-                            while( $timing = mysqli_fetch_array($result2)) {
-                                $time = $timing["timing"];
-                                echo "<input class='button' type='button' value='";
-                                echo $time; 
-                                echo "'><br>";
-                            }  
-                        ?>
-                    </div>
-                    <div class="timing">
-                        <h3>Location</h3>
-                        <?php 
-                            //where location = 1 and movie = $id
-                            $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                            $result2 = mysqli_query($conn, $sql2);
-                            while( $timing = mysqli_fetch_array($result2)) {
-                                $time = $timing["timing"];
-                                echo "<input class='button' type='button' value='";
-                                echo $time; 
-                                echo "'><br>";
-                            }  
-                        ?>
-                    </div>
-                </div>
+                </form>
 
-                <div id="date1" class="showtime-container date" style="display:none">
-                    <h3><?php echo $date1 ?></h3>
-                    <h3>Location</h3> 
-                    <?php 
-                        //where location = 2 and movie = $id
-                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                        $result2 = mysqli_query($conn, $sql2);
-                        while( $timing = mysqli_fetch_array($result2)) {
-                            $time = $timing["timing"];
-                            echo "<input class='button' type='button' value='";
-                            echo $time; 
-                            echo "'><br>";
-                        }  
-                    ?>
-                </div>
-                <div id="date2" class="showtime-container date" style="display:none">
-                    <h3><?php echo $date2 ?></h3>
-                    <h3>Location</h3>
-                    <?php 
-                        //where location = 3 and movie = $id
-                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                        $result2 = mysqli_query($conn, $sql2);
-                        while( $timing = mysqli_fetch_array($result2)) {
-                            $time = $timing["timing"];
-                            echo "<input class='button' type='button' value='";
-                            echo $time; 
-                            echo "'><br>";
-                        }  
-                    ?>
-                </div>
-                <div id="date3" class="showtime-container date" style="display:none">
-                    <h3><?php echo $date3 ?></h3>
-                    <h3>Location</h3>
-                    <?php 
-                        //where location = 4 and movie = $id
-                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                        $result2 = mysqli_query($conn, $sql2);
-                        while( $timing = mysqli_fetch_array($result2)) {
-                            $time = $timing["timing"];
-                            echo "<input class='button' type='button' value='";
-                            echo $time; 
-                            echo "'><br>";
-                        }  
-                    ?>
-                </div>
-                <div id="date4" class="showtime-container date" style="display:none">
-                    <h3><?php echo $date4 ?></h3>
-                    <h3>Location</h3>
-                    <?php 
-                        //where location = 5 and movie = $id
-                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                        $result2 = mysqli_query($conn, $sql2);
-                        while( $timing = mysqli_fetch_array($result2)) {
-                            $time = $timing["timing"];
-                            echo "<input class='button' type='button' value='";
-                            echo $time; 
-                            echo "'><br>";
-                        }  
-                    ?>
-                </div>
-                <div id="date5" class="showtime-container date" style="display:none">
-                    <h3><?php echo $date5 ?></h3>
-                    <h3>Location</h3>
-                    <?php 
-                        //where location = 6 and movie = $id
-                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                        $result2 = mysqli_query($conn, $sql2);
-                        while( $timing = mysqli_fetch_array($result2)) {
-                            $time = $timing["timing"];
-                            echo "<input class='button' type='button' value='";
-                            echo $time; 
-                            echo "'><br>";
-                        }  
-                    ?>
-                </div>
-                <div id="date6" class="showtime-container date" style="display:none">
-                    <h3><?php echo $date6 ?></h3>
-                    <h3>Location</h3>
-                    <?php
-                        //where location = 7 and movie = $id 
-                        $sql2 = "SELECT * FROM timings where  locationID= " .$id;
-                        $result2 = mysqli_query($conn, $sql2);
-                        while( $timing = mysqli_fetch_array($result2)) {
-                            $time = $timing["timing"];
-                            echo "<input class='button' type='button' value='";
-                            echo $time; 
-                            echo "'><br>";
-                        }  
-                    ?>
-                </div>
+                <form action="seats.php" method="POST">
+                    <div id="date1" class="showtime-container date"  style="display:none">
+                        <h3><?php echo $date1 ?></h3>
+                        <div class="timing">
+                            <h3>Woodlands</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Orchard</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Jurong East</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="seats.php" method="POST">
+                    <div id="date2" class="showtime-container date"  style="display:none">
+                        <h3><?php echo $date2 ?></h3>
+                        <div class="timing">
+                            <h3>Woodlands</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Orchard</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Jurong East</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="seats.php" method="POST">
+                    <div id="date3" class="showtime-container date"  style="display:none">
+                        <h3><?php echo $date3 ?></h3>
+                        <div class="timing">
+                            <h3>Woodlands</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Orchard</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Jurong East</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="seats.php" method="POST">
+                    <div id="date4" class="showtime-container date"  style="display:none">
+                        <h3><?php echo $date4 ?></h3>
+                        <div class="timing">
+                            <h3>Woodlands</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Orchard</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Jurong East</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="seats.php" method="POST">
+                    <div id="date5" class="showtime-container date"  style="display:none">
+                        <h3><?php echo $date5 ?></h3>
+                        <div class="timing">
+                            <h3>Woodlands</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Orchard</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Jurong East</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                    </div>
+                </form>
+
+                <form action="seats.php" method="POST">
+                    <div id="date6" class="showtime-container date"  style="display:none">
+                        <h3><?php echo $date6 ?></h3>
+                        <div class="timing">
+                            <h3>Woodlands</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Orchard</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                        <div class="timing">
+                            <h3>Jurong East</h3>
+                            <?php 
+                                //where location = Woodlands and movie = $id
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $result = mysqli_query($conn, $sql);
+                                while( $timing = mysqli_fetch_array($result)) {
+                                    $time = $timing["timing"];
+                                    echo "<input class='button' type='submit' value='";
+                                    echo $time; 
+                                    echo "'><br>";
+                                }  
+                            ?>
+                        </div>
+                    </div>
+                </form>
+
                 <br><hr><br>
             </div>
             <div style="clear:both"></div>

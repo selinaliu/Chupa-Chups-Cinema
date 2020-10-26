@@ -18,8 +18,8 @@ function changeMovie(){
     
    switch (document.getElementById("nowshowing1").style.display) {
         case "":
-            document.getElementById("nowshowing1").style.display = "block";
-            document.getElementById("nowshowing2").style.display = "none";
+            document.getElementById("nowshowing1").style.display = "none";
+            document.getElementById("nowshowing2").style.display = "block";
             break;
         case "none":
             document.getElementById("nowshowing1").style.display = "block";
