@@ -207,34 +207,38 @@
             </nav>
         </header>
 
+        <!--orange gap-->
         <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
+        
+        <!--Delaring variables -->
         <?php
-                    //check which img is pressed in index.html
-                    if( $_POST['movie'] ) {
-                        $keys = array_keys($_POST['movie']);
-                        $ID = $keys[0];
-                    }
-                    
-                    //get details from database: movies
-                    $sql1 = "SELECT * FROM movies where ID =" .$ID;
-                    $result1 = mysqli_query($conn, $sql1);
-                    $movies = mysqli_fetch_array($result1);
-                    $id = $movies["ID"];
-                    $poster = $movies["poster"];
-                    $img = $movies["img"];
-                    $name = $movies["name"];
-                    $stars = $movies["stars"];
-                    $director = $rmovies["director"];
-                    $cast = $movies["cast"];
-                    $releaseDate = $movies["releaseDate"];
-                    $duration = $movies["duration"];
-                    $distributer = $movies["distributer"];
-                    $syn = $movies["synopsis"];
-                    $trailer = $movies["trailer"];
-                    $review1 = $movies["review1"];
-                    $review2 = $movies["review2"];
-                    $review3 = $movies["review3"];
-                ?>
+            //check which img is pressed in index.html
+            if( $_POST['movie'] ) {
+                $keys = array_keys($_POST['movie']);
+                $ID = $keys[0];
+            }
+            
+            //get details from database: movies
+            $sql1 = "SELECT * FROM movies where ID =" .$ID;
+            $result1 = mysqli_query($conn, $sql1);
+            $movies = mysqli_fetch_array($result1);
+            $id = $movies["ID"];
+            $poster = $movies["poster"];
+            $img = $movies["img"];
+            $name = $movies["name"];
+            $stars = $movies["stars"];
+            $director = $rmovies["director"];
+            $cast = $movies["cast"];
+            $releaseDate = $movies["releaseDate"];
+            $duration = $movies["duration"];
+            $distributer = $movies["distributer"];
+            $syn = $movies["synopsis"];
+            $trailer = $movies["trailer"];
+            $review1 = $movies["review1"];
+            $review2 = $movies["review2"];
+            $review3 = $movies["review3"];
+        ?>
+
         <div>
             <div class="poster">
                 <img id="poster" src="<?php echo $poster ?>" width="800px" alt="poster">
@@ -326,6 +330,9 @@
                 <form action="seats.php" method="POST">
                     <div id="date" class="showtime-container date">
                         <h3><?php echo $date ?></h3>
+                        <!--put value in hidden form to parse to seats.php -->
+                        <input type="hidden" name="name" value="<?php echo $name ?>">
+                        <input type="hidden" name="date" value="<?php echo $date ?>">
                         <div class="timing">
                             <h3>Woodlands</h3>
                             <?php 
@@ -334,7 +341,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -348,7 +355,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -362,7 +369,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -374,6 +381,9 @@
                 <form action="seats.php" method="POST">
                     <div id="date1" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date1 ?></h3>
+                        <!--put value in hidden form to parse to seats.php -->
+                        <input type="hidden" name="name" value="<?php echo $name ?>">
+                        <input type="hidden" name="date" value="<?php echo $date1 ?>">
                         <div class="timing">
                             <h3>Woodlands</h3>
                             <?php 
@@ -382,7 +392,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -396,7 +406,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -410,7 +420,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -422,6 +432,9 @@
                 <form action="seats.php" method="POST">
                     <div id="date2" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date2 ?></h3>
+                        <!--put value in hidden form to parse to seats.php -->
+                        <input type="hidden" name="name" value="<?php echo $name ?>">
+                        <input type="hidden" name="date" value="<?php echo $date2 ?>">
                         <div class="timing">
                             <h3>Woodlands</h3>
                             <?php 
@@ -430,7 +443,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -444,7 +457,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -458,7 +471,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -470,6 +483,9 @@
                 <form action="seats.php" method="POST">
                     <div id="date3" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date3 ?></h3>
+                        <!--put value in hidden form to parse to seats.php -->
+                        <input type="hidden" name="name" value="<?php echo $name ?>">
+                        <input type="hidden" name="date" value="<?php echo $date3 ?>">
                         <div class="timing">
                             <h3>Woodlands</h3>
                             <?php 
@@ -478,7 +494,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -492,7 +508,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -506,7 +522,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -518,6 +534,9 @@
                 <form action="seats.php" method="POST">
                     <div id="date4" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date4 ?></h3>
+                        <!--put value in hidden form to parse to seats.php -->
+                        <input type="hidden" name="name" value="<?php echo $name ?>">
+                        <input type="hidden" name="date" value="<?php echo $date4 ?>">
                         <div class="timing">
                             <h3>Woodlands</h3>
                             <?php 
@@ -526,7 +545,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -540,7 +559,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -554,7 +573,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -566,6 +585,9 @@
                 <form action="seats.php" method="POST">
                     <div id="date5" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date5 ?></h3>
+                        <!--put value in hidden form to parse to seats.php -->
+                        <input type="hidden" name="name" value="<?php echo $name ?>">
+                        <input type="hidden" name="date" value="<?php echo $date5 ?>">
                         <div class="timing">
                             <h3>Woodlands</h3>
                             <?php 
@@ -574,7 +596,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -588,7 +610,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -602,7 +624,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -614,6 +636,9 @@
                 <form action="seats.php" method="POST">
                     <div id="date6" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date6 ?></h3>
+                        <!--put value in hidden form to parse to seats.php -->
+                        <input type="hidden" name="name" value="<?php echo $name ?>">
+                        <input type="hidden" name="date" value="<?php echo $date6 ?>">
                         <div class="timing">
                             <h3>Woodlands</h3>
                             <?php 
@@ -622,7 +647,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -636,7 +661,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -650,7 +675,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' value='";
+                                    echo "<input class='button' type='submit' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
