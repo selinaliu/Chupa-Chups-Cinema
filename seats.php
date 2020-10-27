@@ -69,7 +69,7 @@
                 margin-top: 80px;
                 padding: 30px 30px;
                 min-width:800px;
-                height: 1500px;
+                height: 1200px;
                 font-size: 18px;
                 background-color: #fff;
             } 
@@ -95,6 +95,7 @@
                 text-align:center;
             }
 
+            /*colored square to indicate seat's avaibility */
             .NAseat {
                 display: block;
                 position: absolute;
@@ -186,8 +187,10 @@
             }
 
             .legend {
-                width: 50%; 
-                padding: 30px 0 0 490px;
+                width: 13%; 
+                margin: auto;
+                margin-top: 15px;
+               
             }
 
             .selected {
@@ -195,7 +198,25 @@
                 height: 300px;
                 margin: 30px;
             }
+
+            .right {
+                float: right;
+                margin-right: 50px;
+            }
+
+            input {
+                font-size: 20px;
+            }
             
+            .button {
+                border-radius: 10px;
+                border: none;
+                background-color:rgb(255, 168, 6);
+                color: #fff;
+                font-size: 20px;
+                padding: 7px 10px 7px 10px;
+                cursor: pointer;
+            }
         </style>
 
         <script type = "text/javascript"  src = "date.js"></script>
@@ -561,16 +582,33 @@
                 </div>
             </div>
 
-            <div class="selected">
-                <input type="hidden" id="btn" onclick="return getSeats();">
-                <h3>Seats Selected:</h3>
-                <input type = "text" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();">
-                <h3>Quantity</h3>
-                <input type = "text" size="50" id="qty" name="qty" onfocus="this.blur();">
-                <h3>Amount</h3>
-                <input type = "text" size="50" id="price" name="price" onfocus="this.blur();">
+            <form action="payment.php" method="POST">
+                <div class="selected">
+                    <!--hidden button to call function without pressing-->
+                    <input type="hidden" id="btn" onclick="return getSeats();">
+                    <input type="hidden" name="name" value="<?php echo $name ?>"> 
+                    <input type="hidden" name="date" value="<?php echo $date ?>"> 
+                    <input type="hidden" name="time" value="<?php echo $time ?>"> 
+                    <input type="hidden" name="location" value="<?php echo $location ?>"> 
 
-            </div>
+                    <div class="right">
+                        <h3>Amount</h3>
+                        <input type = "text" size="5" id="price" name="price" onfocus="this.blur();">
+                    </div>
+                    <div class="right">
+                        <h3>Quantity</h3>
+                        <input type = "text" size="5" id="qty" name="qty" onfocus="this.blur();">
+                    </div> 
+                    <h3 style="width:200px; margin: 0;">Seats Selected:</h3>
+                    <input type = "text" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();">
+
+                    <br><br><br>
+
+                    <div class="right">
+                        <input type="submit" value="Place Order" class="button" onclick=" return empty();">
+                    </div>
+                </div>
+            </form>
 
         </div>
 

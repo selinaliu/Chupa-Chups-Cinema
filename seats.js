@@ -16,3 +16,11 @@ function getSeats() {
 setInterval(getSeats, 100);
 getSeats();
 
+//return false if seats selected is empty
+function empty() {
+    
+    if(document.getElementById("qty").value == "0"){
+        alert("No seats are selected.");
+        return false;
+    } 
+}
