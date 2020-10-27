@@ -77,7 +77,7 @@
             .seats {
                 background-color: #dfdfdf;
                 width: 100%;
-                height: 590px;
+                height: 630px;
                 margin-bottom: 50px;     
             }
 
@@ -99,6 +99,14 @@
                 display: block;
                 position: absolute;
                 background-color: #808080; 
+                width: 25px; 
+                height: 25px;
+            }
+
+            .Aseat {
+                display: block;
+                position: absolute;
+                background-color: #fff; 
                 width: 25px; 
                 height: 25px;
             }
@@ -184,7 +192,7 @@
             .selected {
                 width: 100%;
                 height: 300px;
-                margin-bottom: 50px;
+                margin: 30px;
             }
             
         </style>
@@ -546,15 +554,19 @@
                 
 
                 <div class="legend">
-                    <span class="NAseat"></span> <h3 style="margin-left: 50px">Seat Not Availiable</h3>
+                    <span class="Aseat"></span> <h3 style="margin-left: 50px;">Seat Available</h3>
                     <span class="selectedSeat"></span> <h3 style="margin-left: 50px; margin-top:10px;">Seat Selected</h3>
+                    <span class="NAseat" style=" margin-top: 10px;"></span> <h3 style="margin-left: 50px; margin-top:10px;">Seat Not Available</h3>
                 </div>
             </div>
 
             <div class="selected">
                 <input type="hidden" id="btn" onclick="return getSeats();">
                 <h3>Seats Selected:</h3>
-                <input type = "text" size="10" id="selectedSeats" name="selectedSeats" onfocus = "this.blur();">
+                <input type = "text" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();">
+                <h3>Quantity</h3>
+
+                <h3>Amount</h3>
 
             </div>
 

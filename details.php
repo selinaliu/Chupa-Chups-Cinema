@@ -106,6 +106,7 @@
                 font-size: 20px;
                 padding:4px 10px 4px 10px;
                 margin-top: 20px;
+                cursor: pointer;
             }
 
             .button1 {
@@ -150,6 +151,7 @@
                 padding: 20px;
                 border: 0px;
                 background: #000;
+                cursor: pointer;
             }
 
             .showtime button:hover {
