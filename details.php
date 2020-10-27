@@ -744,19 +744,19 @@
         <div class="fimg">
             <img src="logo.png" width="100px" height="100px" style="align-items: baseline;">
         </div>
-        <div class="fabout">
-            ABOUT<br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
-            <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
-            <br>
-            <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
-        </div>
         <div class="fapp">
-            GET THE APP <br>
-            <input type="button" class="fbutton" value="APP STORE">
-            <input type="button" class="fbutton" value="GOOGLE PLAY">
-        </div>  
+                GET THE APP <br>
+                <input type="button" class="fbutton" value="APP STORE">
+                <input type="button" class="fbutton" value="GOOGLE PLAY">
+        </div>
+        <div class="fabout">
+                ABOUT<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+                <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
+                <br>
+                <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
+        </div>
     </footer>
 </html>
