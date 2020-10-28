@@ -168,22 +168,22 @@
             <form id="payment" action="" method="POST">
                 <div class="selected">
                     <!--hidden type to parse to next page-->
-                    <input type="hidden" id="name" value="<?php echo $name ?>"> 
-                    <input type="hidden" id="date" value="<?php echo $date ?>"> 
-                    <input type="hidden" id="time" value="<?php echo $time ?>">
-                    <input type="hidden" id="location" value="<?php echo $location ?>">
-                    <input type="hidden" id="price" value="<?php echo $price ?>">
-                    <input type="hidden" id="qty" value="<?php echo $qty ?>">  
-                    <input type="hidden" id="seats" value="<?php echo $seats ?>">
+                    <input type="hidden" name="name" id="name" value="<?php echo $name ?>"> 
+                    <input type="hidden" name="date" id="date" value="<?php echo $date ?>"> 
+                    <input type="hidden" name="time" id="time" value="<?php echo $time ?>">
+                    <input type="hidden" name="location" id="location" value="<?php echo $location ?>">
+                    <input type="hidden" name="price" id="price" value="<?php echo $price ?>">
+                    <input type="hidden" name="qty" id="qty" value="<?php echo $qty ?>">  
+                    <input type="hidden" name="seats" id="seats" value="<?php echo $seats ?>">
 
                     <h1 style="padding:30px 0 30px 30px;">Payment </h1>
                     <div class="right">
                         <h3>Amount</h3>
-                        <input type = "text" size="5" id="price" name="price" onfocus="this.blur();" placeholder="<?php echo $price?>">
+                        <input type = "text" size="5" id="price1" name="price1" onfocus="this.blur();" placeholder="<?php echo $price?>">
                     </div>
                     <div class="right">
                         <h3>Quantity</h3>
-                        <input type = "text" size="5" id="qty" name="qty" onfocus="this.blur();" placeholder="<?php echo $qty?>">
+                        <input type = "text" size="5" id="qty1" name="qty1" onfocus="this.blur();" placeholder="<?php echo $qty?>">
                     </div> 
 
                     <h3 style="width:200px; padding-left: 60px;">Seats Selected:</h3>
@@ -193,32 +193,25 @@
 
                     <div class="right">
                         <span style="font-family: 'Open Sans', sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
-                        <input type = "text" size="5" id="price" name="price" onfocus="this.blur();" placeholder="<?php echo $price?>">
+                        <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="<?php echo $price?>">
                     </div>
 
                     <br><br>
 
                     <div class="payment">
                         <h3>Confrim your order and enter your payment details to proceed.</h3>
-                        <input type="text" size="50" id="user" name="user" placeholder="Name" required><br>
+                        <input type="text" size="50" id="user" name="user" placeholder="Name"><br>
                         <input type="email" size="50" id="email" name="email" placeholder="Email"><br>
-                        <input type="number" min="0" style="width:544px;" id="number" name="number" placeholder="Contact Number" required><br>
-                        <input type="number" min="0" style="width:230px;" id="Cnumber" name="Cnumber" placeholder="Visa/MC Card Number" required>
-                        <input type="date" style="width:180px;" id="Edate" name="Edate" class="empty" required>
-                        <input type="number" min="0" style="width:70px;" id="cvv" name="cvv" placeholder="CVV" required> 
+                        <input type="number" min="0" style="width:544px;" id="number" name="number" placeholder="Contact Number"><br>
+                        <input type="number" min="0" style="width:230px;" id="Cnumber" name="Cnumber" placeholder="Visa/MC Card Number">
+                        <input type="date" style="width:180px;" id="Edate" name="Edate" class="empty">
+                        <input type="number" min="0" style="width:70px;" id="cvv" name="cvv" placeholder="CVV"> 
                         <br><br>
                         <div style="width:40%; margin: auto;">
-                        
-                        <input type="submit" value="CANCEL" class="button" onclick="submitForm('index.html')">
-                        <input type="submit" value="PAY" class="button" onclick="return submitForm('confirm.php');">
+                            <input type="submit" value="CANCEL" class="button" onclick="submitForm('index.html')">
+                            <input type="submit" value="PAY" class="button" onclick="return submitForm('confirm.php');">
                         </div>
-
-
                     </div>
-
-
-
-
                 </div>
             </form>
 

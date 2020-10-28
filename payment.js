@@ -1,11 +1,15 @@
 function submitForm(action){
-    if(validate()== false){
-        return false;
-    } else {
+    if(action == 'index.html'){
         document.getElementById('payment').action = action;
         document.getElementById('payment').submit();
+    } else if (action == 'confirm.php') {
+        if(validate()== false){
+            return false;
+        } else {
+            document.getElementById('payment').action = action;
+            document.getElementById('payment').submit();
+        }
     }
-    
 }
 
 function validate(){
