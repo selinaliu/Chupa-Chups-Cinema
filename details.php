@@ -190,7 +190,7 @@
             }
         </style>
 
-        <script type = "text/javascript"  src = "date.js"></script>
+        <script type = "text/javascript"  src = "details.js"></script>
 
     </head>
     <body>
@@ -221,9 +221,9 @@
             }
             
             //get details from database: movies
-            $sql1 = "SELECT * FROM movies where ID =" .$ID;
-            $result1 = mysqli_query($conn, $sql1);
-            $movies = mysqli_fetch_array($result1);
+            $sql = "SELECT * FROM movies where ID =" .$ID;
+            $result = mysqli_query($conn, $sql);
+            $movies = mysqli_fetch_array($result);
             $id = $movies["ID"];
             $poster = $movies["poster"];
             $img = $movies["img"];
@@ -283,6 +283,7 @@
             <div>
                 <h1 style="margin: 0 0 30px 0;">SHOWTIME</h1>
                 <?php
+                    //date updates dynamically
                     $sql = "SELECT CURDATE()";
                     $result = mysqli_query($conn, $sql);
                     $currentDate = mysqli_fetch_assoc($result);
@@ -319,6 +320,7 @@
                     $date5 = $currentDate5['DATE_ADD(CURDATE(), INTERVAL 5 DAY)'];
                 ?>
 
+                <!--showtime tap bar-->
                 <div class="showtime">
                     <button onclick="openDate('date')"><?php echo $date ?></button>
                     <button onclick="openDate('date1')"><?php echo $date1 ?></button>
@@ -329,6 +331,7 @@
                     <button onclick="openDate('date6')"><?php echo $date6 ?></button>
                 </div>
 
+                <!--Today-->
                 <form action="seats.php" method="POST">
                     <div id="date" class="showtime-container date">
                         <h3><?php echo $date ?></h3>
@@ -343,21 +346,31 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[1]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date.'" and location ="Woodlands" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
                         <div class="timing">
                             <h3>Orchard</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Orchard and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[2]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date.'" and location ="Orchard" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -366,12 +379,17 @@
                         <div class="timing">
                             <h3>Jurong East</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Jurong East and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[3]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date.'" and location ="Jurong East" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -380,6 +398,7 @@
                     </div>
                 </form>
 
+                <!--Today+1-->
                 <form action="seats.php" method="POST">
                     <div id="date1" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date1 ?></h3>
@@ -394,7 +413,12 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[1]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date1.'" and location ="Woodlands" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -403,12 +427,17 @@
                         <div class="timing">
                             <h3>Orchard</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Orchard and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[2]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date1.'" and location ="Orchard" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -417,12 +446,17 @@
                         <div class="timing">
                             <h3>Jurong East</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Jurong East and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[3]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date1.'" and location ="Jurong East" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -431,6 +465,7 @@
                     </div>
                 </form>
 
+                <!--Today+2-->
                 <form action="seats.php" method="POST">
                     <div id="date2" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date2 ?></h3>
@@ -445,7 +480,12 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[1]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date2.'" and location ="Woodlands" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -454,12 +494,17 @@
                         <div class="timing">
                             <h3>Orchard</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Orchard and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[2]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date2.'" and location ="Orchard" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -468,12 +513,17 @@
                         <div class="timing">
                             <h3>Jurong East</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Jurong East and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[3]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date2.'" and location ="Jurong East" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -482,6 +532,7 @@
                     </div>
                 </form>
 
+                <!--Today+3-->
                 <form action="seats.php" method="POST">
                     <div id="date3" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date3 ?></h3>
@@ -496,7 +547,12 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[1]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date3.'" and location ="Woodlands" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -505,12 +561,17 @@
                         <div class="timing">
                             <h3>Orchard</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Orchard and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[2]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date3.'" and location ="Orchard" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -519,12 +580,17 @@
                         <div class="timing">
                             <h3>Jurong East</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Jurong East and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[3]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date3.'" and location ="Jurong East" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -533,6 +599,7 @@
                     </div>
                 </form>
 
+                <!--Today+4-->
                 <form action="seats.php" method="POST">
                     <div id="date4" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date4 ?></h3>
@@ -547,7 +614,12 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[1]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date4.'" and location ="Woodlands" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -556,12 +628,17 @@
                         <div class="timing">
                             <h3>Orchard</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Orchard and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[2]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date4.'" and location ="Orchard" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -570,12 +647,17 @@
                         <div class="timing">
                             <h3>Jurong East</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Jurong East and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[3]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date4.'" and location ="Jurong East" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -584,6 +666,7 @@
                     </div>
                 </form>
 
+                <!--Today+5-->
                 <form action="seats.php" method="POST">
                     <div id="date5" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date5 ?></h3>
@@ -598,7 +681,12 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[1]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date5.'" and location ="Woodlands" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -607,12 +695,17 @@
                         <div class="timing">
                             <h3>Orchard</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Orchard and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[2]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date5.'" and location ="Orchard" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -621,12 +714,17 @@
                         <div class="timing">
                             <h3>Jurong East</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Jurong East and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[3]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date5.'" and location ="Jurong East" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -635,6 +733,7 @@
                     </div>
                 </form>
 
+                <!--Today+6-->
                 <form action="seats.php" method="POST">
                     <div id="date6" class="showtime-container date"  style="display:none">
                         <h3><?php echo $date6 ?></h3>
@@ -649,7 +748,12 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[1]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date6.'" and location ="Woodlands" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -658,12 +762,17 @@
                         <div class="timing">
                             <h3>Orchard</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Orchard and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[2]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date6.'" and location ="Orchard" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -672,12 +781,17 @@
                         <div class="timing">
                             <h3>Jurong East</h3>
                             <?php 
-                                //where location = Woodlands and movie = $id
+                                //where location = Jurong East and movie = $id
                                 $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    echo "<input class='button' type='submit' name='time[3]' value='";
+                                    //get seats taken from database: orders
+                                    $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date6.'" and location ="Jurong East" and time="'.$time.'"';
+                                    $result1 = mysqli_query($conn, $sql1);
+                                    $row = mysqli_fetch_array($result1);
+                                    $seatsTaken = $row['seatsTaken'];
+                                    echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
                                     echo "'><br>";
                                 }  
@@ -737,8 +851,6 @@
             </div>
            
         </div>
-
-
     </body>
     <footer>
         <div class="fimg">
