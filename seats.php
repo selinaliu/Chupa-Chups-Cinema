@@ -219,7 +219,6 @@
             }
         </style>
 
-        <script type = "text/javascript"  src = "date.js"></script>
         <script type = "text/javascript"  src = "seats.js"></script>
 
     </head>
@@ -287,6 +286,18 @@
                 <h3 style="padding: 0 0 20px 20px;">Select your seats: </h3>
                 <h3 style="text-align: center">Screen</h3>
                 
+                <?php 
+                    $sql = 'SELECT seat FROM orders where movie ="' .$name. '" and location="'.$location. '" and date="'.$date. '" and time="'.$time. '"';
+                    $result = mysqli_query($conn, $sql);
+
+                    //loop all seats taken into one string to be parsed to seats.js
+                    $seats = "";
+                    while($row = mysqli_fetch_array($result)){
+                    $seats .= $row['seat'].",";
+                    }
+                    echo "<input type='hidden' id='check' value='".$seats."'>";
+                    echo "<input class='button' type='hidden' onclick='return checkAvail()'>";
+                ?>
                 <table>
                     <!--row A-->
                     <tr>
@@ -303,14 +314,14 @@
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="A-4">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="A-4" value="A-4">
+                                <span class="checkmark" id="mA-4"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="A-5">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="A-5" value="A-5">
+                                <span class="checkmark" id="mA-5"></span>
                             </div>
                         </td>
                         <td>
@@ -329,14 +340,14 @@
                         <td><h2>B</h2></td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="B-1">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="B-1" value="B-1">
+                                <span class="checkmark" id="mB-1"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="B-2">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="B-2" value="B-2">
+                                <span class="checkmark" id="mB-2"></span>
                             </div>
                         </td>
                         <td></td>
@@ -355,14 +366,14 @@
                         <td></td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="B-7">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="B-7" value="B-7">
+                                <span class="checkmark" id="mB-7"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="B-8">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="B-8" value="B-8">
+                                <span class="checkmark" id="mB-8"></span>
                             </div>
                         </td>
                     </tr>
@@ -381,14 +392,14 @@
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="C-4">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="C-4" value="C-4">
+                                <span class="checkmark" id="mC-4"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="C-5">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="C-5" value="C-5">
+                                <span class="checkmark" id="mC-5"></span>
                             </div>
                         </td>
                         <td>
@@ -407,14 +418,14 @@
                         <td><h2>D</h2></td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="D-1">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="D-1" value="D-1">
+                                <span class="checkmark" id="mD-1"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="D-2">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="D-2" value="D-2">
+                                <span class="checkmark" id="mD-2"></span>
                             </div>
                         </td>
                         <td></td>
@@ -433,14 +444,14 @@
                         <td></td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="D-7">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="D-7" value="D-7">
+                                <span class="checkmark" id="mD-7"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="D-8">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="D-8" value="D-8">
+                                <span class="checkmark" id="mD-8"></span>
                             </div>
                         </td>
                     </tr>
@@ -459,14 +470,14 @@
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="E-4">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="E-4" value="E-4">
+                                <span class="checkmark" id="mE-4"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="E-5">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="E-5" value="E-5">
+                                <span class="checkmark" id="mE-5"></span>
                             </div>
                         </td>
                         <td>
@@ -485,14 +496,14 @@
                         <td><h2>F</h2></td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="F-1">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="F-1" value="F-1">
+                                <span class="checkmark" id="mF-1"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="F-2">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="F-2" value="F-2">
+                                <span class="checkmark" id="mF-2"></span>
                             </div>
                         </td>
                         <td></td>
@@ -511,14 +522,14 @@
                         <td></td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="F-7">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="F-7" value="F-7">
+                                <span class="checkmark" id="mF-7"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="F-8">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="F-8" value="F-8">
+                                <span class="checkmark" id="mF-8"></span>
                             </div>
                         </td>
                     </tr>
@@ -537,14 +548,14 @@
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="G-4">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="G-4" value="G-4">
+                                <span class="checkmark" id="mG-4"></span>
                             </div>
                         </td>
                         <td>
                             <div class="seat">
-                                <input type="checkbox" name="seat" value="G-5">
-                                <span class="checkmark"></span>
+                                <input type="checkbox" name="seat" id="G-5" value="G-5">
+                                <span class="checkmark" id="mG-5"></span>
                             </div>
                         </td>
                         <td>

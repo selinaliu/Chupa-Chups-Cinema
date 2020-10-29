@@ -131,20 +131,7 @@
                 <form action="index.html">
                     <input type="submit" value="Home Page" class="button">
                 </form>
-<?php 
-
-    echo $name;
-    echo $date;
-    echo $user;
-    echo $seats;
-    echo $qty;
-    echo $price;
-
-
-?>
-            </div>
-            
-            
+            </div>            
         </div>
 
 
