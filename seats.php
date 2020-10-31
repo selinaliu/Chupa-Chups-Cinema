@@ -593,7 +593,7 @@
                 </div>
             </div>
 
-            <form action="payment.php" method="POST">
+            <form id="order" action="" method="POST">
                 <div class="selected">
                     <!--hidden button to call function without pressing-->
                     <input type="hidden" id="btn" onclick="return getSeats();">
@@ -616,7 +616,8 @@
                     <br><br><br>
 
                     <div class="right">
-                        <input type="submit" value="Place Order" class="button" onclick=" return empty();">
+                        <input type="submit" value="Another Order" class="button" onclick="submitForm('index.html')">
+                        <input type="submit" value="Place Order" class="button" onclick="return submitForm('payment.php');">
                     </div>
                 </div>
             </form>

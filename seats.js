@@ -21,6 +21,21 @@ function getSeats() {
 setInterval(getSeats, 100);
 getSeats();
 
+//redirects form
+function submitForm(action){
+    if(action == 'index.html'){
+        document.getElementById('order').action = action;
+        document.getElementById('order').submit();
+    } else if (action == 'payment.php') {
+        if(empty()== false){
+            return false;
+        } else {
+            document.getElementById('order').action = action;
+            document.getElementById('order').submit();
+        }
+    }
+}
+
 //return false if seats selected is empty
 function empty() {
     
