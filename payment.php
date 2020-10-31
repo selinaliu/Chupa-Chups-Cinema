@@ -251,17 +251,6 @@
                     <input type="hidden" name="qty" id="qty" value="<?php echo $qty ?>">  
                     <input type="hidden" name="seats" id="seats" value="<?php echo $seats ?>">
                 
-                    <?php
-
-                    for ($i=0; $i < count($_SESSION['name']); $i++){
-                        echo $_SESSION['location'][$i];
-                        echo $_SESSION['price'][$i];
-                        echo $_SESSION['qty'][$i];
-                        echo $_SESSION['seats'][$i];
-                        echo $_SESSION['location'][$i];
-
-                    }
-                    ?>
                     <div class="payment">
                         <h3>Confrim your order and enter your payment details to proceed.</h3>
                         <input type="text" size="50" id="user" name="user" placeholder="Name"><br>

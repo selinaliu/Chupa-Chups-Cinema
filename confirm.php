@@ -117,6 +117,7 @@
                     VALUES ("'.$name.'","'.$date.'","'.$time.'","'.$location.'","'.$seats.'","'.$qty.'","'.$price.'","'.$user.'","'.$email.'","'.$num.'")';
             mysqli_query($conn, $sql);
 
+            //session
             for ($i=0; $i < count($_SESSION['name']); $i++){
                 $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
                     VALUES ("'.$_SESSION['name'][$i].'","'.$_SESSION['date'][$i].'","'.$_SESSION['time'][$i].'","'.$_SESSION['location'][$i].'","'.$_SESSION['seats'][$i].'","'.$_SESSION['qty'][$i].'","'.$_SESSION['price'][$i].'","'.$user.'","'.$email.'","'.$num.'")';
