@@ -23,7 +23,7 @@ getSeats();
 
 //redirects form
 function submitForm(action){
-    if(action == 'index.html'){
+    if(action == 'test.php'){
         document.getElementById('order').action = action;
         document.getElementById('order').submit();
         

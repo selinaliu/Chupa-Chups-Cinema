@@ -9,7 +9,9 @@
 	// Check connection
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
-	}
+    }
+
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -111,10 +113,15 @@
             $email = $_POST['email'];
             $num = $_POST['number'];
 
-
             $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
                     VALUES ("'.$name.'","'.$date.'","'.$time.'","'.$location.'","'.$seats.'","'.$qty.'","'.$price.'","'.$user.'","'.$email.'","'.$num.'")';
             mysqli_query($conn, $sql);
+
+            for ($i=0; $i < count($_SESSION['name']); $i++){
+                $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
+                    VALUES ("'.$_SESSION['name'][$i].'","'.$_SESSION['date'][$i].'","'.$_SESSION['time'][$i].'","'.$_SESSION['location'][$i].'","'.$_SESSION['seats'][$i].'","'.$_SESSION['qty'][$i].'","'.$_SESSION['price'][$i].'","'.$user.'","'.$email.'","'.$num.'")';
+                 mysqli_query($conn, $sql);
+            }
         ?>
         
         <div class="wrapper">
@@ -156,3 +163,28 @@
         </div>
     </footer>
 </html>
+
+<?php
+    
+    if (isset($_SESSION['name'])){
+        unset($_SESSION['name']);
+    }
+    if (isset($_SESSION['date'])){
+        unset($_SESSION['date']);
+    }
+    if (isset($_SESSION['time'])){
+        unset($_SESSION['time']);
+    }
+    if (isset($_SESSION['location'])){
+        unset($_SESSION['location']);
+    }
+    if (isset($_SESSION['price'])){
+        unset($_SESSION['price']);
+    }
+    if (isset($_SESSION['qty'])){
+        unset($_SESSION['qty']);
+    }
+    if (isset($_SESSION['seats'])){
+        unset($_SESSION['seats']);
+    }
+ ?>
