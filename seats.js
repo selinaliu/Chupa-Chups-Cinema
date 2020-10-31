@@ -26,6 +26,7 @@ function submitForm(action){
     if(action == 'index.html'){
         document.getElementById('order').action = action;
         document.getElementById('order').submit();
+        
     } else if (action == 'payment.php') {
         if(empty()== false){
             return false;

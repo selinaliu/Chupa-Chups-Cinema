@@ -9,7 +9,38 @@
 	// Check connection
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
-	}
+    }
+    
+    //start session
+    session_start();
+    if (!isset($_SESSION['name'])){
+        $_SESSION['name'] = array();
+    }
+    if (!isset($_SESSION['date'])){
+        $_SESSION['date'] = array();
+    }
+    if (!isset($_SESSION['time'])){
+        $_SESSION['time'] = array();
+    }
+    if (!isset($_SESSION['location'])){
+        $_SESSION['location'] = array();
+    }
+    if (!isset($_SESSION['price'])){
+        $_SESSION['price'] = array();
+    }
+    if (!isset($_SESSION['qty'])){
+        $_SESSION['qty'] = array();
+    }
+    if (!isset($_SESSION['seats'])){
+        $_SESSION['seats'] = array();
+    }
+    
+
+
+    if (isset($_POST['name'])) {
+        $_SESSION['name'][] = $_POST['name'];
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -616,6 +647,9 @@
                     <br><br><br>
 
                     <div class="right">
+                        <?php 
+                            echo "<td><a href='" .$_SERVER['PHP_SELF']."'>Buy</a></td>";
+                        ?>
                         <input type="submit" value="Another Order" class="button" onclick="submitForm('index.html')">
                         <input type="submit" value="Place Order" class="button" onclick="return submitForm('payment.php');">
                     </div>
