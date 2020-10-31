@@ -165,6 +165,35 @@
     </footer>
 </html>
 
+<!--Send confirmation email-->
+<?php
+$to      = 'f33ee@localhost';
+$subject = 'Booking Confirmation';
+$message = 'Dear ---,
+			Using this booking confirmation, please print out the ticket(s) at the self-service
+			kiosk or collect them from our counters. The ticket(s) will have to be presented 
+			during entry.
+			Booking reference:
+			Movie:
+			Date:
+			Time:
+			Location:
+			Seat(s):
+			Total payment:
+			
+Thank you for choosing Chupa Chups Cinema. We look forward to serve you at our cinemas.
+
+
+';
+$headers = 'From: f33ee@localhost' . "\r\n" .
+    'Reply-To: f33ee@localhost' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+mail($to, $subject, $message, $headers,'-ff33ee@localhost');
+echo ("mail sent to : ".$to);
+?> 
+
+<!--unset all sessions for new bookings-->
 <?php
     
     if (isset($_SESSION['name'])){
