@@ -16,6 +16,7 @@ nav {
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%;
+    min-width: 900px;
 }
 nav ol, nav li {
     margin: 0;
@@ -109,10 +110,9 @@ body{
     overflow: hidden;
 }
 
-.poster img {
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%
+#poster{
+    min-width: 1900px;
+    height: auto;
 }
 
 /*Button Style*/
@@ -196,6 +196,7 @@ color: #000;
     color: #ffffff;
     background-size: contain;
     text-align: center;
+    min-width: 900px;
     height: 300px;
     padding: 20px;
 }
@@ -209,6 +210,7 @@ color: #000;
 footer {
     font-size:70%;
     width: 100%;
+    min-width: 900px;
     min-height: 100px;
     overflow: auto; /*hidden;*/
     clear: right;

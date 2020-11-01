@@ -10,8 +10,45 @@
         <link rel="stylesheet" href="color.css">
 
         <script type = "text/javascript"  src = "poster.js"></script>
+        
+        <style>
+            /* The dots/bullets/indicators */
+            .dot {
+                border-radius: 30px;
+                border: none;
+                background-color: #e8e8e8;
+                font-size: 14px;
+                margin-left: 3px;
+                height: 19px;
+                width: 13px;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+    
+            .active, .dot:hover {
+                background-color: #717171;
+            }
+    
+            /* Fading animation */
+            .fade {
+                -webkit-animation-name: fade;
+                -webkit-animation-duration: 1.5s;
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+    
+            @-webkit-keyframes fade {
+                from {opacity: .4} 
+                to {opacity: 1}
+            }
+    
+            @keyframes fade {
+                from {opacity: .4} 
+                to {opacity: 1}
+            }
+        </style>
     </head>
-
+    
     <body>
         <header>
             <nav>
@@ -24,39 +61,50 @@
                     <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
                     <li id="login" style="float: right; padding-right: 60px;"><a href="login.html#login">LOGIN</a></li>
                     <li id="register" style="float: right;"><a href="login.html#register">REGISTER</a></li>
-                 </ol>
+                </ol>
             </nav>
         </header>
-
+    
         <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
-        
+            
         <div class="poster">
-
-            <img id="poster" src="https://cms.qz.com/wp-content/uploads/2020/08/disney-mulan-e1596646420500.jpg?quality=75&strip=all&w=1600&h=900&crop=1" width="800px" alt="poster">
-            <div class="drop">
-                    <form action="">
-                        <select name="movies" id="drop">
-                            <option value="" disabled selected>Movie</option>
-                            <option value="Mulan">Mulan</option>
-                            <option value="Tenet">Tenet</option>
-                            <option value="The New Mutants">The New Mutants</option>
-                            <option value="Vanguard">Vanguard</option>
-                        </select>
-                        <select name="location" id="drop">
-                            <option value="" disabled selected>Location</option>
-                            <option value="Woodlands">Woodlands</option>
-                            <option value="Orchard">Orchard</option>
-                            <option value="Jurong East">Jurong East</option>
-                        </select>
-                        <input type="submit" class="button" value="Search">
-                    </form>
+            <div class="mySlides fade">
+                <img id="poster" src="https://cms.qz.com/wp-content/uploads/2020/08/disney-mulan-e1596646420500.jpg?quality=75&strip=all&w=1600&h=900&crop=1" width="800px" alt="poster">
             </div>
-        </div>
-        <div style="text-align: center; margin: 10px 0; ">
-            <input type="button" class="button1" onclick="chngimg(1)">
-            <input type="button" class="button1" onclick="chngimg(2)">
-            <input type="button" class="button1" onclick="chngimg(3)">
-        </div>
+    
+            <div class="mySlides fade">
+                <img id="poster" src="https://cdn.mos.cms.futurecdn.net/wJ4s9FFL6FdxAoKixtr4FS-1200-80.jpg" width="800px" alt="poster">
+            </div>
+    
+            <div class="mySlides fade">
+                <img id="poster" src="https://i.pinimg.com/originals/87/bc/f6/87bcf68ba8813f7adb73bd3852a22da4.jpg" width="800px" alt="poster">
+            </div>
+    
+            <div class="drop">
+                <form action="">
+                    <select name="movies" id="drop">
+                        <option value="" disabled selected>Movie</option>
+                        <option value="Mulan">Mulan</option>
+                        <option value="Tenet">Tenet</option>
+                        <option value="The New Mutants">The New Mutants</option>
+                        <option value="Vanguard">Vanguard</option>
+                    </select>
+                    <select name="location" id="drop">
+                        <option value="" disabled selected>Location</option>
+                        <option value="Woodlands">Woodlands</option>
+                        <option value="Orchard">Orchard</option>
+                        <option value="Jurong East">Jurong East</option>
+                    </select>
+                    <input type="submit" class="button" value="Search">
+                </form>
+            </div>
+        </div><br>
+        
+        <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+        </div><br>
 
         <div class="wrapper">
             <h1 style="padding-top:20px;">Now Showing</h1><br>
@@ -143,3 +191,25 @@
         </div>
     </footer>
 </html>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 4000); // Change image every n seconds
+    }
+</script>
