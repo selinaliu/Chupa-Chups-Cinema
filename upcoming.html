@@ -4,26 +4,143 @@
         <title>Chupa Chups Cinema</title>
         <meta charset="utf-8">
 
-        <style>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+        <link rel="stylesheet" href="color.css">
 
-        </style>
+        <script type = "text/javascript"  src = "poster.js"></script>
     </head>
+
     <body>
-        <header>Up Coming</header>
-        <div>
+        <header>
             <nav>
                 <ol>
-                  <a href="index.html">Home</a>
-                  <a href="nowshowing.html">Now Showing</a>
-                  <a href="upcoming.html">Up Coming</a>
-                  <a href="deals.html">Special Deals</a>
-                  <a href="location.html">Locations</a>
-                  <a href="login.html">Login</a>
+                    <li><a href="index.html#home" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
+                    <li><a id="home" href="index.html#home">HOME</a></li>
+                    <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
+                    <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
+                    <li><a id="location" href="location.html#location">LOCATION</a></li>
+                    <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
+                    <li id="login" style="float: right; padding-right: 60px;"><a href="login.html#login">LOGIN</a></li>
+                    <li id="register" style="float: right;"><a href="login.html#register">REGISTER</a></li>
                  </ol>
             </nav>
+        </header>
+
+        <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
+        
+        <div class="poster">
+
+            <img id="poster" src="mulan.webp" width="800px" alt="poster">
+            <div class="drop">
+                    <form action="">
+                        <select name="movies" id="drop">
+                            <option value="" disabled selected>Movie</option>
+                            <option value="mulan">Mulan</option>
+                            <option value="tenet">Tenet</option>
+                            <option value="opel">The New Mutants</option>
+                            <option value="audi">Vanguard</option>
+                        </select>
+                        <select name="location" id="drop">
+                            <option value="" disabled selected>Location</option>
+                            <option value="mulan">Woodlands</option>
+                            <option value="tenet">Orchard</option>
+                            <option value="opel">Jurong East</option>
+                            <option value="audi">Bayfront</option>
+                        </select>
+                        <input type="submit" class="button" value="Search">
+                    </form>
+            </div>
         </div>
+        <div style="text-align: center; margin: 10px 0; ">
+            <input type="button" class="button1" onclick="chngimg(1)">
+            <input type="button" class="button1" onclick="chngimg(2)">
+            <input type="button" class="button1" onclick="chngimg(3)">
+        </div>
+
+        <div class="wrapper">
+            <h1 style="padding-top:20px;">Upcoming Movies</h1><br>
+            <div class="container">
+                <img src="mulan.jpeg" width="200px" height="300px">
+                Mulan
+            </div>
+            <div class="container">
+                <img src="tenet.jpg" width="200px" height="300px">
+                Tenet
+            </div>
+            <div class="container">
+                <img src="vanguard.jpg" width="200px" height="300px">
+                Vanguard
+            </div>
+            <div class="container">
+                <img src="swordsman.jpg" width="200px" height="300px">
+                Swordsman
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="mulan.jpeg" width="200px" height="300px">
+                Mulan
+            </div>
+            <div class="container">
+                <img src="tenet.jpg" width="200px" height="300px">
+                Tenet
+            </div>
+            <div class="container">
+                <img src="vanguard.jpg" width="200px" height="300px">
+                Vanguard
+            </div>
+            <div class="container">
+                <img src="swordsman.jpg" width="200px" height="300px">
+                Swordsman
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+            <div class="container">
+                <img src="mulan.jpeg" width="200px" height="300px">
+                Mulan
+            </div>
+            <div class="container">
+                <img src="tenet.jpg" width="200px" height="300px">
+                Tenet
+            </div>
+            <div class="container">
+                <img src="vanguard.jpg" width="200px" height="300px">
+                Vanguard
+            </div>
+            <div class="container">
+                <img src="swordsman.jpg" width="200px" height="300px">
+                Swordsman
+            </div>
+            <div class="container">
+                <img src="pinocchio.jpg" width="200px" height="300px">
+                Pinocchio
+            </div>
+        </div>
+
     </body>
     <footer>
-        
+        <div class="fimg">
+            <img src="logo.png" width="100px" height="100px" style="align-items: baseline;">
+        </div>
+        <div class="fapp">
+                GET THE APP <br>
+                <input type="button" class="fbutton" value="APP STORE">
+                <input type="button" class="fbutton" value="GOOGLE PLAY">
+        </div>
+        <div class="fabout">
+                ABOUT<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+                <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
+                <br>
+                <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
+        </div>
     </footer>
 </html>
