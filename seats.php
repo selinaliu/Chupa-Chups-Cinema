@@ -11,6 +11,7 @@
 		die("Connection failed: " . mysqli_connect_error());
     }
     
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +71,7 @@
                 margin-top: 80px;
                 padding: 30px 30px;
                 min-width:800px;
-                height: 1200px;
+                height: 1250px;
                 font-size: 18px;
                 background-color: #fff;
             } 
@@ -297,6 +298,13 @@
                     $seats .= $row['seat'].",";
                     }
                     echo "<input type='hidden' id='check' value='".$seats."'>";
+                    
+                    for ($i=0; $i < count($_SESSION['name']); $i++){
+                        if ($_SESSION["name"][$i] == $name || $_SESSION["date"][$i] == $date || $_SESSION["time"][$i] == $time || $_SESSION["location"][$i] == $location){
+                            echo "<input type='hidden' id='checkSess".$i."' value='".$_SESSION["seats"][$i]."'>";
+                        }
+                    }
+
                     echo "<input class='button' type='hidden' onclick='return checkAvail()'>";
                 ?>
                 <table>

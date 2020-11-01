@@ -64,6 +64,26 @@ function checkAvail(){
         
         }
     }
+
+
+    //check avail seats from session
+    for (j=0; j<15; j++) {
+        var sessSeats;
+        var elementSess = document.getElementById('checkSess'+j);
+        if (elementSess != null) {
+            sessSeats = elementSess.value;
+            var sessSeat = sessSeats.split(",");
+            //alert(sessSeats);
+            
+            for (i=0; i<sessSeat.length; i++){
+                var sessSeatTaken = sessSeat[i];
+                var checkbox1 = document.getElementById(sessSeatTaken);
+                checkbox1.disabled = true;
+                var checkmark1 = document.getElementById("m"+sessSeatTaken);
+                checkmark1.style.backgroundColor = "grey";
+            }
+        }
+    }
 }
 
 

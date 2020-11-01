@@ -53,8 +53,8 @@
             }
 
             .mImg {
-                width: 300px;
-                margin-left: 0;
+                width: 220px;
+                margin: 20px 0 0 50px;
                 float: left;
             }
 
