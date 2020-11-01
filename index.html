@@ -9,145 +9,21 @@
         <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
         <link rel="stylesheet" href="color.css">
 
-        <style>
-            /*text*/
-            h1 a {  color:#333333;
-                    font-size: 16px;
-                    margin-left: 9px;
-            }
-
-            h2 {
-                color:#fff;
-                font-size: 40px;
-                font-family: 'Montserrat', sans-serif;
-            }
-
-			h3{font-size: 18px;}
-
-            a {
-                text-decoration: none;
-                color:#000;
-            }
-
-            /*banner*/
-            .poster {
-                width: 100%;
-                height: 100%;
-                /*height: 575px;*/
-                margin-top: 70px;
-                display: flex;
-                justify-content: baseline;
-                align-items: baseline;
-                overflow: hidden;
-            }
-
-            .poster img {
-                flex-shrink: 0;
-                min-width: 100%;
-                min-height: 100%
-            }
-
-            /*Drop-down box*/
-            .drop {
-                position: absolute;
-                left: 0;
-                top:  80px;  /*27%;*/
-                width: 100%;
-                
-                text-align: left;
-                padding-left: 55px;
-                z-index:0;
-            }
-
-            #drop {
-                width: 538px;
-                height: 24px;
-                font-size: 16px;
-            }
-
-            .button {
-                border-radius: 10px;
-                border: none;
-                background-color:rgb(255, 168, 6);
-                color: #fff;
-                font-size: 16px;
-                padding:4px 10px 4px 10px;
-            }
-
-            .button1 {
-                border-radius: 30px;
-                border: none;
-                background-color: #e8e8e8;
-                font-size: 14px;
-                margin-left: 3px;
-            }
-
-            /*Drop-down options*/
-            select:invalid {
-            color: gray;
-            }
-
-            option[value=""][disabled] {
-            display: none;
-            }
-
-            option {
-            color: #000;
-            }
-
-            /*content box*/
-            .wrapper {     
-                margin: 0px 20px 20px 20px;
-                padding: 20px;
-                min-width:800px;
-                height: 450px;
-                font-size: 18px;
-                background-color: #fff;
-		    } 
-
-            .container {
-                width: 200px;
-                height: 350px;
-                margin: 0px 0 0 30px;
-                float: left;
-                color:#000;
-                text-align: center;
-                font-weight: 600;
-            }
-
-            /*newsletter*/
-            .newletter {
-                background-color: #bbb3b3;
-                background-image: url('newsletter2.jpg');
-                color: #ffffff;
-                background-size: contain;
-                text-align: center;
-                height: 300px;
-                padding: 20px;
-            }
-
-            #subscribe {
-                width: 260px;
-                height: 20px;
-            }
-
-        </style>
-
         <script type = "text/javascript"  src = "index.js"></script>
-
     </head>
+
     <body>
         <header>
             <nav>
                 <ol>
-                    <li><a href="index.html" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="nowshowing.html">NOW SHOWING</a></li>
-                    <li><a href="upcoming.html">UPCOMING</a></li>
-                    <li><a href="location.html">LOCATION</a></li>
-                    <li><a href="deals.html">SPECIAL DEALS</a></li>
-                    <li style="float: right; padding-right: 60px;"><a href="login.html">LOGIN</a></li>
-                    <li style="float: right;"><a href="login.html">REGISTER</a></li>
+                    <li><a href="index.html#home" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
+                    <li><a id="home" href="index.html#home">HOME</a></li>
+                    <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
+                    <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
+                    <li><a id="location" href="location.html#location">LOCATION</a></li>
+                    <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
+                    <li id="login" style="float: right; padding-right: 60px;"><a href="login.html#login">LOGIN</a></li>
+                    <li id="register" style="float: right;"><a href="login.html#register">REGISTER</a></li>
                  </ol>
             </nav>
         </header>
