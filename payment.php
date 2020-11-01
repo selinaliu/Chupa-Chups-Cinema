@@ -53,8 +53,8 @@
             }
 
             .mImg {
-                width: 300px;
-                margin-left: 0;
+                width: 220px;
+                margin: 20px 0 0 50px;
                 float: left;
             }
 
@@ -119,6 +119,10 @@
                 padding: 7px 10px 7px 10px;
                 cursor: pointer;
             }
+
+            .cancel {
+                margin-left: 60px;
+            }
         </style>
 
         <script type = "text/javascript"  src = "payment.js"></script>
@@ -160,83 +164,93 @@
         ?>
         
         <div class="wrapper">
-            <div class="poster" style="margin-top: 0px">
-                <div class="mImg">
-                    <img src="<?php echo $img ?>" height="300px" width="200px">
-                </div>
-                <div class="mText">
-                    <h1 style="margin:0;"><?php echo $name ?></h1><br>
-                    <h3><strong>Location: </strong><?php echo $location ?><br><br>
-                    <strong>Date: </strong><?php echo $date ?><br><br>
-                    <strong>Time: </strong><?php echo $time ?><br></h3>
-                </div>
-            </div>
-            <div class="selectGrey">
-                <h1 style="padding:30px 0 30px 30px;">Payment </h1>
-                <div class="right">
-                    <h3>Amount</h3>
-                    <input type = "text" size="5" id="price1" name="price1" onfocus="this.blur();" placeholder="<?php echo $price?>">
-                </div>
-                <div class="right">
-                    <h3>Quantity</h3>
-                    <input type = "text" size="5" id="qty1" name="qty1" onfocus="this.blur();" placeholder="<?php echo $qty?>">
-                </div> 
 
-                <h3 style="width:200px; padding-left: 60px;">Seats Selected:</h3>
-                <input type = "text"  style="margin-left: 60px;" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="<?php echo $seats?>">
-
-                <br><br><br>
-
-                <div class="right">
-                    <span style="font-family: 'Open Sans', sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
-                    <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="<?php echo $price?>">
-                </div>
-
-                <br><br>
-            </div>
-
-            <?php 
-
-            for ($i=0; $i < count($_SESSION['name']); $i++){
-                $sql1 = 'SELECT * FROM movies where name ="' .$_SESSION['name'][$i]. '"';
-                $result1 = mysqli_query($conn, $sql1);
-                $movies1 = mysqli_fetch_array($result1);
-                $img1 = $movies1["img"];
-                echo '<div class="poster">
+            <div id="order">
+                <div class="poster" style="margin-top: 0px">
                     <div class="mImg">
-                        <img src="'.$img1.'" height="300px" width="200px">
+                        <img src="<?php echo $img ?>" height="300px" width="200px">
                     </div>
                     <div class="mText">
-                        <h1 style="margin:0;">'.$_SESSION['name'][$i].'</h1><br>
-                        <h3><strong>Location: </strong>'.$_SESSION['location'][$i].'<br><br>
-                        <strong>Date: </strong>'.$_SESSION['date'][$i].'<br><br>
-                        <strong>Time: </strong>'.$_SESSION['time'][$i].'<br></h3>
+                        <h1 style="margin:0;"><?php echo $name ?></h1><br>
+                        <h3><strong>Location: </strong><?php echo $location ?><br><br>
+                        <strong>Date: </strong><?php echo $date ?><br><br>
+                        <strong>Time: </strong><?php echo $time ?><br></h3>
                     </div>
                 </div>
                 <div class="selectGrey">
                     <h1 style="padding:30px 0 30px 30px;">Payment </h1>
                     <div class="right">
                         <h3>Amount</h3>
-                        <input type = "text" size="5" id="price1" name="price1" onfocus="this.blur();" placeholder="'.$_SESSION['price'][$i].'">
+                        <input type = "text" size="5" id="price1" name="price1" onfocus="this.blur();" placeholder="<?php echo $price?>">
                     </div>
                     <div class="right">
                         <h3>Quantity</h3>
-                        <input type = "text" size="5" id="qty1" name="qty1" onfocus="this.blur();" placeholder="'.$_SESSION['qty'][$i].'">
+                        <input type = "text" size="5" id="qty1" name="qty1" onfocus="this.blur();" placeholder="<?php echo $qty?>">
                     </div> 
 
                     <h3 style="width:200px; padding-left: 60px;">Seats Selected:</h3>
-                    <input type = "text"  style="margin-left: 60px;" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="'.$_SESSION['seats'][$i].'">
+                    <input type = "text"  style="margin-left: 60px;" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="<?php echo $seats?>">
 
                     <br><br><br>
-
+                    <div class="cancel">
+                        <button onclick="cancelOrder('order')" class="button">Cancel order</button>
+                    </div>
                     <div class="right">
-                        <span style="font-family: "Open Sans", sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
-                        <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="'.$_SESSION['price'][$i].'">
+                        <span style="font-family: 'Open Sans', sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
+                        <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="<?php echo $price?>">
                     </div>
 
                     <br><br>
-                </div>';
-            }
+                </div>
+            </div>
+
+            <!--Print out movie details for session-->
+            <?php 
+
+                for ($i=0; $i < count($_SESSION['name']); $i++){
+                    $sql1 = 'SELECT * FROM movies where name ="' .$_SESSION['name'][$i]. '"';
+                    $result1 = mysqli_query($conn, $sql1);
+                    $movies1 = mysqli_fetch_array($result1);
+                    $img1 = $movies1["img"];
+                    echo ' <div id="order1">
+                        <div class="poster">
+                            <div class="mImg">
+                                <img src="'.$img1.'" height="300px" width="200px">
+                            </div>
+                            <div class="mText">
+                                <h1 style="margin:0;">'.$_SESSION['name'][$i].'</h1><br>
+                                <h3><strong>Location: </strong>'.$_SESSION['location'][$i].'<br><br>
+                                <strong>Date: </strong>'.$_SESSION['date'][$i].'<br><br>
+                                <strong>Time: </strong>'.$_SESSION['time'][$i].'<br></h3>
+                            </div>
+                        </div>
+                        <div class="selectGrey">
+                            <h1 style="padding:30px 0 30px 30px;">Payment </h1>
+                            <div class="right">
+                                <h3>Amount</h3>
+                                <input type = "text" size="5" id="price1" name="price1" onfocus="this.blur();" placeholder="'.$_SESSION['price'][$i].'">
+                            </div>
+                            <div class="right">
+                                <h3>Quantity</h3>
+                                <input type = "text" size="5" id="qty1" name="qty1" onfocus="this.blur();" placeholder="'.$_SESSION['qty'][$i].'">
+                            </div> 
+
+                            <h3 style="width:200px; padding-left: 60px;">Seats Selected:</h3>
+                            <input type = "text"  style="margin-left: 60px;" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="'.$_SESSION['seats'][$i].'">
+
+                            <br><br><br>
+                            <div class="cancel">
+                                <button onclick="cancelOrder("order1")" class="button">Cancel order</button>
+                            </div>
+                            <div class="right">
+                                <span style="font-family: "Open Sans", sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
+                                <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="'.$_SESSION['price'][$i].'">
+                            </div>
+
+                            <br><br>
+                        </div>
+                    </div>';
+                }
 
             ?>
 

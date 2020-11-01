@@ -113,10 +113,13 @@
             $email = $_POST['email'];
             $num = $_POST['number'];
 
-            $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
-                    VALUES ("'.$name.'","'.$date.'","'.$time.'","'.$location.'","'.$seats.'","'.$qty.'","'.$price.'","'.$user.'","'.$email.'","'.$num.'")';
-            mysqli_query($conn, $sql);
-
+            //if empty means order cancelled
+            if($qty != 0){
+                $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
+                VALUES ("'.$name.'","'.$date.'","'.$time.'","'.$location.'","'.$seats.'","'.$qty.'","'.$price.'","'.$user.'","'.$email.'","'.$num.'")';
+                mysqli_query($conn, $sql);
+            }
+           
             //session
             for ($i=0; $i < count($_SESSION['name']); $i++){
                 $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
@@ -128,18 +131,20 @@
         
 <!--Send confirmation email-->
 <?php
-$ran1 = rand(1111111, 9999999);
 $ran2 = rand(1111111, 9999999);
 $to      = 'f33ee@localhost';
 $subject = 'Booking Confirmation';
 for ($i=0; $i < count($_SESSION['name']); $i++){
-    $str = 'Booking reference:'.$ran1.'
-    Movie: '.$_SESSION["name"][$i].'
-    Date: '.$_SESSION["date"][$i].'
-    Time: '.$_SESSION["time"][$i].'
-    Location: '.$_SESSION["location"][$i].'
-    Seat(s): '.$_SESSION["seats"][$i].'
-    Total payment: $'.$_SESSION["price"][$i];
+$ran1 = rand(1111111, 9999999);
+$str .= '
+Booking reference:'.$ran1.'
+Movie: '.$_SESSION["name"][$i].'
+Date: '.$_SESSION["date"][$i].'
+Time: '.$_SESSION["time"][$i].'
+Location: '.$_SESSION["location"][$i].'
+Seat(s): '.$_SESSION["seats"][$i].'
+Total payment: $'.$_SESSION["price"][$i].'
+';
 }
 
 $message = 'Dear '.$user.',
@@ -152,7 +157,6 @@ Time: '.$time.'
 Location: '.$location.'
 Seat(s): '.$seats.'
 Total payment: $'.$price.'
-
 '.$str.'
 			
 Thank you for choosing Chupa Chups Cinema. We look forward to serve you at our cinemas.';

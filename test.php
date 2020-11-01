@@ -51,6 +51,7 @@
 
 ?>
 
+<!--Do not need to be put in nowshowing.php-->
 <html>
 <head>
 <title>Shopping Cart</title>
