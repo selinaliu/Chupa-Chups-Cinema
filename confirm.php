@@ -113,10 +113,13 @@
             $email = $_POST['email'];
             $num = $_POST['number'];
 
-            $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
-                    VALUES ("'.$name.'","'.$date.'","'.$time.'","'.$location.'","'.$seats.'","'.$qty.'","'.$price.'","'.$user.'","'.$email.'","'.$num.'")';
-            mysqli_query($conn, $sql);
-
+            //if empty means order cancelled
+            if($qty != 0){
+                $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
+                VALUES ("'.$name.'","'.$date.'","'.$time.'","'.$location.'","'.$seats.'","'.$qty.'","'.$price.'","'.$user.'","'.$email.'","'.$num.'")';
+                mysqli_query($conn, $sql);
+            }
+           
             //session
             for ($i=0; $i < count($_SESSION['name']); $i++){
                 $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 

@@ -113,3 +113,9 @@ function validate(){
         return false;
     }
 }
+
+function cancelOrder(order) {
+    document.getElementById(order).style.display = "none";  
+    document.getElementById('qty').value = 0;
+
+  }
