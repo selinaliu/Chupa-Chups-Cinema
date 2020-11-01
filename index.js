@@ -14,6 +14,9 @@ function chngimg(index) {
 
 }
 
+setInterval(chngimg, 5000); /*Call it here*/
+chngimg();
+
 function changeMovie(){
     
    switch (document.getElementById("nowshowing1").style.display) {
