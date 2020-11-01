@@ -124,6 +124,45 @@
                  mysqli_query($conn, $sql);
             }
         ?>
+
+        
+<!--Send confirmation email-->
+<?php
+$ran1 = rand(1111111, 9999999);
+$ran2 = rand(1111111, 9999999);
+$to      = 'f33ee@localhost';
+$subject = 'Booking Confirmation';
+for ($i=0; $i < count($_SESSION['name']); $i++){
+    $str = 'Booking reference:'.$ran1.'
+    Movie: '.$_SESSION["name"][$i].'
+    Date: '.$_SESSION["date"][$i].'
+    Time: '.$_SESSION["time"][$i].'
+    Location: '.$_SESSION["location"][$i].'
+    Seat(s): '.$_SESSION["seats"][$i].'
+    Total payment: $'.$_SESSION["price"][$i];
+}
+
+$message = 'Dear '.$user.',
+Using this booking confirmation, please print out the ticket(s) at the self-service kiosk or collect them from our counters. The ticket(s) will have to be presented during entry.
+
+Booking reference:'.$ran2.'
+Movie: '.$name.'
+Date: '.$date.'
+Time: '.$time.'
+Location: '.$location.'
+Seat(s): '.$seats.'
+Total payment: $'.$price.'
+
+'.$str.'
+			
+Thank you for choosing Chupa Chups Cinema. We look forward to serve you at our cinemas.';
+$headers = 'From: f33ee@localhost' . "\r\n" .
+    'Reply-To: f33ee@localhost' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+mail($to, $subject, $message, $headers,'-ff33ee@localhost');
+echo ("mail sent to : ".$to);
+?> 
         
         <div class="wrapper">
             <div class="confirm">
@@ -165,33 +204,6 @@
     </footer>
 </html>
 
-<!--Send confirmation email-->
-<?php
-$to      = 'f33ee@localhost';
-$subject = 'Booking Confirmation';
-$message = 'Dear ---,
-			Using this booking confirmation, please print out the ticket(s) at the self-service
-			kiosk or collect them from our counters. The ticket(s) will have to be presented 
-			during entry.
-			Booking reference:
-			Movie:
-			Date:
-			Time:
-			Location:
-			Seat(s):
-			Total payment:
-			
-Thank you for choosing Chupa Chups Cinema. We look forward to serve you at our cinemas.
-
-
-';
-$headers = 'From: f33ee@localhost' . "\r\n" .
-    'Reply-To: f33ee@localhost' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-
-mail($to, $subject, $message, $headers,'-ff33ee@localhost');
-echo ("mail sent to : ".$to);
-?> 
 
 <!--unset all sessions for new bookings-->
 <?php
