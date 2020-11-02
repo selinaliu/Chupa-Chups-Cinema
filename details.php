@@ -26,6 +26,10 @@
         <link rel="stylesheet" href="color.css">
 
         <style>
+            h1 {
+                margin: 0 0 30px 0;
+            }
+
             /*movie details in poster*/
             h2 {
                 color: #fff;
@@ -151,6 +155,9 @@
                 width: 130px;
                 height: 130px;
                 float: left;
+                font-size: 70px; 
+                text-align: center; 
+                color: rgb(255, 168, 6);
             }
             .reviewtxt {
                 
@@ -221,7 +228,7 @@
                 <img src="<?php echo $img ?>" height="450px" width="300px">
             </div>
             <div class="mText">
-                <h1 style="color: #fff;margin: 0;"><?php echo $name ?></h1>
+                <h1 style="color: #fff; margin: 0;"><?php echo $name ?></h1>
 
                 <?php 
                     for ($x = 1; $x <= $stars; $x++) {
@@ -243,19 +250,30 @@
 
         <div id="wrapper">
             <div>
-                <h1 style="margin: 0 0 30px 0;">SYNOPSIS</h1>
+                <h1>SYNOPSIS</h1>
                 <h3><?php echo $syn ?><h3>
                 <br><hr><br>
             </div>
             <div>
-                <h1 style="margin: 0 0 30px 0;">TRAILER</h1>
-                <iframe width="728" height="410" src="<?php echo $trailer?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                <h1>TRAILER</h1>
+                <!--<iframe width="728" height="410" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--> 
+                <div style="width: 728px; height: 410px;">
+                <embed
+                    src="<?php echo $trailer?>"
+                    wmode="transparent"
+                    type="video/mp4"
+                    width="100%" height="100%"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                    title="Keyboard Cat"
+                >
+                </div>
                 <br><br><hr><br>
             </div>
             <div>
-                <h1 style="margin: 0 0 30px 0;">SHOWTIME</h1>
+                <h1>SHOWTIME</h1>
                 <?php
-                    //date updates dynamically
+                    //get each date dynamically from database for 7 days
                     $sql = "SELECT CURDATE()";
                     $result = mysqli_query($conn, $sql);
                     $currentDate = mysqli_fetch_assoc($result);
@@ -307,7 +325,7 @@
                 <form action="seats.php" method="POST">
                     <div id="date" class="showtime-container date">
                         <h3><?php echo $date ?></h3>
-                        <!--put value in hidden form to parse to seats.php -->
+                        <!--put name and date in hidden form to parse to seats.php -->
                         <input type="hidden" name="name" value="<?php echo $name ?>">
                         <input type="hidden" name="date" value="<?php echo $date ?>">
                         <div class="timing">
@@ -318,7 +336,7 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date.'" and location ="Woodlands" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
@@ -337,14 +355,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date.'" and location ="Orchard" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -356,14 +374,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date.'" and location ="Jurong East" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -385,14 +403,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date1.'" and location ="Woodlands" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -404,14 +422,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date1.'" and location ="Orchard" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -423,14 +441,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date1.'" and location ="Jurong East" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -452,14 +470,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date2.'" and location ="Woodlands" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -471,14 +489,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date2.'" and location ="Orchard" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -490,14 +508,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date2.'" and location ="Jurong East" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -519,14 +537,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date3.'" and location ="Woodlands" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -538,14 +556,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date3.'" and location ="Orchard" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -557,14 +575,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date3.'" and location ="Jurong East" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -586,14 +604,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date4.'" and location ="Woodlands" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -605,14 +623,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date4.'" and location ="Orchard" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -624,14 +642,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date4.'" and location ="Jurong East" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -653,14 +671,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date5.'" and location ="Woodlands" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -672,14 +690,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date5.'" and location ="Orchard" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -691,14 +709,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date5.'" and location ="Jurong East" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -720,14 +738,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date6.'" and location ="Woodlands" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[1]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -739,14 +757,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date6.'" and location ="Orchard" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[2]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -758,14 +776,14 @@
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
-                                    //get seats taken from database: orders
+                                    //check number of seats taken from database: orders. turns grey if all 20 seats taken
                                     $sql1 =  'SELECT SUM(qty) as seatsTaken FROM orders WHERE movie="'.$name.'" and date="'.$date6.'" and location ="Jurong East" and time="'.$time.'"';
                                     $result1 = mysqli_query($conn, $sql1);
                                     $row = mysqli_fetch_array($result1);
                                     $seatsTaken = $row['seatsTaken'];
                                     echo "<input class='button' type='submit' id='".$seatsTaken."' name='time[3]' value='";
                                     echo $time; 
-                                    echo "'><br>";
+                                    echo "' onclick='return checkAvail()'><br>";
                                 }  
                             ?>
                         </div>
@@ -775,10 +793,12 @@
                 <br><hr><br>
             </div>
             <div style="clear:both"></div>
+
+            <!--Get reveiws from database:movies-->
             <div>
-                <h1 style="margin: 0 0 30px 0;">REVIEWS</h1>
+                <h1>REVIEWS</h1>
                 <div class="review">
-                    <div class="reviewimg" style="font-size: 70px; text-align: center; color: rgb(255, 168, 6)">
+                    <div class="reviewimg">
                         <span class='fa fa-user' ></span>
                         <h3>Eric Sohn</h3>
                     </div>
@@ -792,7 +812,7 @@
                     </div>
                 </div>
                 <div class="review">
-                    <div class="reviewimg" style="font-size: 70px; text-align: center; color: rgb(255, 168, 6)">
+                    <div class="reviewimg">
                         <span class='fa fa-user' ></span>
                         <h3>Kevin Moon</h3>
                     </div>
@@ -806,7 +826,7 @@
                     </div>
                 </div>
                 <div class="review">
-                    <div class="reviewimg" style="font-size: 70px; text-align: center; color: rgb(255, 168, 6)">
+                    <div class="reviewimg">
                         <span class='fa fa-user' ></span>
                         <h3>Jocob Bae</h3>
                     </div>
@@ -834,10 +854,8 @@
                 <input type="button" class="fbutton" value="GOOGLE PLAY">
         </div>
         <div class="fabout">
-                ABOUT<br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+                ABOUT US<br><br>
+                Chupa Chups... The sweetest treat in town! Find local movie showtimes, watch trailers and book tickets right here at your favourite cinema.<br><br>
                 <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
                 <br>
                 <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
