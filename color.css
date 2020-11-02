@@ -189,6 +189,27 @@ color: #000;
     font-weight: 600;
 }
 
+/*Login/Register Page*/
+.login{
+    margin: 80px 120px 120px 120px;
+    padding: 50px;
+    min-width:800px;
+    min-height: 480px;
+    overflow: auto;
+    text-align: center;
+    background-color: #e8e8e8;
+}
+
+.login a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.login a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+
 /*Newsletter*/
 .newletter {
     background-color: #bbb3b3;

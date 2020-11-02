@@ -58,10 +58,10 @@
                     <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
                     <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                     <li><a id="location" href="location.html#location">LOCATION</a></li>
-                    <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
-                    <li id="login" style="float: right; padding-right: 60px;"><a href="login.html#login">LOGIN</a></li>
-                    <li id="register" style="float: right;"><a href="login.html#register">REGISTER</a></li>
-                 </ol>
+                    <li><a id="deals" href="deals.php#deals">SPECIAL DEALS</a></li>
+                    <li style="float: right; padding-right: 60px;"><a id="login" href="login.html#login">LOGIN</a></li>
+                    <li style="float: right;"><a id="register" href="register.html#register">REGISTER</a></li>
+                </ol>
             </nav>
         </header>
 
@@ -113,7 +113,7 @@
         </div>-->
 
         <div id="nowshowing1" class="wrapper change">
-            <h1 style="padding-top:10px;">Trending now<a href="nowshowing.html">View all ></a></h1><br>
+            <h1 style="padding-top:10px;">Trending now<a id="nowshowing" href="nowshowing.html#nowshowing">View all ></a></h1><br>
             <div class="container">
                 <form action="details.php" method="POST">
                     <input type="image" name="movie[1]" id="mulan" src="https://lumiere-a.akamaihd.net/v1/images/p_mulan2020_20204_b005decc.jpeg?region=0,0,540,810" width="210px" height="300px" alt="Mulan">
@@ -158,7 +158,7 @@
             </div>
         </div>
         <div id="nowshowing2" class="wrapper change" style="display: none">
-            <h1 style="padding-top:10px;">Trending now<a href="nowshowing.html">View all ></a></h1><br>
+            <h1 style="padding-top:10px;">Trending now<a id="nowshowing" href="nowshowing.html#nowshowing">View all ></a></h1><br>
             <div class="container">
                 <form action="details.php" method="POST">
                     <input type="image" name="movie[8]" id="vanguard" src="https://m.media-amazon.com/images/M/MV5BMmZlZmI0OGUtOWIxZi00NjYzLTg1NjItZmM3MTBiNWM1YTYzXkEyXkFqcGdeQXVyNjgwNTk4Mg@@._V1_.jpg" width="210px" height="300px" alt="Vanguard">
@@ -188,7 +188,7 @@
         </div>
 
         <div id="upcoming" class="wrapper">
-            <h1 style="padding-top:10px;">Upcoming Movies<a href="upcoming.html">View all ></a></h1><br> 
+            <h1 style="padding-top:10px;">Upcoming Movies<a id="upcoming" href="upcoming.html#upcoming">View all ></a></h1><br> 
             <div class="container">
                 <img alt="movie[13]" src="https://www.joblo.com/assets/images/joblo/news/2020/07/honesttheifposterman1.jpg" width="210px" height="300px">
                 Honest Thief
@@ -240,14 +240,12 @@
         </div>
         <div class="fapp">
                 GET THE APP <br>
-                <input type="button" class="fbutton" value="APP STORE">
-                <input type="button" class="fbutton" value="GOOGLE PLAY">
+                <input type="button" class="fbutton" value="APP STORE" style="width: 130px;">
+                <input type="button" class="fbutton" value="GOOGLE PLAY" style="width: 150px;">
         </div>
         <div class="fabout">
-                ABOUT<br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+                ABOUT US<br><br>
+                Chupa Chups... The sweetest treat in town! Find local movie showtimes, watch trailers and book tickets right here at your favourite cinema.<br><br>
                 <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
                 <br>
                 <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>

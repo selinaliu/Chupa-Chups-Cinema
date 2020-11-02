@@ -198,15 +198,15 @@
         <header>
             <nav>
                 <ol>
-                    <li><a href="index.html" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="nowshowing.html">NOW SHOWING</a></li>
-                    <li><a href="upcoming.html">UPCOMING</a></li>
-                    <li><a href="location.html">LOCATION</a></li>
-                    <li><a href="deals.html">SPECIAL DEALS</a></li>
-                    <li style="float: right; padding-right: 35px;"><a href="login.html">LOGIN</a></li>
-                    <li style="float: right;"><a href="login.html">REGISTER</a></li>
-                 </ol>
+                    <li><a href="index.html#home" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
+                    <li><a id="home" href="index.html#home">HOME</a></li>
+                    <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
+                    <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
+                    <li><a id="location" href="location.html#location">LOCATION</a></li>
+                    <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
+                    <li id="login" style="float: right; padding-right: 60px;"><a href="login.html#login">LOGIN</a></li>
+                    <li id="register" style="float: right;"><a href="login.html#register">REGISTER</a></li>
+                </ol>
             </nav>
         </header>
 

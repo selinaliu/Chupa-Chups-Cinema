@@ -46,6 +46,24 @@
                 from {opacity: .4} 
                 to {opacity: 1}
             }
+
+            /*Heading for Months*/
+            h4 {
+                font-size: 22px;
+                padding-left: 34px;
+                text-decoration: underline;
+            }
+
+            /*Text for Dates*/
+            .showdate {
+                font-weight: lighter;
+                color: #717171;
+            }
+
+            /*Movies*/
+            .container{
+                padding-bottom: 20px;
+            }
         </style>
     </head>
     
@@ -58,9 +76,9 @@
                     <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
                     <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                     <li><a id="location" href="location.html#location">LOCATION</a></li>
-                    <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
-                    <li id="login" style="float: right; padding-right: 60px;"><a href="login.html#login">LOGIN</a></li>
-                    <li id="register" style="float: right;"><a href="login.html#register">REGISTER</a></li>
+                    <li><a id="deals" href="deals.php#deals">SPECIAL DEALS</a></li>
+                    <li style="float: right; padding-right: 60px;"><a id="login" href="login.html#login">LOGIN</a></li>
+                    <li style="float: right;"><a id="register" href="register.html#register">REGISTER</a></li>
                 </ol>
             </nav>
         </header>
@@ -107,66 +125,103 @@
         </div><br>
 
         <div class="wrapper">
-            <h1 style="padding-top:20px;">Upcoming Movies</h1><br>
+            <h1 style="padding-top:20px;">Upcoming Movies</h1>
+            <h4>November</h4>
             <div class="container">
-                <img src="mulan.jpeg" width="200px" height="300px">
-                Mulan
+                <img alt="movie[20]" src="https://popcornsg.s3.amazonaws.com/movies/650/1715-20392-Eternalsjpg" width="210px" height="300px">
+                Eternals<br><span class="showdate">5 November, 2020</span>
             </div>
             <div class="container">
-                <img src="tenet.jpg" width="200px" height="300px">
-                Tenet
+                <img alt="movie[21]" src="https://popcornsg.s3.amazonaws.com/movies/650/2417-21623-Halloweejpg" width="210px" height="300px">
+                Halloween Kills<br><span class="showdate">5 November, 2020</span>
             </div>
             <div class="container">
-                <img src="vanguard.jpg" width="200px" height="300px">
-                Vanguard
+                <img alt="movie[22]" src="https://popcornsg.s3.amazonaws.com/movies/650/5325-25854-VoiceOfSjpg" width="210px" height="300px">
+                Voice Of Silence<br><span class="showdate">7 November, 2020</span>
             </div>
             <div class="container">
-                <img src="swordsman.jpg" width="200px" height="300px">
-                Swordsman
+                <img alt="movie[23]" src="https://popcornsg.s3.amazonaws.com/movies/650/1600244555098-2030-Freakyjpg" width="210px" height="300px">
+                Freaky<br><span class="showdate">12 November, 2020</span>
             </div>
             <div class="container">
-                <img src="pinocchio.jpg" width="200px" height="300px">
-                Pinocchio
+                <img alt="movie[24]" src="https://popcornsg.s3.amazonaws.com/movies/650/5460-26055-HorizonLjpg" width="210px" height="300px">
+                Horizon Line<br><span class="showdate">12 November, 2020</span>
             </div>
             <div class="container">
-                <img src="mulan.jpeg" width="200px" height="300px">
-                Mulan
+                <img alt="movie[25]" src="https://popcornsg.s3.amazonaws.com/movies/650/1594607181156-24396-Dreamkatjpg" width="210px" height="300px">
+                Dreamkatcher<br><span class="showdate">12 November, 2020</span>
             </div>
             <div class="container">
-                <img src="tenet.jpg" width="200px" height="300px">
-                Tenet
+                <img alt="movie[26]" src="https://popcornsg.s3.amazonaws.com/movies/650/12791-21481-Everybod.jpg" width="210px" height="300px">
+                Jamie<br><span class="showdate">15 November, 2020</span>
             </div>
             <div class="container">
-                <img src="vanguard.jpg" width="200px" height="300px">
-                Vanguard
+                <img alt="movie[27]" src="https://popcornsg.s3.amazonaws.com/movies/650/13070-20667-NoTimeTojpg" width="210px" height="300px">
+                No Time To Die<br><span class="showdate">19 November, 2020</span>
             </div>
             <div class="container">
-                <img src="swordsman.jpg" width="200px" height="300px">
-                Swordsman
+                <img alt="movie[28]" src="https://popcornsg.s3.amazonaws.com/movies/650/2167-18900-Godzillajpg" width="210px" height="300px">
+                Godzilla Vs Kong<br><span class="showdate">25 November, 2020</span>
+            </div>
+
+            <div style="margin-top: 800px;">
+            <h4>December</h4>
+            <div class="container">
+                <img alt="movie[29]" src="https://popcornsg.s3.amazonaws.com/movies/650/1595402148979-349-Endlessjpg" width="210px" height="300px">
+                Endless<br><span class="showdate">2 December, 2020</span>
             </div>
             <div class="container">
-                <img src="pinocchio.jpg" width="200px" height="300px">
-                Pinocchio
+                <img alt="movie[30]" src="https://popcornsg.s3.amazonaws.com/movies/650/1595402050971-4208-Fallingjpg" width="210px" height="300px">
+                Falling<br><span class="showdate">3 December, 2020</span>
             </div>
             <div class="container">
-                <img src="mulan.jpeg" width="200px" height="300px">
-                Mulan
+                <img alt="movie[31]" src="https://popcornsg.s3.amazonaws.com/movies/650/5394-25932-DeGaullejpg" width="210px" height="300px">
+                De Gaulle<br><span class="showdate">3 December, 2020</span>
             </div>
             <div class="container">
-                <img src="tenet.jpg" width="200px" height="300px">
-                Tenet
+                <img alt="movie[32]" src="https://popcornsg.s3.amazonaws.com/movies/650/1599204659858-25264-DragonRijpg" width="210px" height="300px">
+                Dragon Rider<br><span class="showdate">10 December, 2020</span>
             </div>
             <div class="container">
-                <img src="vanguard.jpg" width="200px" height="300px">
-                Vanguard
+                <img alt="movie[33]" src="https://popcornsg.s3.amazonaws.com/movies/650/1599203802888-25147-VioletEvjpg" width="210px" height="300px">
+                Violet Evergarden<br><span class="showdate">17 December, 2020</span>
             </div>
             <div class="container">
-                <img src="swordsman.jpg" width="200px" height="300px">
-                Swordsman
+                <img alt="movie[34]" src="https://popcornsg.s3.amazonaws.com/movies/650/5387-465-Policejpg" width="210px" height="300px">
+                Police<br><span class="showdate">24 December, 2020</span>
             </div>
             <div class="container">
-                <img src="pinocchio.jpg" width="200px" height="300px">
-                Pinocchio
+                <img alt="movie[35]" src="https://popcornsg.s3.amazonaws.com/movies/650/1599203654113-3113-ShockWavjpg" width="210px" height="300px">
+                Shock Wave 2<br><span class="showdate">24 December, 2020</span>
+            </div>
+            <div class="container">
+                <img alt="movie[36]" src="https://popcornsg.s3.amazonaws.com/movies/650/2998-22450-TheTomorjpg" width="210px" height="300px">
+                The Tomorrow War<br><span class="showdate">31 December, 2020</span>
+            </div>
+
+            <div style="margin-top: 800px;">
+            <h4>January</h4>
+            <div class="container">
+                <img alt="movie[37]" src="https://popcornsg.s3.amazonaws.com/movies/650/5388-25925-AlineDiejpg" width="210px" height="300px">
+                Aline Dieu!<br><span class="showdate">7 January, 2021</span>
+            </div>
+            <div class="container">
+                <img alt="movie[38]" src="https://popcornsg.s3.amazonaws.com/movies/650/5385-25922-TheSpeecjpg" width="210px" height="300px">
+                The Speech<br><span class="showdate">14 January, 2021</span>
+            </div>
+            <div class="container">
+                <img alt="movie[39]" src="https://popcornsg.s3.amazonaws.com/movies/650/5383-25921-WildMounjpg" width="210px" height="300px">
+                Wild Mountain Thyme<br><span class="showdate">21 January, 2021</span>
+            </div>
+            <div class="container">
+                <img alt="movie[40]" src="https://popcornsg.s3.amazonaws.com/movies/650/13473-24455-TheCouri.jpg" width="210px" height="300px">
+                The Courier<br><span class="showdate">21 January, 2021</span>
+            </div>
+            <div class="container">
+                <img alt="movie[41]" src="https://popcornsg.s3.amazonaws.com/movies/650/1597393713650-24862-TheBossBjpg" width="210px" height="300px">
+                Boss Baby 2<br><span class="showdate">28 January, 2021</span>
+            </div>
+            </div>
             </div>
         </div>
 
@@ -181,10 +236,8 @@
                 <input type="button" class="fbutton" value="GOOGLE PLAY">
         </div>
         <div class="fabout">
-                ABOUT<br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+                ABOUT US<br><br>
+                Chupa Chups... The sweetest treat in town! Find local movie showtimes, watch trailers and book tickets right here at your favourite cinema.<br><br>
                 <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
                 <br>
                 <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>

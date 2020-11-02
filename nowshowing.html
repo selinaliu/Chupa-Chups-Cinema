@@ -46,6 +46,11 @@
                 from {opacity: .4} 
                 to {opacity: 1}
             }
+
+            /*Movies*/
+            .container{
+                padding-bottom:20px;
+            }
         </style>
     </head>
     
@@ -58,9 +63,9 @@
                     <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
                     <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                     <li><a id="location" href="location.html#location">LOCATION</a></li>
-                    <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
-                    <li id="login" style="float: right; padding-right: 60px;"><a href="login.html#login">LOGIN</a></li>
-                    <li id="register" style="float: right;"><a href="login.html#register">REGISTER</a></li>
+                    <li><a id="deals" href="deals.php#deals">SPECIAL DEALS</a></li>
+                    <li style="float: right; padding-right: 60px;"><a id="login" href="login.html#login">LOGIN</a></li>
+                    <li style="float: right;"><a id="register" href="register.html#register">REGISTER</a></li>
                 </ol>
             </nav>
         </header>
@@ -109,65 +114,105 @@
         <div class="wrapper">
             <h1 style="padding-top:20px;">Now Showing</h1><br>
             <div class="container">
-                <img src="mulan.jpeg" width="200px" height="300px">
-                Mulan
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[1]" id="mulan" src="https://lumiere-a.akamaihd.net/v1/images/p_mulan2020_20204_b005decc.jpeg?region=0,0,540,810" width="210px" height="300px" alt="Mulan">
+                    Mulan
+                </form>
             </div>
             <div class="container">
-                <img src="tenet.jpg" width="200px" height="300px">
-                Tenet
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[2]" id="tenet" src="https://m.media-amazon.com/images/M/MV5BYzg0NGM2NjAtNmIxOC00MDJmLTg5ZmYtYzM0MTE4NWE2NzlhXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg" width="210px" height="300px" alt="Tenet">
+                    Tenet
+                </form>
             </div>
             <div class="container">
-                <img src="vanguard.jpg" width="200px" height="300px">
-                Vanguard
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[3]" id="vanguard" src="https://img.reelgood.com/content/movie/4dbbd62d-8788-495b-860e-288ca5eacce5/poster-780.jpg" width="210px" height="300px" alt="Vanguard">
+                    Vanguard
+                </form>
             </div>
             <div class="container">
-                <img src="swordsman.jpg" width="200px" height="300px">
-                Swordsman
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[4]" id="vanguard" src="https://img.reelgood.com/content/movie/70cc8269-7998-44ed-bda7-06d5826b4ef8/poster-780.jpg" width="210px" height="300px" alt="Vanguard">
+                    The Swordsman
+                </form>
+            </div>
+            <div class="container"> 
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[5]" id="vanguard" src="https://media-cache.cinematerial.com/p/500x/rec2m8nv/pinocchio-italian-movie-poster.jpg?v=1575028087" width="210px" height="300px" alt="Vanguard">
+                    Pinocchio
+                </form>
             </div>
             <div class="container">
-                <img src="pinocchio.jpg" width="200px" height="300px">
-                Pinocchio
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[6]" id="mulan" src="https://popcornsg.s3.amazonaws.com/movies/650/12668-21159-ThePerso.jpg" width="210px" height="300px" alt="Mulan">
+                    David Copperfield
+                </form>
             </div>
             <div class="container">
-                <img src="mulan.jpeg" width="200px" height="300px">
-                Mulan
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[7]" id="tenet" src="https://pic.iask.cn/fimg/346798164106.jpg" width="210px" height="300px" alt="Tenet">
+                    I WeirDo
+                </form>
             </div>
             <div class="container">
-                <img src="tenet.jpg" width="200px" height="300px">
-                Tenet
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[8]" id="vanguard" src="https://m.media-amazon.com/images/M/MV5BMmZlZmI0OGUtOWIxZi00NjYzLTg1NjItZmM3MTBiNWM1YTYzXkEyXkFqcGdeQXVyNjgwNTk4Mg@@._V1_.jpg" width="210px" height="300px" alt="Vanguard">
+                    Beauty Water
+                </form>
             </div>
             <div class="container">
-                <img src="vanguard.jpg" width="200px" height="300px">
-                Vanguard
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[9]" id="vanguard" src="https://images-na.ssl-images-amazon.com/images/I/41WUxfhUirL._AC_.jpg" width="210px" height="300px" alt="Vanguard">
+                    Halloween
+                </form>
+            </div>
+            <div class="container"> 
+                <form action="details.php" method="POST">
+                    <input type="image" name="movie[10]" id="vanguard" src="https://image.tmdb.org/t/p/original/xrI4EnZWftpo1B7tTvlMUXVOikd.jpg" width="210px" height="300px" alt="Vanguard">
+                    The New Mutants
+                </form>
             </div>
             <div class="container">
-                <img src="swordsman.jpg" width="200px" height="300px">
-                Swordsman
+                <img alt="movie[11]" src="https://images-na.ssl-images-amazon.com/images/I/714O2retc6L._AC_SL1304_.jpg" width="210px" height="300px">
+                Wonder Woman 1984
             </div>
             <div class="container">
-                <img src="pinocchio.jpg" width="200px" height="300px">
-                Pinocchio
+                <img alt="movie[12]" src="https://i.pinimg.com/originals/6d/e9/2c/6de92c42469612a8714e1b829ce2c756.jpg" width="210px" height="300px">
+                Snake Eyes: G.I.Joe
             </div>
             <div class="container">
-                <img src="mulan.jpeg" width="200px" height="300px">
-                Mulan
+                <img alt="movie[13]" src="https://popcornsg.s3.amazonaws.com/movies/650/13305-23507-HonestTh.jpg" width="210px" height="300px">
+                Honest Thief
             </div>
             <div class="container">
-                <img src="tenet.jpg" width="200px" height="300px">
-                Tenet
+                <img alt="movie[14]" src="https://popcornsg.s3.amazonaws.com/movies/650/4341-4742-TheWarWi0" width="210px" height="300px">
+                The War With Grandpa
             </div>
             <div class="container">
-                <img src="vanguard.jpg" width="200px" height="300px">
-                Vanguard
+                <img alt="movie[15]" src="https://popcornsg.s3.amazonaws.com/movies/650/12097-14534-21Bridgejpg" width="210px" height="300px">
+                21 Bridges
             </div>
             <div class="container">
-                <img src="swordsman.jpg" width="200px" height="300px">
-                Swordsman
+                <img alt="movie[16]" src="https://popcornsg.s3.amazonaws.com/movies/650/1602732199207-25903-Number1.jpg" width="210px" height="300px">
+                Number 1
             </div>
             <div class="container">
-                <img src="pinocchio.jpg" width="200px" height="300px">
-                Pinocchio
+                <img alt="movie[17]" src="https://popcornsg.s3.amazonaws.com/movies/650/5436-26024-TheSilenjpg" width="210px" height="300px">
+                The Silent Forest
             </div>
+            <div class="container">
+                <img alt="movie[18]" src="https://popcornsg.s3.amazonaws.com/gallery/1602547258-a-mermai.jpg" width="210px" height="300px">
+                A Mermaid In Paris
+            </div>
+            <div class="container">
+                <img alt="movie[19]" src="https://popcornsg.s3.amazonaws.com/movies/650/1599204729224-25259-TheSilenjpg" width="210px" height="300px">
+                The Silencing
+            </div>
+            <!--<div class="container">
+                <img alt="movie[]" src="" width="210px" height="300px">
+                
+            </div>-->
         </div>
 
     </body>
@@ -177,14 +222,12 @@
         </div>
         <div class="fapp">
                 GET THE APP <br>
-                <input type="button" class="fbutton" value="APP STORE">
-                <input type="button" class="fbutton" value="GOOGLE PLAY">
+                <input type="button" class="fbutton" value="APP STORE" style="width: 130px;">
+                <input type="button" class="fbutton" value="GOOGLE PLAY" style="width: 150px;">
         </div>
         <div class="fabout">
-                ABOUT<br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+                ABOUT US<br><br>
+                Chupa Chups... The sweetest treat in town! Find local movie showtimes, watch trailers and book tickets right here at your favourite cinema.<br><br>
                 <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
                 <br>
                 <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>
