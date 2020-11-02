@@ -33,6 +33,26 @@
         h1 {
             font-size: 40px;
         }
+
+        h2 {
+            font-size: 26px;
+            color: #000000;
+            text-decoration: underline;
+            margin-left: 40px;
+        }
+
+        table img{
+            width: 550px; 
+            height: 300px;
+            padding: 0px 50px 50px 50px;
+        }
+
+        td {
+            font-size: 24px;
+            padding-left: 20px;
+            vertical-align: top;
+            padding-top: 50px;
+        }
     </style>
     </head>
 
@@ -45,7 +65,7 @@
                 <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
                 <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                 <li><a id="location" href="location.html#location">LOCATION</a></li>
-                <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
+                <li><a id="deals" href="deals.php#deals">SPECIAL DEALS</a></li>
                 <li style="float: right; padding-right: 60px;"><a href="logout.php">LOG OUT</a></li>
             </ol>
         </nav>
@@ -54,7 +74,43 @@
         <h1>Welcome to the Chupa Chups Members Section!</h1>
     </div>
     <div class=deals>
-
+        <h2>Newest - November Deals!</h2>
+        <table border="0">
+	    <tr>
+            <td>
+                <img alt="offer[1]" src="https://cdn.greatdeals.com.sg/wp-content/uploads/2020/07/31141817/cathay-cineplex-1-for-1-tickets.jpg">
+            </td>
+            <td>
+                <b>1-for-1 Movie Tickets With PAssion POSB Debit Card</b><br><br>
+                Catching the latest blockbusters in cinemas? Here’s a 1-for-1 deal<br> for all members!<br><br>
+                Available across all weekends (Sat & Sun) in November, members <br>will be able to enjoy 1-for-1 tickets at all Chupa Chups Cinemas in <br>Singapore when making payment with PAssion POSB Debit Card.
+                <br>That means you pay as little as $6.50 per movie ticket.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img alt="offer[2]" src="https://www.whynotdeals.com/wp-content/uploads/2020/01/Golden-Village-Movie-Huat-Huat-EXTRA-Deal-E-Poster-e1579710952199.jpg">
+            </td>
+            <td>
+                <b>Purchase A Second Movie Ticket At Just $8.80 Every Friday</b><br><br>
+                Looking for somewhere to have a happy TGIF? Here’s a Friday offer<br> for all members!<br><br>
+                Available on every Friday throughout November, members get to<br> purchase every second ticket at a lower price of $8.80 at all Chupa<br> Chups Cinemas in Singapore.
+                Simply flash this page to any of our <br>counter staff during payment to enjoy this deal.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img alt="offer[3]" src="https://www.greateasternlife.com/content/dam/great-eastern/sg/homepage/upgreat-getgreat/upgreat/2020/cathay-movielicious-deals/cathay-movielicious-750x420.jpg">
+            </td>
+            <td>
+                <b>Save Up To $35 When You Purchase Our Movie Bundle</b><br><br>
+                Wish you could catch every movie on our big screens? We have<br> just the deal for you!<br><br>
+                Available to all Chupa Chups members, you can now purchase a<br> bundle of five movie tickets at a lower price. Bundle tickets can be<br> used at all Chupa Chups Cinemas in Singapore.
+                Grab this exclusive <br>offer now and enjoy big savings while watching your favourite movies!
+            </td>
+        </tr>
+        </table>
+        <div class="offer"></div>
     </div>
     </body>
     <footer>

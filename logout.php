@@ -13,7 +13,7 @@
   else
   {
     // if they weren't logged in but came to this page somehow
-    alert ("You were not logged in, and so have not been logged out."); 
+    alert ("Session timed out. Please close this window."); 
   }
 
 function alert($msg) {
