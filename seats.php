@@ -189,7 +189,7 @@
             }
 
             .legend {
-                width: 13%; 
+                width: 30%; 
                 margin: auto;
                 margin-top: 15px;
                

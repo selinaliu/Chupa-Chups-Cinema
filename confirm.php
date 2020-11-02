@@ -57,9 +57,10 @@
             } 
 
             .confirm {
-                width: 50%;
+                width: 60%;
                 margin: auto;
                 margin-top: 6%;
+                text-align: center;
             }
 
             .button {
@@ -71,11 +72,7 @@
                 padding: 7px 10px 7px 10px;
                 cursor: pointer;
             }
-            
-            form {
-                width:10%;
-                margin: auto;
-            }
+        
         </style>
 
         <script type = "text/javascript"  src = "payment.js"></script>

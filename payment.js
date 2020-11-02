@@ -69,7 +69,7 @@ function validate(){
         return false;
     }
     if(!(number.length == 8)){
-        alert("Please provide a valid contact number");
+        alert("Please provide a valid contact number (8 numbers)");
         return false;
     }
 
@@ -79,7 +79,7 @@ function validate(){
         return false;
     }
     if(!(Cnum.length == 16)){
-        alert("Please provide a valid card number");
+        alert("Please provide a valid card number (16 numbers)");
         return false;
     }
 

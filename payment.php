@@ -83,8 +83,9 @@
 
             .payGrey {
                 width: 100%;
-                height: 400px;
+                height: 100%;
                 background-color: #dfdfdf;
+                padding-bottom: 30px;
             }
 
             .right {
@@ -97,8 +98,9 @@
             }
 
             .payment {
-                width: 35%;
+                width: 80%;
                 margin: auto;
+                text-align: center;
             }
 
             .payment input {
@@ -122,6 +124,7 @@
 
             .cancel {
                 margin-left: 60px;
+                width: 30%;
             }
         </style>
 
@@ -189,15 +192,15 @@
                     </div> 
 
                     <h3 style="width:200px; padding-left: 60px;">Seats Selected:</h3>
-                    <input type = "text"  style="margin-left: 60px;" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="<?php echo $seats?>">
+                    <input type = "text"  style="margin-left: 60px;" size="30" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="<?php echo $seats?>">
 
-                    <br><br><br>
-                    <div class="cancel">
-                        <button onclick="cancelOrder('order')" class="button">Cancel order</button>
-                    </div>
+                    <br><br><br> 
                     <div class="right">
                         <span style="font-family: 'Open Sans', sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
                         <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="<?php echo $price?>">
+                    </div>
+                    <div class="cancel">
+                        <button onclick="cancelOrder('order')" class="button">Cancel order</button>
                     </div>
 
                     <br><br>
