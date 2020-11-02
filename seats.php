@@ -230,7 +230,7 @@
                 <ol>
                     <li><a href="index.html#home" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
                     <li><a id="home" href="index.html#home">HOME</a></li>
-                    <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
+                    <li><a id="nowshowing" href="nowshowing.php#nowshowing">NOW SHOWING</a></li>
                     <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                     <li><a id="location" href="location.html#location">LOCATION</a></li>
                     <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
@@ -628,7 +628,7 @@
 
                     <div class="right">
                     
-                        <input type="submit" value="Another Order" class="button" onclick="return submitForm('test.php')">
+                        <input type="submit" value="Another Order" class="button" onclick="return submitForm('nowshowing.php')">
                         <input type="submit" value="Place Order" class="button" onclick="return submitForm('payment.php');">
                     </div>
                 </div>
