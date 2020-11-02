@@ -71,6 +71,22 @@
         echo $_SESSION['qty'][$i];
         echo $_SESSION['seats'][$i];
     }
+
+    $_SESSION['test'] = array();
+    array_push($_SESSION['test'], 'a', 'b');
+    for ($i=0; $i < count($_SESSION['test']); $i++){
+        echo '<br>';
+        echo $_SESSION['test'][$i];
+    }
+    echo $_SESSION['test'][0];
+    echo $_SESSION['test'][1];
+    unset($_SESSION['test'][0]);
+    echo $_SESSION['test'][0];
+    echo $_SESSION['test'][1];
+    for ($i=0; $i < 5; $i++){
+        echo '<br>';
+        echo $_SESSION['test'][$i];
+    }
 ?>
 
 </body>
