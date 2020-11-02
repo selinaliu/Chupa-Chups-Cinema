@@ -115,7 +115,11 @@ function validate(){
 }
 
 function cancelOrder(order) {
-    document.getElementById(order).style.display = "none";  
-    document.getElementById('qty').value = 0;
-
+    if (order == "order"){
+        document.getElementById(order).style.display = "none";  
+        document.getElementById('qty').value = 0;
+    } else {
+            document.getElementById(order).style.display = "none";  
+            document.getElementById('cancel'+order).value = 0;
+    }
   }
