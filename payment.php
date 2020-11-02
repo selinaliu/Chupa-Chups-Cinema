@@ -83,8 +83,9 @@
 
             .payGrey {
                 width: 100%;
-                height: 400px;
+                height: 100%;
                 background-color: #dfdfdf;
+                padding-bottom: 30px;
             }
 
             .right {
@@ -97,8 +98,9 @@
             }
 
             .payment {
-                width: 35%;
+                width: 80%;
                 margin: auto;
+                text-align: center;
             }
 
             .payment input {
@@ -122,6 +124,7 @@
 
             .cancel {
                 margin-left: 60px;
+                width: 30%;
             }
         </style>
 
@@ -189,20 +192,22 @@
                     </div> 
 
                     <h3 style="width:200px; padding-left: 60px;">Seats Selected:</h3>
-                    <input type = "text"  style="margin-left: 60px;" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="<?php echo $seats?>">
+                    <input type = "text"  style="margin-left: 60px;" size="30" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="<?php echo $seats?>">
 
-                    <br><br><br>
-                    <div class="cancel">
-                        <button onclick="cancelOrder('order')" class="button">Cancel order</button>
-                    </div>
+                    <br><br><br> 
                     <div class="right">
                         <span style="font-family: 'Open Sans', sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
                         <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="<?php echo $price?>">
+                    </div>
+                    <div class="cancel">
+                        <button onclick="cancelOrder('order')" class="button">Cancel order</button>
                     </div>
 
                     <br><br>
                 </div>
             </div>
+
+           <!--Dump-->
 
             <!--Print out movie details for session-->
             <?php 
@@ -212,7 +217,8 @@
                     $result1 = mysqli_query($conn, $sql1);
                     $movies1 = mysqli_fetch_array($result1);
                     $img1 = $movies1["img"];
-                    echo ' <div id="order1">
+                    $order = "order".$i;
+                    echo ' <div id="'.$order.'">
                         <div class="poster">
                             <div class="mImg">
                                 <img src="'.$img1.'" height="300px" width="200px">
@@ -236,17 +242,17 @@
                             </div> 
 
                             <h3 style="width:200px; padding-left: 60px;">Seats Selected:</h3>
-                            <input type = "text"  style="margin-left: 60px;" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="'.$_SESSION['seats'][$i].'">
+                            <input type = "text"  style="margin-left: 60px;" size="30" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="'.$_SESSION['seats'][$i].'">
 
                             <br><br><br>
-                            <div class="cancel">
-                                <button onclick="cancelOrder("order1")" class="button">Cancel order</button>
-                            </div>
+                            
                             <div class="right">
                                 <span style="font-family: "Open Sans", sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
                                 <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="'.$_SESSION['price'][$i].'">
                             </div>
-
+                            <div class="cancel">
+                                <button onclick="cancelOrder(&quot;'.$order.'&quot;)" class="button">Cancel order</button>
+                            </div>
                             <br><br>
                         </div>
                     </div>';
@@ -264,6 +270,11 @@
                     <input type="hidden" name="price" id="price" value="<?php echo $price ?>">
                     <input type="hidden" name="qty" id="qty" value="<?php echo $qty ?>">  
                     <input type="hidden" name="seats" id="seats" value="<?php echo $seats ?>">
+                    <?php 
+                        for ($i=0; $i < count($_SESSION['name']); $i++) {
+                            echo '<input type="hidden" name="cancelorder'.$i.'" id="cancelorder'.$i.'" value="order">';
+                        }
+                    ?>
                 
                     <div class="payment">
                         <h3>Confrim your order and enter your payment details to proceed.</h3>

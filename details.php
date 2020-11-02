@@ -71,7 +71,7 @@
             }
 
             .mText {
-                width: 600px;
+                max-width: 600px;
                 position: absolute;
                 left: 500px;
                 top:  120px; 
@@ -80,23 +80,6 @@
 
             .checked {
                 color: orange;
-            }
-
-            /*Drop-down box*/
-            .drop {
-                position: absolute;
-                left: 0;
-                top:  80px;  /*27%;*/
-                width: 100%;
-                
-                text-align: left;
-                padding-left: 55px;
-            }
-
-            #drop {
-                width: 538px;
-                height: 24px;
-                font-size: 16px;
             }
 
             .button {
@@ -118,25 +101,12 @@
                 margin-left: 3px;
             }
 
-            /*Drop-down options*/
-            select:invalid {
-            color: gray;
-            }
-
-            option[value=""][disabled] {
-            display: none;
-            }
-
-            option {
-            color: #000;
-            }
-
             /*content box*/
             #wrapper {     
                 margin: 20px;
                 padding: 30px 30px;
                 min-width:800px;
-                height: 1850px;
+                height: 100%;
                 font-size: 18px;
                 background-color: #fff;
             } 
@@ -174,7 +144,7 @@
             }
 
             .review {
-                width: 1000px;
+                width:100%;
                 height: 160px;
             }
             .reviewimg {
@@ -183,7 +153,8 @@
                 float: left;
             }
             .reviewtxt {
-                width: 800px;
+                
+                max-width: 700px;
                 height: 100px;
                 margin-left: 50px;
                 float: left;

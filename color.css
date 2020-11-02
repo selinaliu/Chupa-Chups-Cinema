@@ -242,7 +242,7 @@ footer {
 
 .fimg {
     text-align: center;
-    width: 200px;
+    padding-left: 50px;
     height: 100px;
     float: left;
 }

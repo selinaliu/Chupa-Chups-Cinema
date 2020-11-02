@@ -189,7 +189,7 @@
             }
 
             .legend {
-                width: 13%; 
+                width: 30%; 
                 margin: auto;
                 margin-top: 15px;
                
@@ -300,10 +300,12 @@
                     echo "<input type='hidden' id='check' value='".$seats."'>";
                     
                     for ($i=0; $i < count($_SESSION['name']); $i++){
-                        if ($_SESSION["name"][$i] == $name || $_SESSION["date"][$i] == $date || $_SESSION["time"][$i] == $time || $_SESSION["location"][$i] == $location){
+                        if ($_SESSION["name"][$i] == $name && $_SESSION["date"][$i] == $date && $_SESSION["time"][$i] == $time && $_SESSION["location"][$i] == $location){
                             echo "<input type='hidden' id='checkSess".$i."' value='".$_SESSION["seats"][$i]."'>";
+                           
                         }
                     }
+                    
 
                     echo "<input class='button' type='hidden' onclick='return checkAvail()'>";
                 ?>
@@ -626,7 +628,7 @@
 
                     <div class="right">
                     
-                        <input type="submit" value="Another Order" class="button" onclick="submitForm('test.php')">
+                        <input type="submit" value="Another Order" class="button" onclick="return submitForm('test.php')">
                         <input type="submit" value="Place Order" class="button" onclick="return submitForm('payment.php');">
                     </div>
                 </div>

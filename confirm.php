@@ -57,9 +57,10 @@
             } 
 
             .confirm {
-                width: 50%;
+                width: 60%;
                 margin: auto;
                 margin-top: 6%;
+                text-align: center;
             }
 
             .button {
@@ -71,11 +72,7 @@
                 padding: 7px 10px 7px 10px;
                 cursor: pointer;
             }
-            
-            form {
-                width:10%;
-                margin: auto;
-            }
+        
         </style>
 
         <script type = "text/javascript"  src = "payment.js"></script>
@@ -120,11 +117,14 @@
                 mysqli_query($conn, $sql);
             }
            
+            echo $_POST['cancel'.$i];
             //session
             for ($i=0; $i < count($_SESSION['name']); $i++){
-                $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
+                if ($_POST['cancelorder'.$i] == "order"){
+                    $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
                     VALUES ("'.$_SESSION['name'][$i].'","'.$_SESSION['date'][$i].'","'.$_SESSION['time'][$i].'","'.$_SESSION['location'][$i].'","'.$_SESSION['seats'][$i].'","'.$_SESSION['qty'][$i].'","'.$_SESSION['price'][$i].'","'.$user.'","'.$email.'","'.$num.'")';
-                 mysqli_query($conn, $sql);
+                    mysqli_query($conn, $sql);
+                }
             }
         ?>
 
