@@ -23,7 +23,7 @@ getSeats();
 
 //redirects form
 function submitForm(action){
-    if(action == 'test.php'){
+   /* if(action == 'test.php'){
         document.getElementById('order').action = action;
         document.getElementById('order').submit();
         
@@ -34,12 +34,18 @@ function submitForm(action){
             document.getElementById('order').action = action;
             document.getElementById('order').submit();
         }
+    }*/
+
+    if(empty()== false){
+        return false;
+    } else {
+        document.getElementById('order').action = action;
+        document.getElementById('order').submit();
     }
 }
 
 //return false if seats selected is empty
 function empty() {
-    
     if(document.getElementById("qty").value == "0"){
         alert("No seats are selected.");
         return false;
