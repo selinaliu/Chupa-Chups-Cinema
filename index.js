@@ -2,21 +2,21 @@
 function chngimg(index) {
 
     switch(index){
-        case 1:
+        case 0:
              document.getElementById("poster").src  = "https://cms.qz.com/wp-content/uploads/2020/08/disney-mulan-e1596646420500.jpg?quality=75&strip=all&w=1600&h=900&crop=1";
              break;
-         case 2:
+         case 1:
              document.getElementById("poster").src  = "https://cdn.mos.cms.futurecdn.net/wJ4s9FFL6FdxAoKixtr4FS-1200-80.jpg";
              break;
-         case 3:
+         case 2:
              document.getElementById("poster").src  = "https://i.pinimg.com/originals/87/bc/f6/87bcf68ba8813f7adb73bd3852a22da4.jpg";
              break;
     }
  }
  
-        setInterval(function(){chngimg(1);}, 5000); /*Call it here*/
-        setInterval(function(){chngimg(2);}, 10000);
-        setInterval(function(){chngimg(3);}, 15000);
+        //setInterval(function(){chngimg(1);}, 5000); /*Call it here*/
+        //setInterval(function(){chngimg(2);}, 10000);
+        //setInterval(function(){chngimg(3);}, 15000);
 
  //change nowshowing movie every 5 seconds
  //display: block -> Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width
@@ -43,7 +43,7 @@ function changeMovie(){
  changeMovie();
 
 
- //valides the newsletter subscribtion name
+ //valides the newsletter subscription name
  function validate(){
     var user = document.forms["news"]["user"].value;
     if (/^[A-Za-z ]+$/.test(user) == false) {
