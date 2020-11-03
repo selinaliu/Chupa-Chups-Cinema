@@ -634,7 +634,7 @@
                         <input type = "text" size="6" id="qty" name="qty" onfocus="this.blur();">
                     </div> 
                     <h3 style="width:200px; margin: 0;">Seats Selected:</h3>
-                    <input type = "text" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" style="margin-left:20px">
+                    <input type = "text" size="30" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" style="margin-left:20px">
 
                     <br><br><br>
 
