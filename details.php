@@ -297,17 +297,17 @@
                     $sql4 = "SELECT DATE_ADD(CURDATE(), INTERVAL 4 DAY)";
                     $result4 = mysqli_query($conn, $sql4);
                     $currentDate4 = mysqli_fetch_assoc($result4);
-                    $date1 = $currentDate1['DATE_ADD(CURDATE(), INTERVAL 1 DAY)'];
+                    $date4 = $currentDate4['DATE_ADD(CURDATE(), INTERVAL 4 DAY)'];
 
                     $sql5 = "SELECT DATE_ADD(CURDATE(), INTERVAL 5 DAY)";
                     $result5 = mysqli_query($conn, $sql5);
                     $currentDate5 = mysqli_fetch_assoc($result5);
-                    $date4 = $currentDate4['DATE_ADD(CURDATE(), INTERVAL 4 DAY)'];
+                    $date5 = $currentDate5['DATE_ADD(CURDATE(), INTERVAL 5 DAY)'];
 
                     $sql6 = "SELECT DATE_ADD(CURDATE(), INTERVAL 6 DAY)";
                     $result6 = mysqli_query($conn, $sql6);
                     $currentDate6 = mysqli_fetch_assoc($result6);
-                    $date5 = $currentDate5['DATE_ADD(CURDATE(), INTERVAL 5 DAY)'];
+                    $date6 = $currentDate6['DATE_ADD(CURDATE(), INTERVAL 6 DAY)'];
                 ?>
 
                 <!--showtime tap bar-->

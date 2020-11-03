@@ -299,6 +299,8 @@
                 <h3 style="text-align: center">Screen</h3>
                 
                 <?php 
+
+                //check seats avail
                     $sql = 'SELECT seat FROM orders where movie ="' .$name. '" and location="'.$location. '" and date="'.$date. '" and time="'.$time. '"';
                     $result = mysqli_query($conn, $sql);
 
@@ -309,6 +311,7 @@
                     }
                     echo "<input type='hidden' id='check' value='".$seats."'>";
                     
+                    //checking session seats
                     for ($i=0; $i < count($_SESSION['name']); $i++){
                         if ($_SESSION["name"][$i] == $name && $_SESSION["date"][$i] == $date && $_SESSION["time"][$i] == $time && $_SESSION["location"][$i] == $location){
                             echo "<input type='hidden' id='checkSess".$i."' value='".$_SESSION["seats"][$i]."'>";
