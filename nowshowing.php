@@ -24,7 +24,7 @@
         $_SESSION['seats'] = array();
     }
 
-
+    // add details to session
     if (isset($_POST['name'])) {
         //$_SESSION['name'][] = $_POST['name'];
         array_push($_SESSION['name'], $_POST['name']);

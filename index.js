@@ -1,3 +1,4 @@
+//change the poster image by button
 function chngimg(index) {
 
     switch(index){
@@ -17,6 +18,8 @@ function chngimg(index) {
         setInterval(function(){chngimg(2);}, 10000);
         setInterval(function(){chngimg(3);}, 15000);
 
+ //change nowshowing movie every 5 seconds
+ //display: block -> Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width
 function changeMovie(){
     
     switch (document.getElementById("nowshowing1").style.display) {
@@ -38,3 +41,13 @@ function changeMovie(){
  
  setInterval(changeMovie, 5000); /*Call it here*/
  changeMovie();
+
+
+ //valides the newsletter subscribtion name
+ function validate(){
+    var user = document.forms["news"]["user"].value;
+    if (/^[A-Za-z ]+$/.test(user) == false) {
+        alert("Name must not contain numbers or special characters.");
+        return false;
+    }
+ }

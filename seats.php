@@ -27,6 +27,11 @@
         <link rel="stylesheet" href="color.css">
 
         <style>
+            h1 {
+                padding:20px 0 0 20px; 
+                margin:0;
+            }
+
             /*text in table*/
             h2 {
                 color: #000;
@@ -43,6 +48,7 @@
                 font-family: 'Open Sans', sans-serif;
                 font-size: 20px;
                 margin:0;
+                padding: 0 0 0px 20px;
             }
 
             /*banner*/
@@ -245,6 +251,7 @@
 
         <!--Delaring variables -->
         <?php 
+            //checking which time button is pressed to get its index that corresponds to the location
             if( $_POST['time'] ) {
                 $keys = array_keys($_POST['time']);
                 $locationID = $keys[0];
@@ -253,6 +260,7 @@
             $date=  $_POST['date'];
             $time =  $_POST['time'][$locationID];
             
+            //checking location
             switch ($locationID) {
                 case '1':
                     $location = 'Woodlands';
@@ -264,6 +272,8 @@
                     $location = 'Jurong East';
                     break;
             }
+
+            //fetch details from database: movies
             $sql = 'SELECT * FROM movies where name ="' .$name. '"';
             $result = mysqli_query($conn, $sql);
             $movies = mysqli_fetch_array($result);
@@ -276,7 +286,7 @@
                     <img src="<?php echo $img ?>" height="300px" width="200px">
                 </div>
                 <div class="mText">
-                    <h1 style="margin:0;"><?php echo $name ?></h1><br>
+                    <h1><?php echo $name ?></h1><br>
                     <h3><strong>Location: </strong><?php echo $location ?><br><br>
                     <strong>Date: </strong><?php echo $date ?><br><br>
                     <strong>Time: </strong><?php echo $time ?><br></h3>
@@ -284,11 +294,13 @@
             </div>
 
             <div class="seats">
-                <h1 style="padding:20px 0 0 20px; margin:0;">Seats</h1>
-                <h3 style="padding: 0 0 20px 20px;">Select your seats: </h3>
+                <h1>Seats</h1>
+                <h3>Select your seats: </h3>
                 <h3 style="text-align: center">Screen</h3>
                 
                 <?php 
+
+                //check seats avail
                     $sql = 'SELECT seat FROM orders where movie ="' .$name. '" and location="'.$location. '" and date="'.$date. '" and time="'.$time. '"';
                     $result = mysqli_query($conn, $sql);
 
@@ -299,6 +311,7 @@
                     }
                     echo "<input type='hidden' id='check' value='".$seats."'>";
                     
+                    //checking session seats
                     for ($i=0; $i < count($_SESSION['name']); $i++){
                         if ($_SESSION["name"][$i] == $name && $_SESSION["date"][$i] == $date && $_SESSION["time"][$i] == $time && $_SESSION["location"][$i] == $location){
                             echo "<input type='hidden' id='checkSess".$i."' value='".$_SESSION["seats"][$i]."'>";
@@ -596,7 +609,6 @@
                     </tr>
                 </table>
                 
-
                 <div class="legend">
                     <span class="Aseat"></span> <h3 style="margin-left: 50px;">Seat Available</h3>
                     <span class="selectedSeat"></span> <h3 style="margin-left: 50px; margin-top:10px;">Seat Selected</h3>
@@ -619,23 +631,21 @@
                     </div>
                     <div class="right">
                         <h3>Quantity</h3>
-                        <input type = "text" size="5" id="qty" name="qty" onfocus="this.blur();">
+                        <input type = "text" size="6" id="qty" name="qty" onfocus="this.blur();">
                     </div> 
                     <h3 style="width:200px; margin: 0;">Seats Selected:</h3>
-                    <input type = "text" size="50" id="selectedSeats" name="selectedSeats" onfocus="this.blur();">
+                    <input type = "text" size="30" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" style="margin-left:20px">
 
                     <br><br><br>
 
                     <div class="right">
-                    
+                        <!--check if seats are selected before submitting-->
                         <input type="submit" value="Another Order" class="button" onclick="return submitForm('nowshowing.php')">
                         <input type="submit" value="Place Order" class="button" onclick="return submitForm('payment.php');">
                     </div>
                 </div>
             </form>
-
         </div>
-
 
     </body>
     <footer>
@@ -648,10 +658,8 @@
                 <input type="button" class="fbutton" value="GOOGLE PLAY">
         </div>
         <div class="fabout">
-                ABOUT<br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+                ABOUT US<br><br>
+                Chupa Chups... The sweetest treat in town! Find local movie showtimes, watch trailers and book tickets right here at your favourite cinema.<br><br>
                 <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
                 <br>
                 <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>

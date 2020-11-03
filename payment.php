@@ -307,10 +307,8 @@
                 <input type="button" class="fbutton" value="GOOGLE PLAY">
         </div>
         <div class="fabout">
-                ABOUT<br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <br>
+                ABOUT US<br><br>
+                Chupa Chups... The sweetest treat in town! Find local movie showtimes, watch trailers and book tickets right here at your favourite cinema.<br><br>
                 <small><i>EE4717 &copy; Chupa Chups Cinema</i></small> 
                 <br>
                 <em>Liu Yi Hsuan &amp; Foo Kai Lin</em>

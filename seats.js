@@ -1,3 +1,4 @@
+//reflect seats selected in input text
 function getSeats() {
     const checkboxes = document.querySelectorAll(`input[name="seat"]:checked`);
     let values = [];
@@ -13,8 +14,7 @@ function getSeats() {
         element.value = values;
         document.getElementById("qty").value = qty;
         document.getElementById("price").value = price;
-    }
-    
+    }   
 }
 
 //get seats immediately
@@ -91,7 +91,6 @@ function checkAvail(){
         }
     }
 }
-
 
 //check avail immediately
 setInterval(checkAvail, 100);

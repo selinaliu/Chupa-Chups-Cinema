@@ -100,18 +100,34 @@
         </div>
     </div><br>
     
+<<<<<<< HEAD
         <!--<div style="text-align:center">
+=======
+    <!--color of dot changes as poster changes-->
+        <div style="text-align:center">
+>>>>>>> 4adfe62f3906d4fbc03f5ebc4ea940c07fbfc614
             <span class="dot"></span> 
             <span class="dot"></span> 
             <span class="dot"></span> 
         </div><br>-->
         
+<<<<<<< HEAD
         <div style="text-align: center; margin: 10px 0; ">
             <input type="button" class="button1" onclick="chngimg(1)">
             <input type="button" class="button1" onclick="chngimg(2)">
             <input type="button" class="button1" onclick="chngimg(3)">
         </div>
+=======
+    <!--<div style="text-align: center; margin: 10px 0; ">
+            <input type="button" class="button1 dot" onclick="chngimg(1)">
+            <input type="button" class="button1 dot" onclick="chngimg(2)">
+            <input type="button" class="button1 dot" onclick="chngimg(3)">
+        </div>-->
+>>>>>>> 4adfe62f3906d4fbc03f5ebc4ea940c07fbfc614
 
+        <!--two now showing div witch with toggle between display:block and display:none to showcase the avail movies-->
+        <!--Depending on the index of movie name, it will be posted to detials.php to check its index and retrieve detials from database: movies
+            each poster is an individual form-->
         <div id="nowshowing1" class="wrapper change">
             <h1 style="padding-top:10px;">Trending now<a id="nowshowing" href="nowshowing.html#nowshowing">View all ></a></h1><br>
             <div class="container">
@@ -147,7 +163,7 @@
             <div class="container">
                 <form action="details.php" method="POST">
                     <input type="image" name="movie[6]" id="mulan" src="https://popcornsg.s3.amazonaws.com/movies/650/12668-21159-ThePerso.jpg" width="210px" height="300px" alt="Mulan">
-                    The Personal History Of David Copperfield
+                    David Copperfield
                 </form>
             </div>
             <div class="container">
@@ -157,6 +173,8 @@
                 </form>
             </div>
         </div>
+
+        <!--Second nowshowing div which is display:none to start with-->
         <div id="nowshowing2" class="wrapper change" style="display: none">
             <h1 style="padding-top:10px;">Trending now<a id="nowshowing" href="nowshowing.html#nowshowing">View all ></a></h1><br>
             <div class="container">
@@ -187,6 +205,7 @@
             </div>
         </div>
 
+        <!--Displaying up coming movies-->
         <div id="upcoming" class="wrapper">
             <h1 style="padding-top:10px;">Upcoming Movies<a id="upcoming" href="upcoming.html#upcoming">View all ></a></h1><br> 
             <div class="container">
@@ -226,10 +245,10 @@
                 right to your inbox.<br> Never miss out on any great movies again. Pssst... we promise not to spam.
             </h3>
             <br>
-            <form action="">
-                <input type="text" id="subscribe" placeholder="Name">
-                <input type="email" id="subscribe" placeholder="Email">
-                <input type="submit" class="button" value="SUBSCRIBE">
+            <form id="news" action="" onsubmit="return validate()">
+                <input type="text" id="user" name="user" placeholder="Name">
+                <input type="email" id="email" placeholder="Email">
+                <input type="submit" id="news" class="button" value="SUBSCRIBE">
             </form>
         </div>
 
@@ -254,6 +273,7 @@
 </html>
 
 <script>
+    
 var slideIndex = 0;
 showSlides();
 
