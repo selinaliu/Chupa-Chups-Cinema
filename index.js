@@ -12,6 +12,10 @@ function chngimg(index) {
              break;
     }
  }
+ 
+        setInterval(function(){chngimg(1);}, 5000); /*Call it here*/
+        setInterval(function(){chngimg(2);}, 10000);
+        setInterval(function(){chngimg(3);}, 15000);
 
 function changeMovie(){
     

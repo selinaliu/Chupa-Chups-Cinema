@@ -186,6 +186,10 @@
         
         <!--Delaring variables -->
         <?php
+            if(isset($_POST['Search'])) { 
+                $ID = $_POST['drop'];
+            }
+
             //check which img is pressed in index.html
             if( $_POST['movie'] ) {
                 $keys = array_keys($_POST['movie']);
@@ -239,7 +243,6 @@
                 <strong>Distributer: </strong><?php echo $distributer?><br></h2>
             </div>
         </div>
-        
 
         <div id="wrapper">
             <div>

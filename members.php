@@ -71,7 +71,7 @@
         </nav>
     </header>
     <div class=title>
-        <h1>Welcome to the Chupa Chups Members Section!</h1>
+        <h1>Welcome to the Chupa Chups Members Section!</h1> <!--add username from php-->
     </div>
     <div class=deals>
         <h2>Newest - November Deals!</h2>
