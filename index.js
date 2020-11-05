@@ -12,11 +12,7 @@ function chngimg(index) {
              document.getElementById("poster").src  = "https://i.pinimg.com/originals/87/bc/f6/87bcf68ba8813f7adb73bd3852a22da4.jpg";
              break;
     }
- }
- 
-        //setInterval(function(){chngimg(1);}, 5000); /*Call it here*/
-        //setInterval(function(){chngimg(2);}, 10000);
-        //setInterval(function(){chngimg(3);}, 15000);
+}
 
  //change nowshowing movie every 5 seconds
  //display: block -> Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width

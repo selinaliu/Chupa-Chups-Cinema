@@ -13,7 +13,7 @@
         
         <style>
             /* The dots/bullets/indicators */
-            .dot {
+            .button1 {
                 border-radius: 30px;
                 border: none;
                 background-color: #e8e8e8;
@@ -22,10 +22,10 @@
                 height: 19px;
                 width: 13px;
                 display: inline-block;
-                transition: background-color 0.6s ease;
+                transition: #717171 0.6s ease;
             }
-    
-            .active, .dot:hover {
+
+            .active, .button1:hover {
                 background-color: #717171;
             }
     
@@ -86,17 +86,17 @@
         <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
             
         <div class="poster">
-            <div class="mySlides fade">
+            <div id="fade" class="fade">
                 <img id="poster" src="https://cms.qz.com/wp-content/uploads/2020/08/disney-mulan-e1596646420500.jpg?quality=75&strip=all&w=1600&h=900&crop=1" width="800px" alt="poster">
             </div>
     
-            <div class="mySlides fade">
+            <!--<div class="mySlides fade">
                 <img id="poster" src="https://cdn.mos.cms.futurecdn.net/wJ4s9FFL6FdxAoKixtr4FS-1200-80.jpg" width="800px" alt="poster">
             </div>
     
             <div class="mySlides fade">
                 <img id="poster" src="https://i.pinimg.com/originals/87/bc/f6/87bcf68ba8813f7adb73bd3852a22da4.jpg" width="800px" alt="poster">
-            </div>
+            </div>-->
     
             <div class="drop">
                 <form action="details.php" method="POST">
@@ -120,11 +120,17 @@
             </div>
         </div><br>
         
-        <div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-        </div><br>
+            <!--<div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+            </div><br>-->
+            
+            <div style="text-align: center; padding-bottom: 25px;">
+                <input type="button" class="button1" onclick="chngimg(0)">
+                <input type="button" class="button1" onclick="chngimg(1)">
+                <input type="button" class="button1" onclick="chngimg(2)">
+            </div>
 
         <div class="wrapper">
             <h1 style="padding-top:20px;">Upcoming Movies</h1>
@@ -248,23 +254,39 @@
 </html>
 
 <script>
-    var slideIndex = 0;
+    
+    var j = 0;
     showSlides();
     
     function showSlides() {
       var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+      var z;
+      var dots = document.getElementsByClassName("button1");
+      
+      i = j%3;
+      chngimg(i);
+      j++;
+
+      for (z = 0; z < dots.length; z++) {
+        dots[z].className = dots[z].className.replace(" active", "");
       }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
+      dots[i].className += " active";
       setTimeout(showSlides, 4000); // Change image every n seconds
+    }
+
+    //change the poster image by button
+    function chngimg(index) {
+
+        switch(index){
+            case 0:
+                document.getElementById("poster").src  = "https://cms.qz.com/wp-content/uploads/2020/08/disney-mulan-e1596646420500.jpg?quality=75&strip=all&w=1600&h=900&crop=1";
+                break;
+            case 1:
+                document.getElementById("poster").src  = "https://cdn.mos.cms.futurecdn.net/wJ4s9FFL6FdxAoKixtr4FS-1200-80.jpg";
+                break;
+            case 2:
+                document.getElementById("poster").src  = "https://i.pinimg.com/originals/87/bc/f6/87bcf68ba8813f7adb73bd3852a22da4.jpg";
+                break;
+        }
     }
 </script>

@@ -35,6 +35,7 @@
             -webkit-animation-duration: 1.5s;
             animation-name: fade;
             animation-duration: 1.5s;
+            transition: 0.6s ease;
         }
 
         @-webkit-keyframes fade {
@@ -45,6 +46,15 @@
         @keyframes fade {
             from {opacity: .4} 
             to {opacity: 1}
+        }
+
+        #slideSource {
+        opacity: 1;
+        transition: opacity 1s; 
+        }
+
+        #slideSource.fade {
+        opacity: 0;
         }
     </style>
     </head>
@@ -68,7 +78,7 @@
         <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
         
     <div class="poster">
-        <div class="fade">
+        <div id="fade" class="fade">
             <img id="poster" src="https://cms.qz.com/wp-content/uploads/2020/08/disney-mulan-e1596646420500.jpg?quality=75&strip=all&w=1600&h=900&crop=1" width="800px" alt="poster">
         </div>
 
@@ -261,7 +271,6 @@
     </footer>
 </html>
 
-
 <script>
     
     var j = 0;
@@ -282,4 +291,5 @@
       dots[i].className += " active";
       setTimeout(showSlides, 4000); // Change image every n seconds
     }
-    </script>
+
+</script>
