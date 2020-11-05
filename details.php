@@ -335,7 +335,7 @@
                             <h3>Woodlands</h3>
                             <?php 
                                 //where location = Woodlands and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Woodlands'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -354,7 +354,7 @@
                             <h3>Orchard</h3>
                             <?php 
                                 //where location = Orchard and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -373,7 +373,7 @@
                             <h3>Jurong East</h3>
                             <?php 
                                 //where location = Jurong East and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -402,7 +402,7 @@
                             <h3>Woodlands</h3>
                             <?php 
                                 //where location = Woodlands and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Woodlands'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -421,7 +421,7 @@
                             <h3>Orchard</h3>
                             <?php 
                                 //where location = Orchard and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -440,7 +440,7 @@
                             <h3>Jurong East</h3>
                             <?php 
                                 //where location = Jurong East and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -469,7 +469,7 @@
                             <h3>Woodlands</h3>
                             <?php 
                                 //where location = Woodlands and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Woodlands'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -488,7 +488,7 @@
                             <h3>Orchard</h3>
                             <?php 
                                 //where location = Orchard and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -507,7 +507,7 @@
                             <h3>Jurong East</h3>
                             <?php 
                                 //where location = Jurong East and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -536,7 +536,7 @@
                             <h3>Woodlands</h3>
                             <?php 
                                 //where location = Woodlands and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Woodlands'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -555,7 +555,7 @@
                             <h3>Orchard</h3>
                             <?php 
                                 //where location = Orchard and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -574,7 +574,7 @@
                             <h3>Jurong East</h3>
                             <?php 
                                 //where location = Jurong East and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -603,7 +603,7 @@
                             <h3>Woodlands</h3>
                             <?php 
                                 //where location = Woodlands and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Woodlands'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -622,7 +622,7 @@
                             <h3>Orchard</h3>
                             <?php 
                                 //where location = Orchard and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -641,7 +641,7 @@
                             <h3>Jurong East</h3>
                             <?php 
                                 //where location = Jurong East and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -670,7 +670,7 @@
                             <h3>Woodlands</h3>
                             <?php 
                                 //where location = Woodlands and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Woodlands'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -689,7 +689,7 @@
                             <h3>Orchard</h3>
                             <?php 
                                 //where location = Orchard and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -708,7 +708,7 @@
                             <h3>Jurong East</h3>
                             <?php 
                                 //where location = Jurong East and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '1' and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -737,7 +737,7 @@
                             <h3>Woodlands</h3>
                             <?php 
                                 //where location = Woodlands and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Woodlands'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Woodlands'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -756,7 +756,7 @@
                             <h3>Orchard</h3>
                             <?php 
                                 //where location = Orchard and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Orchard'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Orchard'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
@@ -775,7 +775,7 @@
                             <h3>Jurong East</h3>
                             <?php 
                                 //where location = Jurong East and movie = $id
-                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and location = 'Jurong East'";
+                                $sql = "SELECT * FROM timings where  movieID= " .$id. " and dateID = '0' and location = 'Jurong East'";
                                 $result = mysqli_query($conn, $sql);
                                 while( $timing = mysqli_fetch_array($result)) {
                                     $time = $timing["timing"];
