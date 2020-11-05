@@ -40,10 +40,32 @@ function changeMovie(){
 
 
  //valides the newsletter subscription name
- function validate(){
+ /*function validate(){
     var user = document.forms["news"]["user"].value;
     if (/^[A-Za-z ]+$/.test(user) == false) {
         alert("Name must not contain numbers or special characters.");
         return false;
     }
- }
+ }*/
+
+ function chkName(){
+    var name = document.getElementById("user");
+    var check = name.value.search(/^[A-Za-z]+(\s{0,1}[a-zA-Z])*$/);
+    if (check!=0){
+    alert("Please enter a valid name! Name must not contain any numbers, special characters or unnecessary spaces.");
+    name.focus();
+    name.select();
+    return false;
+    }
+}
+
+function chkEmail(){
+    var email = document.getElementById("email");
+    var check = email.value.search(/^[\w.-]+@([\w]+\.){1,3}[A-Za-z]{2,3}$/);
+    if (check!=0){
+    alert("Please enter a valid email address!");
+    email.focus();
+    email.select();
+    return false;
+    }
+}

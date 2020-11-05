@@ -90,11 +90,6 @@
                 animation-duration: 1.5s;
             }
     
-            @-webkit-keyframes fade {
-                from {opacity: .4} 
-                to {opacity: 1}
-            }
-    
             @keyframes fade {
                 from {opacity: .4} 
                 to {opacity: 1}
@@ -130,14 +125,6 @@
             <img id="poster" src="https://cms.qz.com/wp-content/uploads/2020/08/disney-mulan-e1596646420500.jpg?quality=75&strip=all&w=1600&h=900&crop=1" width="800px" alt="poster">
         </div>
 
-        <!--<div class="mySlides fade">
-            <img id="poster" src="https://cdn.mos.cms.futurecdn.net/wJ4s9FFL6FdxAoKixtr4FS-1200-80.jpg" width="800px" alt="poster">
-        </div>
-
-        <div class="mySlides fade">
-            <img id="poster" src="https://i.pinimg.com/originals/87/bc/f6/87bcf68ba8813f7adb73bd3852a22da4.jpg" width="800px" alt="poster">
-        </div>-->
-
         <div class="drop">
             <form action="details.php" method="POST">
                 <select name="drop" id="drop" required>
@@ -159,12 +146,6 @@
             </form>
         </div>
     </div><br>
-    
-        <!--<div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-        </div><br>-->
         
         <div style="text-align: center; padding-bottom: 25px;">
             <input type="button" class="button1" onclick="chngimg(0)">
