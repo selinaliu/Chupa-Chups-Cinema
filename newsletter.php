@@ -1,34 +1,53 @@
 <?php
-//Insert name and email into database
 include "dbconnect.php";
+
 if (isset($_POST['submit'])) {
 	if (empty($_POST['user']) || empty ($_POST['email']) ) {
 	alert ("All records must be filled in. Please proceed back and try again.");
 	exit;}
     }
-$username = $_POST['user'];
-$email = $_POST['email'];
-
-$sql = "INSERT INTO newsletter (username, email) 
-		VALUES ('$username', '$email')";
-
-$result = $dbcnx->query($sql);
-
-if (!$result) 
-	alert ("Your query failed.");
+    //Check email has not been registered
+if (isset($_POST['user']) && isset($_POST['email'])) {
+    $email = $_POST['email'];
     
-//Send confirmation email
-$to      = 'f33ee@localhost';
-$subject = 'Newsletter Subscription';
+    $query = 'select * from newsletter '
+            ."where email='$email' ";
 
-$user = $_POST['user'];
-$message = 'Hi '.$user.', thank you for subscribing to our newsletter! Be the first to know all new movies, exciting events and special discounts right here at Chupa Chups Cinema.';
-$headers = 'From: ChupaChupsCinema@no-reply.com' . "\r\n" .
-    'Reply-To: f33ee@localhost' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+    $result = $dbcnx->query($query);
+    if ($result->num_rows >0 )
+    {
+        alert("This email address has already been registered. Please check your email.");    
+        return false;
+    }
+    else {
+    //Insert name and email into database
+    $username = $_POST['user'];
+    $email = $_POST['email'];
 
-mail($to, $subject, $message, $headers,'-ff33ee@localhost');
-//echo ("mail sent to : ".$to);
+    $sql = "INSERT INTO newsletter (username, email) 
+		    VALUES ('$username', '$email')";
+
+    $result = $dbcnx->query($sql);
+
+    if (!$result) {
+        alert ("Your query failed.");
+        return false;
+    }
+    //Send confirmation email
+    $to      = 'f33ee@localhost';
+    $subject = 'Newsletter Subscription';
+
+    $user = $_POST['user'];
+    $message = 'Hi '.$user.', thank you for subscribing to our newsletter! Be the first to know all new movies, exciting events and special discounts right here at Chupa Chups Cinema.';
+    $headers = 'From: ChupaChupsCinema@no-reply.com' . "\r\n" .
+        'Reply-To: f33ee@localhost' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers,'-ff33ee@localhost');
+    //echo ("mail sent to : ".$to);
+    }
+    $dbcnx->close();
+    }
 
 function alert($msg) {
 	echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -74,10 +93,10 @@ function alert($msg) {
                 <ol>
                     <li><a href="index.html#home" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
                     <li><a id="home" href="index.html#home">HOME</a></li>
-                    <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
+                    <li><a id="nowshowing" href="nowshowing.php#nowshowing">NOW SHOWING</a></li>
                     <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                     <li><a id="location" href="location.html#location">LOCATION</a></li>
-                    <li><a id="deals" href="deals.php#deals">SPECIAL DEALS</a></li>
+                    <li><a id="members" href="members.php#members">SPECIAL DEALS</a></li>
                     <li style="float: right; padding-right: 60px;"><a id="login" href="login.html#login">LOGIN</a></li>
                     <li style="float: right;"><a id="register" href="register.html#register">REGISTER</a></li>
                 </ol>

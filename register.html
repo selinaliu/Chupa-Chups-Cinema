@@ -33,6 +33,10 @@
             border-radius: 8px;
         }
 
+        input[type=submit], input[type=reset] {
+            color: #FFF;
+        }
+
         input[type=submit]:hover, input[type=reset]:hover {
             background-color: #F2F2F2 !important;
             color:rgb(255, 168, 6);
@@ -50,7 +54,7 @@
                     <li><a id="nowshowing" href="nowshowing.php#nowshowing">NOW SHOWING</a></li>
                     <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                     <li><a id="location" href="location.html#location">LOCATION</a></li>
-                    <li><a id="deals" href="deals.php#deals">SPECIAL DEALS</a></li>
+                    <li><a id="members" href="members.php#members">SPECIAL DEALS</a></li>
                     <li style="float: right; padding-right: 60px;"><a id="login" href="login.html#login">LOGIN</a></li>
                     <li style="float: right;"><a id="register" href="register.html#register">REGISTER</a></li>
                 </ol>
@@ -59,16 +63,18 @@
     
         <div style="background-color:rgb(255, 168, 6); height: 75px;"></div>
 
-        <div class="login">
+        <div class="login" style="padding: 15px; margin-top: 85px;">
             <h1>REGISTER</h1>
             <h4>Sign up to become a member and receive exclusive deals!</h4>
             <form action="register.php" method=POST>
 
-                <input type=text name=username placeholder=Username required><br /><br />
+                <input type=text name=username placeholder=Username required><br><br>
+
+                <input type=email name=email placeholder=Email required><br><br>
                 
-                <input type=password name=password placeholder=Password title="Password must have at least 8 characters." pattern=".{8,}" required><br /><br />
+                <input type=password name=password placeholder=Password title="Password must have at least 8 characters." pattern=".{8,}" required><br><br>
                 
-                <input type=password name=password2 placeholder=Confirm_Password required><br /><br />
+                <input type=password name=password2 placeholder=Confirm_Password required><br><br>
                 
                 <input type=submit name=submit value=Submit style="width:260px; background-color: rgb(255, 168, 6);">
                 <input type=reset name=reset value=Reset style="width:260px; margin-left: 15px; background-color: rgb(255, 168, 6);">

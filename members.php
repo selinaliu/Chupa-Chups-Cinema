@@ -1,3 +1,15 @@
+<?php
+  session_start();
+  // check session variable
+
+  // if not logged in
+  if (!isset($_SESSION['valid_user']))
+  {
+    header ("Location: login.html#login");
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -62,10 +74,10 @@
             <ol>
                 <li><a href="index.html#home" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
                 <li><a id="home" href="index.html#home">HOME</a></li>
-                <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
+                <li><a id="nowshowing" href="nowshowing.php#nowshowing">NOW SHOWING</a></li>
                 <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                 <li><a id="location" href="location.html#location">LOCATION</a></li>
-                <li><a id="deals" href="deals.php#deals">SPECIAL DEALS</a></li>
+                <li><a id="members" href="members.php#members">SPECIAL DEALS</a></li>
                 <li style="float: right; padding-right: 60px;"><a href="logout.php">LOG OUT</a></li>
             </ol>
         </nav>

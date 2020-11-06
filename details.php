@@ -181,9 +181,9 @@
                     <li><a id="nowshowing" href="nowshowing.php#nowshowing">NOW SHOWING</a></li>
                     <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                     <li><a id="location" href="location.html#location">LOCATION</a></li>
-                    <li><a id="deals" href="deals.html#deals">SPECIAL DEALS</a></li>
-                    <li id="login" style="float: right; padding-right: 60px;"><a href="login.html#login">LOGIN</a></li>
-                    <li id="register" style="float: right;"><a href="login.html#register">REGISTER</a></li>
+                    <li><a id="members" href="members.php#members">SPECIAL DEALS</a></li>
+                    <li style="float: right; padding-right: 60px;"><a id="login" href="login.html#login">LOGIN</a></li>
+                    <li style="float: right;"><a id="register" href="register.html#register">REGISTER</a></li>
                 </ol>
             </nav>
         </header>

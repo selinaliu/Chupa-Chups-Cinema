@@ -14,7 +14,8 @@ if (isset($_POST['unsubscribe'])){
     $result = $dbcnx->query($sql);
 
 if (!$result) 
-	alert ("Your query failed.");
+    alert ("Your query failed.");
+    return false;
 }
 
 function alert($msg) {
@@ -53,10 +54,10 @@ function alert($msg) {
                 <ol>
                     <li><a href="index.html#home" style="line-height: 15px"><img src="logo.png" width="50px" height="50px"></a></li>
                     <li><a id="home" href="index.html#home">HOME</a></li>
-                    <li><a id="nowshowing" href="nowshowing.html#nowshowing">NOW SHOWING</a></li>
+                    <li><a id="nowshowing" href="nowshowing.php#nowshowing">NOW SHOWING</a></li>
                     <li><a id="upcoming" href="upcoming.html#upcoming">UPCOMING</a></li>
                     <li><a id="location" href="location.html#location">LOCATION</a></li>
-                    <li><a id="deals" href="deals.php#deals">SPECIAL DEALS</a></li>
+                    <li><a id="members" href="members.php#members">SPECIAL DEALS</a></li>
                     <li style="float: right; padding-right: 60px;"><a id="login" href="login.html#login">LOGIN</a></li>
                     <li style="float: right;"><a id="register" href="register.html#register">REGISTER</a></li>
                 </ol>
