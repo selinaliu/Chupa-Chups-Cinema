@@ -18,18 +18,12 @@
         h1 {
             font-size: 48px;
             color: #333333; /*#ff9200;*/
+            padding-right: 40px;
+            padding-top: 40px;
         }
 
         h4 {
             font-size: 24px;
-        }
-
-        .forgot {
-            vertical-align: top;
-            font-size: 16px;
-            padding: 0px;
-            margin: -10px 390px 30px 0px;
-            color: #000000;
         }
 
         input {
@@ -72,24 +66,18 @@
         <div style="background-color:rgb(255, 168, 6); height: 75px;"></div>
 
         <div class="login">
-            <h1>LOGIN</h1>
-            <h4>Log in now to view all the newest deals and exclusive offers!</h4>
-            <form action="login.php" method=POST>
+            <h1>RESET PASSWORD</h1><br><br>
+            <form action="reset.php" method=POST>
 
                 <input type=text name=username placeholder=Username required><br><br>
                 
-                <input type=password name=password placeholder=Password required><br><br>
-                <div class="forgot">
-                    <a href="reset.html">Forgot password?</a>
-                </div>
+                <input type=email name=email placeholder=Email required><br><br>
+
+                <input type=password name=password placeholder=New_Password title="New password must have at least 8 characters." pattern=".{8,}" required><br><br>
 
                 <input type=submit name=submit value=Submit style="width:260px; background-color: rgb(255, 168, 6);">
-                <input type=reset name=reset value=Reset style="width:260px; margin-left: 15px; background-color: rgb(255, 168, 6);">
+                <input type=reset name=reset value=Clear style="width:260px; margin-left: 15px; background-color: rgb(255, 168, 6);">
             </form>
-
-            <div><br>
-                <a href="register.html#register"><b>Don't have an account? Sign up ></b></a>
-            </div>
         </div>
     </body>
     <footer>

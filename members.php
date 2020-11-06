@@ -8,6 +8,8 @@
     header ("Location: login.html#login");
     exit;
   }
+
+  $username = $_SESSION['valid_user'];
 ?>
 
 <!DOCTYPE html>
@@ -83,7 +85,7 @@
         </nav>
     </header>
     <div class=title>
-        <h1>Welcome to the Chupa Chups Members Section!</h1> <!--add username from php-->
+        <h1>Welcome to the Chupa Chups Members Section, <?php echo $username; ?>!</h1> <!--add username from php-->
     </div>
     <div class=deals>
         <h2>Newest - November Deals!</h2>
