@@ -1,4 +1,4 @@
-//change the poster image by button
+// Change the poster image by button
 function changeImg(index) {
 
     switch(index){
@@ -14,8 +14,8 @@ function changeImg(index) {
     }
 }
 
- //change nowshowing movie every 5 seconds
- //display: block -> Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width
+ // Change nowshowing movie every 5 seconds
+ // display: block -> Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width
 function changeMovie(){
     
     switch (document.getElementById("nowshowing1").style.display) {
@@ -50,7 +50,7 @@ function changeMovie(){
 
  function chkName(){
     var name = document.getElementById("user");
-    var check = name.value.search(/^[A-Za-z]+(\s{0,1}[a-zA-Z])*$/);
+    var check = name.value.search(/^[A-Za-z,-]+(\s{0,1}[a-zA-Z,-])*$/);
     if (check!=0){
         alert("Please enter a valid name! Name must not be empty and should not contain any numbers, special characters or unnecessary spaces.");
         name.focus();
@@ -73,25 +73,18 @@ function chkEmail(){
         return false;
     }
 }
-
+// Validate name and email for newsletter subscription
 function validate() {
-    var name = document.forms["news"]["user"].value; //
-    //var name = document.getElementById("user").value;
-    var email = document.forms["news"]["email"].value; //document.getElementById("email");
-    //var chkName = name.value.search(/^[A-Za-z]+(\s{0,1}[a-zA-Z])*$/);
-    //var chkEmail = email.value.search(/^[\w.-]+@([\w]+\.){1,3}[A-Za-z]{2,3}$/);
+    var name = document.forms["news"]["user"].value;
+    var email = document.forms["news"]["email"].value; 
 
-        if (/^[A-Za-z ]+$/.test(name) == false) { //if (chkName!=0){
+        if (/^[A-Za-z,-]+(\s{0,1}[a-zA-Z,-])*$/.test(name) == false) {
             alert("Please enter a valid name! Name must not contain any numbers, special characters or unnecessary spaces.");
-            //name.focus();
-            //name.select();
             return false;
         }
         
-        if (/^[\w.-]+@([\w]+\.){1,3}[A-Za-z]{2,3}$/.test(email) == false) { //if (chkEmail!=0){
+        if (/^[\w.-]+@([\w]+\.){1,3}[A-Za-z]{2,3}$/.test(email) == false) {
             alert("Please enter a valid email address!");
-            //email.focus();
-            //email.select();
             return false;
         }
 }
