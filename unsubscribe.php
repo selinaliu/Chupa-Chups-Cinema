@@ -13,9 +13,10 @@ if (isset($_POST['unsubscribe'])){
 
     $result = $dbcnx->query($sql);
 
-if (!$result) 
+if (!$result) {
     alert ("Your query failed.");
     return false;
+}
 }
 
 function alert($msg) {
