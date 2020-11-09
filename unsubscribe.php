@@ -15,10 +15,11 @@ if (isset($_POST['unsubscribe'])){
 
 if (!$result) {
     alert ("Your query failed.");
-    return false;
+    echo "<script>window.location.href='index.html#home';</script>";
 }
 }
 
+// function to echo alert
 function alert($msg) {
 	echo "<script type='text/javascript'>alert('$msg');</script>";
 }

@@ -4,9 +4,9 @@ include "dbconnect.php";
 if (isset($_POST['submit'])) {
 	if (empty($_POST['user']) || empty ($_POST['email']) ) {
 	alert ("All records must be filled in. Please proceed back and try again.");
-	exit;}
+	echo "<script>window.location.href='index.html#home';</script>";}
     }
-    //Check email has not been registered
+    // Check email has not been registered
 if (isset($_POST['user']) && isset($_POST['email'])) {
     $email = $_POST['email'];
     
@@ -17,10 +17,10 @@ if (isset($_POST['user']) && isset($_POST['email'])) {
     if ($result->num_rows >0 )
     {
         alert("This email address has already been registered. Please check your email.");    
-        return false;
+        echo "<script>window.location.href='index.html#home';</script>";
     }
     else {
-    //Insert name and email into database
+    // Insert name and email into database
     $username = $_POST['user'];
     $email = $_POST['email'];
 
@@ -31,9 +31,9 @@ if (isset($_POST['user']) && isset($_POST['email'])) {
 
     if (!$result) {
         alert ("Your query failed.");
-        return false;
+        echo "<script>window.location.href='index.html#home';</script>";
     }
-    //Send confirmation email
+    // Send confirmation email
     $to      = 'f33ee@localhost';
     $subject = 'Newsletter Subscription';
 
@@ -44,11 +44,11 @@ if (isset($_POST['user']) && isset($_POST['email'])) {
         'X-Mailer: PHP/' . phpversion();
 
     mail($to, $subject, $message, $headers,'-ff33ee@localhost');
-    //echo ("mail sent to : ".$to);
     }
     $dbcnx->close();
     }
 
+// function to echo alert
 function alert($msg) {
 	echo "<script type='text/javascript'>alert('$msg');</script>";
 }

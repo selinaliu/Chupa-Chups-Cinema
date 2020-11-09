@@ -64,18 +64,12 @@
         <div style="background-color:rgb(255, 168, 6); height: 6px;"></div>
         
     <div class="poster">
+        <!--Movie Poster Slideshow-->
         <div id="fade" class="fade">
             <img id="poster" src="https://cms.qz.com/wp-content/uploads/2020/08/disney-mulan-e1596646420500.jpg?quality=75&strip=all&w=1600&h=900&crop=1" width="800px" alt="poster">
         </div>
 
-        <!--<div class="mySlides fade">
-            <img id="poster" src="https://cdn.mos.cms.futurecdn.net/wJ4s9FFL6FdxAoKixtr4FS-1200-80.jpg" width="800px" alt="poster">
-        </div>
-
-        <div class="mySlides fade">
-            <img id="poster" src="https://i.pinimg.com/originals/87/bc/f6/87bcf68ba8813f7adb73bd3852a22da4.jpg" width="800px" alt="poster">
-        </div>-->
-
+        <!--Dropdown Search Bar-->
         <div class="drop">
             <form action="details.php" method="POST">
                 <select name="drop" id="drop" required>
@@ -97,13 +91,8 @@
             </form>
         </div>
     </div><br>
-    
-        <!--<div style="text-align:center">
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-        </div><br>-->
         
+        <!--Buttons to change movie poster on slideshow-->
         <div style="text-align: center; padding-bottom: 25px;">
             <input type="button" class="button1" onclick="chngimg(0)">
             <input type="button" class="button1" onclick="chngimg(1)">
@@ -190,7 +179,7 @@
             </div>
         </div>
 
-        <!--Displaying up coming movies-->
+        <!--Displaying upcoming movies-->
         <div id="upcoming" class="wrapper">
             <h1 style="padding-top:10px;">Upcoming Movies<a id="upcoming" href="upcoming.html#upcoming">View all ></a></h1><br> 
             <div class="container">
@@ -224,6 +213,7 @@
             </div>
         </div>
 
+        <!--Newsletter-->
         <div class="newletter">
             <h2>Join our Newsletter!</h2>
             <h3>Subscribe to our newsletter to get news on the latest movies and exclusive offers delivered
@@ -257,6 +247,7 @@
     </footer>
 </html>
 
+<!--function for slideshow animation-->
 <script>
     
     var j = 0;
