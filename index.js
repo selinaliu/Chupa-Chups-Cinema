@@ -1,4 +1,4 @@
-//change the poster image by button
+//change source of poster image by button
 function chngimg(index) {
 
     switch(index){
@@ -52,10 +52,14 @@ function changeMovie(){
     var name = document.getElementById("user");
     var check = name.value.search(/^[A-Za-z]+(\s{0,1}[a-zA-Z])*$/);
     if (check!=0){
-    alert("Please enter a valid name! Name must not contain any numbers, special characters or unnecessary spaces.");
+    alert("Please enter a valid name! Name must not be empty and should not contain any numbers, special characters or unnecessary spaces.");
     name.focus();
     name.select();
     return false;
+    }
+
+    if (name.value == null) {
+    alert("Name must not be empty!");
     }
 }
 
@@ -68,4 +72,25 @@ function chkEmail(){
     email.select();
     return false;
     }
+}
+
+function validate() {
+    var name = document.forms["news"]["user"].value; //document.getElementById("user");
+    var email = document.forms["news"]["email"].value; //document.getElementById("email");
+    //var chkName = name.value.search(/^[A-Za-z]+(\s{0,1}[a-zA-Z])*$/);
+    //var chkEmail = email.value.search(/^[\w.-]+@([\w]+\.){1,3}[A-Za-z]{2,3}$/);
+
+        if (/^[A-Za-z ]+$/.test(name) == false) { //if (chkName!=0){
+        alert("Please enter a valid name! Name must not contain any numbers, special characters or unnecessary spaces.");
+        name.focus();
+        name.select();
+        return false;
+        }
+        
+        if (/^[\w.-]+@([\w]+\.){1,3}[A-Za-z]{2,3}$/.test(email) == false) { //if (chkEmail!=0){
+        alert("Please enter a valid email address!");
+        email.focus();
+        email.select();
+        return false;
+        }
 }
