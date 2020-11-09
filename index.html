@@ -105,9 +105,9 @@
         </div><br>-->
         
         <div style="text-align: center; padding-bottom: 25px;">
-            <input type="button" class="button1" onclick="chngimg(0)">
-            <input type="button" class="button1" onclick="chngimg(1)">
-            <input type="button" class="button1" onclick="chngimg(2)">
+            <input type="button" class="button1" onclick="changeImg(0)">
+            <input type="button" class="button1" onclick="changeImg(1)">
+            <input type="button" class="button1" onclick="changeImg(2)">
         </div>
 
         <!--two now showing div witch with toggle between display:block and display:none to showcase the avail movies-->
@@ -231,9 +231,9 @@
             </h3>
             <br>
             <form id="news" action="newsletter.php" method="POST">
-                <input type="text" id="user" name="user" placeholder="Name" onchange="chkName()" required>
-                <input type="email" id="email" name="email" placeholder="Email" onchange="chkEmail()" required>
-                <input type="submit" id="news" class="button" value="SUBSCRIBE">
+                <input type="text" id="user" name="user" placeholder="Name" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="submit" id="news" class="button" value="SUBSCRIBE" onsubmit="return validate()">
             </form>
         </div>
 

@@ -1,5 +1,5 @@
 //change the poster image by button
-function chngimg(index) {
+function changeImg(index) {
 
     switch(index){
         case 0:
@@ -52,7 +52,7 @@ function changeMovie(){
     var name = document.getElementById("user");
     var check = name.value.search(/^[A-Za-z]+(\s{0,1}[a-zA-Z])*$/);
     if (check!=0){
-    alert("Please enter a valid name! Name must not contain any numbers, special characters or unnecessary spaces.");
+    alert("Please enter a valid name!  ");
     name.focus();
     name.select();
     return false;

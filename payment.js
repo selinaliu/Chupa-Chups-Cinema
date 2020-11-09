@@ -122,6 +122,7 @@ function cancelOrder(order) {
         document.getElementById(order).style.display = "none";  
         document.getElementById('qty').value = 0;
     } else {
+        //for session
             document.getElementById(order).style.display = "none";  
             document.getElementById('cancel'+order).value = 0;
     }
