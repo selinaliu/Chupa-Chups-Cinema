@@ -21,7 +21,7 @@ if (isset($_POST['username']) && isset($_POST['email'])){
 
     if (!$result){
         alert ("Your query failed.");
-        return false;
+        echo "<script>window.location.href='reset.html';</script>";
     }
 
     // Send email notification
@@ -34,15 +34,15 @@ if (isset($_POST['username']) && isset($_POST['email'])){
         'X-Mailer: PHP/' . phpversion();
 
     mail($to, $subject, $message, $headers,'-ff33ee@localhost');
-    //echo ("mail sent to : ".$to);
     }
-    else {
+    else { // if not in database
         alert('Username and email does not match. Please check again.');
-        return false;
+        echo "<script>window.location.href='reset.html';</script>";
     }
     $dbcnx->close();
 }
 
+// function to echo alert
 function alert($msg) {
 	echo "<script type='text/javascript'>alert('$msg');</script>";
 }
