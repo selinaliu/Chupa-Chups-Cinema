@@ -220,10 +220,15 @@
                 right to your inbox.<br> Never miss out on any great movies again. Pssst... we promise not to spam.
             </h3>
             <br>
-            <form id="news" action="newsletter.php" onsubmit="return chkEmail()" method="POST">
+            <!--<form id="news" action="newsletter.php" onsubmit="return chkEmail()" method="POST">-->
+               <!-- <input type="text" id="user" name="user" placeholder="Name" required> --><!--onchange="chkName()"-->
+                <!--<input type="email" id="email" name="email" placeholder="Email" required> --><!--onchange="chkEmail()"-->
+                <!--<input type="submit" id="news" class="button" value="SUBSCRIBE" onclick="return chkName()">-->
+            <!--</form>-->
+            <form id="news" action="newsletter.php" method="POST" onsubmit="return validate()">
                 <input type="text" id="user" name="user" placeholder="Name" required> <!--onchange="chkName()"-->
                 <input type="email" id="email" name="email" placeholder="Email" required> <!--onchange="chkEmail()"-->
-                <input type="submit" id="news" class="button" value="SUBSCRIBE" onclick="return chkName()">
+                <input type="submit" id="news" class="button" value="SUBSCRIBE" >
             </form>
         </div>
 

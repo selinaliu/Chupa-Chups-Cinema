@@ -35,32 +35,12 @@ function validate(){
     }
     
     /* Validate Email*/
-    //split email to username and domain
-    var email=email.split("@");
-    var user=email[0];
-    var domain=email[1]; 
-
-    //split domain by . to the different extensions
-    var domainExt = domain.split(".");
-    var domainLast = domainExt[domainExt.length - 1];
-
     if(email == ""){
         alert("Please fill up your email");
         return false;
-    }
-	if(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+$/.test(user) == false){  
-		alert("Please provide a valid email.");
+    }else if (/^[\w.-]+@([\w]+\.){1,3}[A-Za-z]{2,3}$/.test(email) == false) { 
+        alert("Please enter a valid email address!");
         return false;
-	}
-	//Check if there are 2-4 address extensions
-	if(domainExt.length<2 || domainExt.length>4){
-		alert("The email domain name must contain 2-4 address extensions.");
-		return false;
-	}
-    //check if the last extension contains 2-3 characters
-	if(domainLast.length<2 || domainLast.length>3){
-		alert("The last extension must have two to three characters.");
-		return false;
     }
 
     //check contact number
@@ -98,8 +78,8 @@ function validate(){
         alert("Please fill up your expiry date");
         return false;
     }
-    if(Edate > currentDate){
-        alert("Please select a date that is not in the future.");
+    if(Edate <= currentDate){
+        alert("Please select a date that is not today or in the past.");
         return false;
     }
 
