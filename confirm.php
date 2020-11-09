@@ -110,6 +110,7 @@
             $email = $_POST['email'];
             $num = $_POST['number'];
 
+            //insert to database: orders
             //if empty means order cancelled
             if($qty != 0){
                 $sql = 'INSERT INTO orders(movie, date, time, location, seat, qty, price, user, email, num) 
@@ -117,7 +118,6 @@
                 mysqli_query($conn, $sql);
             }
            
-            echo $_POST['cancel'.$i];
             //session
             for ($i=0; $i < count($_SESSION['name']); $i++){
                 if ($_POST['cancelorder'.$i] == "order"){
@@ -125,22 +125,17 @@
                     VALUES ("'.$_SESSION['name'][$i].'","'.$_SESSION['date'][$i].'","'.$_SESSION['time'][$i].'","'.$_SESSION['location'][$i].'","'.$_SESSION['seats'][$i].'","'.$_SESSION['qty'][$i].'","'.$_SESSION['price'][$i].'","'.$user.'","'.$email.'","'.$num.'")';
                     mysqli_query($conn, $sql);
                 } else if($_POST['cancelorder'.$i] != "order"){
-                    unset($_SESSION['seats'][$i]);
-                    //unset($_SESSION['date'][$i]);
-                    //unset($_SESSION['time'][$i]);
-                    //unset($_SESSION['location'][$i]);
-                    //unset($_SESSION['seats'][$i]);
-                    //unset($_SESSION['price'][$i]);
+                    unset($_SESSION['seats'][$i]); //so that it wont update to database: orders
                 }
             }
         ?>
-
         
 <!--Send confirmation email-->
 <?php
 $ran2 = rand(1111111, 9999999);
 $to      = 'f33ee@localhost';
 $subject = 'Booking Confirmation';
+//for session
 for ($i=0; $i < 15; $i++){
     if($_SESSION["seats"][$i] != ""){
 $ran1 = rand(1111111, 9999999);

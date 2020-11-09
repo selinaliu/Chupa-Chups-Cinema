@@ -1,3 +1,4 @@
+//redirects form for cancel or pay
 function submitForm(action){
     if(action == 'index.html'){
         document.getElementById('payment').action = action;
@@ -12,6 +13,7 @@ function submitForm(action){
     }
 }
 
+//validate user input
 function validate(){
     var user = document.getElementById('user').value;
     var email = document.getElementById('email').value;
@@ -21,8 +23,6 @@ function validate(){
     var cvv = document.getElementById('cvv').value;
     var currentDate = new Date();
     Edate = new Date(Edate);
-
-
     
     //check for valid name
     
@@ -114,6 +114,9 @@ function validate(){
     }
 }
 
+//when cancel order button is pressed
+//1. style display=none
+//2. qty value and cancel[] value becomes 0 --> originally qty=(whatever posted from previous page) and cancel[]=order
 function cancelOrder(order) {
     if (order == "order"){
         document.getElementById(order).style.display = "none";  
