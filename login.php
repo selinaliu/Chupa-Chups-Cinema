@@ -40,7 +40,10 @@ $password = md5($password);
     if (isset($username))
     {
       // if they've tried and failed to log in
-      alert ("Incorrect username or password. Please proceed back and try again.");
+      echo "<script>
+      alert('Incorrect username or password! Please try again.');
+      window.location.href='login.html#login';
+      </script>";
     }
     else 
     {
