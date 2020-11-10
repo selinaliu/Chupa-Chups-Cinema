@@ -71,7 +71,6 @@ function checkAvail(){
         }
     }
 
-
     //check avail seats from session
     for (j=0; j<15; j++) {
         var sessSeats;
@@ -79,7 +78,6 @@ function checkAvail(){
         if (elementSess != null) {
             sessSeats = elementSess.value;
             var sessSeat = sessSeats.split(",");
-            //alert(sessSeats);
             
             for (i=0; i<sessSeat.length; i++){
                 var sessSeatTaken = sessSeat[i];
