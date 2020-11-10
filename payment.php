@@ -86,6 +86,7 @@
                 height: 100%;
                 background-color: #dfdfdf;
                 padding-bottom: 30px;
+                padding-top: 60px;
             }
 
             .right {
@@ -159,6 +160,12 @@
             $price = $_POST['price'];
             $qty = $_POST['qty'];
             $seats = $_POST['selectedSeats'];
+            $total = 0;
+            for ($i=0; $i < count($_SESSION['name']); $i++){
+                $sessionPrice += $_SESSION['price'][$i];
+            }
+            $number = $price + $sessionPrice;
+            $total = number_format((float)$number, 2, '.', '');
 
             $sql = 'SELECT * FROM movies where name ="' .$name. '"';
             $result = mysqli_query($conn, $sql);
@@ -195,10 +202,7 @@
                     <input type = "text"  style="margin-left: 60px;" size="30" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="<?php echo $seats?>">
 
                     <br><br><br> 
-                    <div class="right">
-                        <span style="font-family: 'Open Sans', sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
-                        <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="<?php echo $price?>">
-                    </div>
+                    
                     <div class="cancel">
                         <button onclick="cancelOrder('order')" class="button">Cancel order</button>
                     </div>
@@ -245,11 +249,6 @@
                             <input type = "text"  style="margin-left: 60px;" size="30" id="selectedSeats" name="selectedSeats" onfocus="this.blur();" placeholder="'.$_SESSION['seats'][$i].'">
 
                             <br><br><br>
-                            
-                            <div class="right">
-                                <span style="font-family: "Open Sans", sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
-                                <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="'.$_SESSION['price'][$i].'">
-                            </div>
                             <div class="cancel">
                                 <button onclick="cancelOrder(&quot;'.$order.'&quot;)" class="button">Cancel order</button>
                             </div>
@@ -259,6 +258,10 @@
                 }
 
             ?>
+            <div class="right">
+                <span style="font-family: 'Open Sans', sans-serif;font-size: 20px;font-weight: bold; margin-right:40px;">Grand Total:  </span>
+                <input type = "text" size="5" id="price2" name="price2" onfocus="this.blur();" placeholder="<?php echo $total?>">
+            </div>
 
             <form id="payment" action="" method="POST">
                 <div class="payGrey">
