@@ -32,47 +32,11 @@ function changeMovie(){
              document.getElementById("nowshowing2").style.display = "block";
              break;
     }
- 
  }
  
  setInterval(changeMovie, 5000); /*Call it here*/
  changeMovie();
 
-
- //valides the newsletter subscription name
- /*function validate(){
-    var user = document.forms["news"]["user"].value;
-    if (/^[A-Za-z ]+$/.test(user) == false) {
-        alert("Name must not contain numbers or special characters.");
-        return false;
-    }
- }*/
-
- /*function chkName(){
-    var name = document.getElementById("user");
-    var check = name.value.search(/^[A-Za-z,-]+(\s{0,1}[a-zA-Z,-])*$/);
-    if (check!=0){
-        alert("Please enter a valid name! Name must not be empty and should not contain any numbers, special characters or unnecessary spaces.");
-        name.focus();
-        name.select();
-        return false;
-    }
-
-    if (name.value == null) {
-        alert("Name must not be empty!");
-    }
-}
-
-function chkEmail(){
-    var email = document.getElementById("email");
-    var check = email.value.search(/^[\w.-]+@([\w]+\.){1,3}[A-Za-z]{2,3}$/);
-    if (check!=0){
-        alert("Please enter a valid email address!");
-        email.focus();
-        email.select();
-        return false;
-    }
-}*/
 // Validate name and email for newsletter subscription
 function validate() {
     var name = document.forms["news"]["user"].value;
