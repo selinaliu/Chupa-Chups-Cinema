@@ -63,3 +63,16 @@ else
   header ("Location: login.html#login");
 }
 ?>
+
+// Javascript function of static map images
+function showMap()
+         {
+          var val = document.getElementById("dropdown").value;
+        
+          if(val == "A")
+          document.getElementById("map").src ="https://assets.sohoapp.com/production/uploads/location/map/36854/map_5614ca65-86fb-497d-a30c-554ccf9dcdd4.png";
+          else if(val == "B")
+          document.getElementById("map").src ="https://casiofanmag.com/wp-content/uploads/2020/05/Casio-G-Factory-Store-at-ION-Orchard-Singapore-2.jpg";
+          else if(val == "C")
+          document.getElementById("map").src ="https://res.ticketleo.com/cache/google_maps/14103_30a57af5a88cb2b923155285904faa68.png";
+        }
