@@ -48,7 +48,7 @@ function changeMovie(){
     }
  }*/
 
- function chkName(){
+ /*function chkName(){
     var name = document.getElementById("user");
     var check = name.value.search(/^[A-Za-z,-]+(\s{0,1}[a-zA-Z,-])*$/);
     if (check!=0){
@@ -72,7 +72,7 @@ function chkEmail(){
         email.select();
         return false;
     }
-}
+}*/
 // Validate name and email for newsletter subscription
 function validate() {
     var name = document.forms["news"]["user"].value;
