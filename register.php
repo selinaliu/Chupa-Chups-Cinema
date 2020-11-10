@@ -8,7 +8,6 @@ if (isset($_POST['submit'])) {
 	|| empty ($_POST['password']) || empty ($_POST['password2']) ) {
 	alert ("All records must be filled in. Please proceed back and try again.");
 	echo "<script>window.location.href='register.html#register';</script>";}
-	}
 
 $username = $_POST['username'];
 $email = $_POST['email'];
@@ -47,6 +46,7 @@ if (isset($email)) {
 	}
 }
 
+if (isset($email)&&isset($username)&&$password==$password2){
 $password = md5($password);
 $sql = "INSERT INTO users (username, email, password) 
 		VALUES ('$username', '$email', '$password')";
@@ -61,9 +61,10 @@ if (!$result){
 	echo "<script>window.location.href='register.html#register';</script>";
 	}
 else if (isset($_SESSION['valid_user']))
-	//alert ("Welcome ". $username . ". You are now registered.");
-	header ("Location: members.php#members");
-	exit;
+	alert ("Success! You are now registered.");
+	echo "<script>window.location.href='members.php#members';</script>";
+}
+}
 
 // function to echo alert
 function alert($msg) {
